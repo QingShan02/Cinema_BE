@@ -3,17 +3,18 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.PhimMapper">
-	<resultMap id="resultMapPhim" type="com.example.demo.model.Phim">
-		<result column="MaPhim" property="MaPhim"/>
-		<result column="TenPhim" property="TenPhim"/>
-		<result column="DienVien" property="DienVien"/>
-		<result column="NamSX" property="NamSX"/>
-		<result column="Hinh" property="Hinh"/>
-		<result column="DaoDien" property="DaoDien"/>
-		<result column="QuocGia" property="QuocGia"/>
-		<result column="ThoiLuong" property="ThoiLuong"/>
-		<result column="MoTa" property="MoTa"/>
-		<result column="Traller" property="Traller"/>
+	<resultMap id="resultMapPhim"
+		type="com.example.demo.model.Phim">
+		<result column="MaPhim" property="MaPhim" />
+		<result column="TenPhim" property="TenPhim" />
+		<result column="DienVien" property="DienVien" />
+		<result column="NamSX" property="NamSX" />
+		<result column="Hinh" property="Hinh" />
+		<result column="DaoDien" property="DaoDien" />
+		<result column="QuocGia" property="QuocGia" />
+		<result column="ThoiLuong" property="ThoiLuong" />
+		<result column="MoTa" property="MoTa" />
+		<result column="Traller" property="Traller" />
 	</resultMap>
 	<select id="getAllPhim" resultMap="resultMapPhim">
 		SELECT *
