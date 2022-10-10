@@ -17,6 +17,7 @@
 		SELECT *
 		FROM NhanVien
 	</select>
+
 	<select id="findNVByEmailAndPassword" resultMap="resultMapNV">
 		SELECT *
 		FROM

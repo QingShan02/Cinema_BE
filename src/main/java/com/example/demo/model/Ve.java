@@ -14,4 +14,6 @@ public class Ve {
     private int MaKH;
     private int MaCTGhe;
     private String MaNV;
+    private String MaPhim;
+    private String TenPhim;
 }
