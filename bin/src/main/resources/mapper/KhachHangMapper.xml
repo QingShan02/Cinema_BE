@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.KhachHangMapper">
+	<resultMap id="resultMapKH"
+		type="com.example.demo.model.KhachHang">
+		<result column="MaKH" property="MaKH" />
+		<result column="TenKH" property="TenKH" />
+		<result column="MatKhau" property="MatKhau" />
+		<result column="Email" property="Email" />
+		<result column="SoDT" property="SoDT" />
+		<result column="DiaChi" property="DiaChi" />
+		<result column="GioiTinh" property="GioiTinh" />
+	</resultMap>
+	<select id="getAllKH" resultMap="resultMapKH">
+		SELECT *
+		FROM KhachHang
+	</select>
+	<select id="findKH" resultMap="resultMapKH">
+		SELECT *
+		FROM KhachHang where MaKH
+		= #{MaKH}
+	</select>
+</mapper>
