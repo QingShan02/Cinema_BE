@@ -22,7 +22,7 @@ import com.example.demo.service.KhachHangService;
 
 @RestController
 @RequestMapping("/api/kh")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ApiKhachHang {
 	@Autowired
 	KhachHangService service;
@@ -32,35 +32,9 @@ public class ApiKhachHang {
 		return ResponseEntity.ok(service.getAllKH());
 	}
 
-	@GetMapping("/authen")
-	public ResponseEntity<Integer> findKH(@RequestParam("maKH") int MaKH, HttpServletRequest s) throws SQLException {
-		KhachHang kh = service.findKH(MaKH);
-		System.out.println(s.getRequestURL());
-		int check = 0;
-		List<KhachHang> list = (List<KhachHang>) s.getSession().getAttribute("user_a");
-		if (list == null) {
-//			list.clear();
-			list = new ArrayList<>();
-			s.getSession().setAttribute("user_a", list);
-			check = 1;
-		}
-		list.add(kh);
-		System.out.println(s.getSession().getValue("user_a"));
-//		s.getSession().setAttribute("user_a", list);
-
-		System.out.println("authen:"+list.size());
-		return ResponseEntity.ok(0);
-
-	}
-	@GetMapping("/checkKH")
-	public ResponseEntity<List<KhachHang>> getKH(HttpServletRequest req,HttpServletResponse res) throws SQLException{
-		List<KhachHang> list = (List<KhachHang>) req.getSession().getAttribute("user_a");
-//		System.out.println(list.size());
-		if(list==null) {
-			list = new ArrayList<>();
-			req.getSession().setAttribute("user_a", list);
-		}
-		System.out.println(list.size());
-		return ResponseEntity.ok(list);
+	@GetMapping("/findKH")
+	public ResponseEntity<KhachHang> findKH(@RequestParam("email") String email, @RequestParam("matKhau") String matKhau) throws SQLException{
+		System.out.println(email+","+matKhau);
+		return ResponseEntity.ok(service.findKH(email,matKhau));
 	}
 }

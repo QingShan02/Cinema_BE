@@ -28,5 +28,34 @@ public class NhanVienServiceImpl implements NhanVienService {
 		
 		return mapper.findNVByEmailAndPassword(sdt, password);
 	}
+
+	@Override
+	public int insertNV(NhanVien nv) {
+		if(nv!=null) {
+			mapper.insertNV(nv);
+			return 1;
+		}
+		return 0;
+	}
+
+	@Override
+	public int updateNV(NhanVien nv) {
+		// TODO Auto-generated method stub
+		if(nv!=null) {
+			mapper.updateNV(nv);
+			return 1;
+		}
+		return 0;
+	}
+
+	@Override
+	public int deleteNV(String maNV) {
+		// TODO Auto-generated method stub
+		if(maNV!="") {
+			mapper.deleteNV(maNV);
+			return 1;
+		}
+		return 0;
+	}
 	
 }

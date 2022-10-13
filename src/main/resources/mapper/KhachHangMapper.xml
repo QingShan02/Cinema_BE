@@ -19,7 +19,6 @@
 	</select>
 	<select id="findKH" resultMap="resultMapKH">
 		SELECT *
-		FROM KhachHang where MaKH
-		= #{MaKH}
+		FROM KhachHang where email = #{email} and matkhau = #{matkhau}
 	</select>
 </mapper>

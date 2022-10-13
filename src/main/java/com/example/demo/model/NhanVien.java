@@ -15,4 +15,5 @@ public class NhanVien {
     private String NgaySinh;
     private String SoDT;
     private String MaCV;
+    private String TenCV;
 }

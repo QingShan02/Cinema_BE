@@ -6,5 +6,5 @@ import com.example.demo.model.KhachHang;
 
 public interface KhachHangService {
 	List<KhachHang> getAllKH();
-	KhachHang findKH(int MaKH);
+	KhachHang findKH(String email, String matkhau);
 }

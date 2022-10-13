@@ -21,9 +21,10 @@ public class KhachHangServiceImpl implements KhachHangService {
 	}
 
 	@Override
-	public KhachHang findKH(int MaKH) {
+	public KhachHang findKH(String email, String matkhau) {
 		// TODO Auto-generated method stub
-		return mapper.findKH(MaKH);
+		System.out.println(">>"+email+","+matkhau);
+		return mapper.findKH(email,matkhau);
 	}
 
 }

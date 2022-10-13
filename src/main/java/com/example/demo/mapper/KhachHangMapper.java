@@ -9,5 +9,5 @@ import com.example.demo.model.*;
 @Mapper
 public interface KhachHangMapper {
 	List<KhachHang> getAllKH();
-	KhachHang findKH(@Param("MaKH") int MaKH);
+	KhachHang findKH(@Param("email") String email, @Param("matkhau") String matkhau);
 }

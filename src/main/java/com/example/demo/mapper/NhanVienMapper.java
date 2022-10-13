@@ -8,4 +8,7 @@ import com.example.demo.model.*;
 public interface NhanVienMapper {
 	List<NhanVien> getAllNV();
 	NhanVien findNVByEmailAndPassword(String sdt, String password);
+	int insertNV(NhanVien nv);
+	int updateNV(NhanVien nv);
+	int deleteNV(String maNV);
 }
