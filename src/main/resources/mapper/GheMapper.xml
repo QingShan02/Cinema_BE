@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.GheMapper">
+	<resultMap id="resultMapGhe"
+		type="com.example.demo.model.Ghe">
+		<result column="MaGhe" property="MaGhe" />
+		<result column="TenGhe" property="TenGhe" />
+		<result column="MaLoai" property="MaLoai" />
+	</resultMap>
+	<select id="getAllGhe" resultMap="resultMapGhe">
+		SELECT *
+		FROM Ghe 
+	</select>
+	<select id="findGhePhong" resultMap="resultMapGhe">
+		SELECT MaPhong,Ghe.MaGhe,TenGhe FROM ChiTietGhe JOIN Ghe on Ghe.MaGhe = ChiTietGhe.MaGhe
+		WHERE MaPhong = #{MaPhong}
+	</select>
+	
+</mapper>
