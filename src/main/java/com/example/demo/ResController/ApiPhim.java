@@ -17,7 +17,7 @@ import com.example.demo.service.PhimService;
 
 @RestController
 @RequestMapping("/api/phim")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class ApiPhim {
 	@Autowired
 	PhimService service;
