@@ -18,5 +18,10 @@ PhimMapper mapper;
 		// TODO Auto-generated method stub
 		return mapper.getAllPhim();
 	}
+	@Override
+	public List<Phim> getMaPhim(String maPhim) {
+		// TODO Auto-generated method stub
+		return mapper.getMaPhim(maPhim);
+	}
 
 }

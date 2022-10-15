@@ -20,4 +20,7 @@
 		SELECT *
 		FROM Phim
 	</select>
+	<select id="getMaPhim" resultMap="resultMapPhim">
+		select * from Phim where maphim=#{maPhim}
+	</select>
 </mapper>
