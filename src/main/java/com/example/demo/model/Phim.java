@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
 import java.io.Serializable;
+import java.util.List;
+
 import lombok.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,4 +22,8 @@ public class Phim {
    private String ThoiLuong;
    private String MoTa;
    private String Traller;
+   private String tentheloai;
+   private List<String> listTheloai;
+   private List<String> khunggio;
+  
 }

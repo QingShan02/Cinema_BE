@@ -15,12 +15,30 @@
 		<result column="ThoiLuong" property="ThoiLuong" />
 		<result column="MoTa" property="MoTa" />
 		<result column="Traller" property="Traller" />
+		<result column="tentheloai" property="tentheloai" />
+		
 	</resultMap>
 	<select id="getAllPhim" resultMap="resultMapPhim">
 		SELECT *
 		FROM Phim
 	</select>
+	
 	<select id="getMaPhim" resultMap="resultMapPhim">
 		select * from Phim where maphim=#{maPhim}
 	</select>
+	
+	<select id="getTheLoai" resultMap="resultMapPhim" >
+		select theloai.tentheloai 
+		from chitietphim  join phim  on chitietphim.maphim=phim.maphim
+						  join theloai on theloai.matheloai = chitietphim.matheloai
+		where phim.maphim =#{maPhim}
+	</select>
+	
+	<select id="getGioBatDau" resultMap="resultMapPhim" >
+		select xuatchieu.ngay,ngaychieu.giobatdau,phim.tenphim 
+        from xuatchieu join ngaychieu on xuatchieu.ngay=ngaychieu.ngay
+               		   join phim on phim.maphim=xuatchieu.maphim 
+			   where phim.maphim =#{maPhim} and xuatchieu.ngay =#{ngay}
+	</select>
+	
 </mapper>

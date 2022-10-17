@@ -28,8 +28,16 @@ public class ApiPhim {
 	}
 	
 	@GetMapping("/getMaPhim")
-	public ResponseEntity<List<Phim>> getMaPhim(@RequestParam("maPhim")String maPhim) throws SQLException{
+	public ResponseEntity<Phim> getMaPhim(@RequestParam("maPhim")String maPhim) throws SQLException{
 		System.out.println(maPhim);
 		return ResponseEntity.ok(service.getMaPhim(maPhim));
 	}
+	
+
+//	@GetMapping("/getGioBatDau")
+//	public ResponseEntity<List<Phim>> getGioBatDau(@RequestParam("maPhim")String maPhim,@RequestParam("ngayChieu")String Ngay) throws SQLException{
+//		System.out.println(maPhim);
+//		return ResponseEntity.ok(service.getGioBatDau(maPhim, Ngay));
+//	}
+
 }

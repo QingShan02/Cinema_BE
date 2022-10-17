@@ -6,5 +6,8 @@ import com.example.demo.model.Phim;
 
 public interface PhimService {
 	List<Phim> getAllPhim();
-	List<Phim> getMaPhim(String maPhim);
+	Phim getMaPhim(String maPhim);
+	List<Phim> getTheLoai(String maPhim);
+//	List<Phim> getGioBatDau(String maPhim,String Ngay);
+
 }
