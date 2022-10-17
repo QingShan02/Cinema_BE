@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.NhanVienMapper">
-	<resultMap id="resultMapNV"
-		type="com.example.demo.model.NhanVien">
+	<resultMap id="resultMapNV" type="com.example.demo.model.NhanVien">
 		<result column="MaNV" property="MaNV" />
 		<result column="HoTen" property="HoTen" />
 		<result column="GioiTinh" property="GioiTinh" />
@@ -12,10 +9,13 @@
 		<result column="NgaySinh" property="NgaySinh" />
 		<result column="SoDT" property="SoDT" />
 		<result column="MaCV" property="MaCV" />
+		<result column="TenCV" property="TenCV" />
+
 	</resultMap>
 	<select id="getAllNV" resultMap="resultMapNV">
-		SELECT *
-		FROM NhanVien
+		SELECT NhanVien.*, ChucVu.TenCV
+		FROM NhanVien join ChucVu on ChucVu.MaCV = NhanVien.MaCV
+		ORDER BY MaNV ASC 
 	</select>
 
 	<select id="findNVByEmailAndPassword" resultMap="resultMapNV">
@@ -24,4 +24,14 @@
 		NhanVien
 		where SoDT = #{sdt} and MatKhau =#{password}
 	</select>
+	<insert id="insertNV">
+	insert into NhanVien values(#{maNV},#{hoTen},#{gioiTinh},#{matKhau},cast(#{ngaySinh} as DATE),#{soDT},#{maCV})
+	</insert>
+	
+	<update id="updateNV">
+	update NhanVien set HoTen = #{hoTen}, GioiTinh = #{gioiTinh} , MatKhau = #{matKhau}, NgaySinh = cast(#{ngaySinh} as DATE), SoDT = #{soDT}, MaCV = #{maCV} where MaNV =#{maNV}
+	</update>
+	<delete id="deleteNV">
+	delete from NhanVien where MaNV =#{maNV}
+	</delete>
 </mapper>

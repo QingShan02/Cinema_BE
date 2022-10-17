@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.VeMapper">
+	<resultMap id="resultMapVe"
+		type="com.example.demo.model.Ve">
+		<result column="IdVe" property="IdVe" />
+		<result column="TongGiaVe" property="TongGiaVe" />
+		<result column="ThueVat" property="ThueVat" />
+		<result column=" MaKH" property="MaKH" />
+		<result column="MaCTGhe" property="MaCTGhe" />
+		<result column="MaNV" property="MaNV" />
+		<result column="MaPhim" property="MaPhim" />
+		<result column="TenPhim" property="TenPhim" />	
+		<result column="Soluong" property="Soluong" />	
+	</resultMap>
+	<select id="getAllVe" resultMap="resultMapVe">
+		select phim.maphim,phim.tenphim,count(ve.idve) as Soluong from phim LEFT join xuatchieu on phim.maphim = xuatchieu.maphim LEFT join phongchieu on xuatchieu.maphong = phongchieu.maphong LEFT join chitietghe chitietghe2 ON chitietghe2.maphong = phongchieu.maphong LEFT join ve on chitietghe2.mactghe = ve.mactghe GROUP by phim.maphim
+	</select>
+</mapper>

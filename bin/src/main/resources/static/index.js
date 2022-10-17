@@ -1,12 +1,9 @@
 import Service from './QLNV/Service.js';
 import doanhthu from'./DoanhThu/main.js';
 import ve from './Ve/main.js';
-import nv from './QLNV/main.js'
-const handleClickTable = (e) => {
-    e.gioiTinh = (e.gioiTinh === "Nam") ? 1 : 0;
-    $$('form').setValues(e);
-    e.gioiTinh = (e.gioiTinh == 0) ? "Nữ" : "Nam"
-};
+import nv from './QLNV/main.js';
+import Service1 from './Ve/Service1.js';
+import Service2 from './DoanhThu/Service2.js';
 var menu_data = [
     {
         id: "dashboard", icon: "mdi mdi-view-dashboard", value: "Doanh thu", data: [
@@ -21,6 +18,7 @@ webix.ready(() => {
             {
                 cols: [
                     {
+                        width: 150,
                         view: "sidebar",
                         data: menu_data,
                         on: {
@@ -43,5 +41,9 @@ webix.ready(() => {
             }]
     })
     Service.fillTable();
+    Service.fillChucVu();
+    Service1.fillTable();
+    Service2.fillTable();
+    
 })
 
