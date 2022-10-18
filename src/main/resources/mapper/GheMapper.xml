@@ -14,7 +14,7 @@
 		FROM Ghe 
 	</select>
 	<select id="findGhePhong" resultMap="resultMapGhe">
-		SELECT MaPhong,Ghe.MaGhe,TenGhe FROM ChiTietGhe JOIN Ghe on Ghe.MaGhe = ChiTietGhe.MaGhe
+		SELECT MaLoai,Ghe.MaGhe,TenGhe FROM ChiTietGhe JOIN Ghe on Ghe.MaGhe = ChiTietGhe.MaGhe
 		WHERE MaPhong = #{MaPhong}
 	</select>
 	

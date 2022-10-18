@@ -8,16 +8,17 @@
 		<result column="Stt" property="Stt" />
 		<result column="Ngay" property="Ngay" />
 		<result column="GioBatDau" property="GioBatDau" />
-	
-		
+
+
 	</resultMap>
 	<select id="getGioByPhim" resultMap="resultMapNgayChieu">
-	select xuatchieu.ngay,ngaychieu.giobatdau,phim.tenphim 
-from xuatchieu join ngaychieu on xuatchieu.ngay=ngaychieu.ngay
-               join phim on phim.maphim=xuatchieu.maphim 
-			   where XuatChieu.MaPhim = #{maPhim} and NgayChieu.Ngay = cast (#{Ngay} as date)
+		select xuatchieu.ngay,ngaychieu.giobatdau,phim.tenphim
+		from xuatchieu join ngaychieu on xuatchieu.ngay=ngaychieu.ngay
+		join phim on phim.maphim=xuatchieu.maphim
+		where XuatChieu.MaPhim = #{maPhim} and NgayChieu.Ngay = cast (#{Ngay} as
+		date)
 	</select>
-	
 
-	
+
+
 </mapper>
