@@ -12,10 +12,10 @@
 		
 	</resultMap>
 	<select id="getGioByPhim" resultMap="resultMapNgayChieu">
-	select xuatchieu.ngay,ngaychieu.giobatdau,phim.tenphim 
-from xuatchieu join ngaychieu on xuatchieu.ngay=ngaychieu.ngay
-               join phim on phim.maphim=xuatchieu.maphim 
-			   where XuatChieu.MaPhim = #{maPhim} and NgayChieu.Ngay = cast (#{Ngay} as date)
+	select xuatchieu.ngay,ngaychieu.giobatdau
+from xuatchieu join ngaychieu on ngaychieu.stt = xuatchieu.stt 
+		where xuatchieu.maphim = #{maPhim} and xuatchieu.ngay = cast (#{Ngay} as date)
+	
 	</select>
 	
 
