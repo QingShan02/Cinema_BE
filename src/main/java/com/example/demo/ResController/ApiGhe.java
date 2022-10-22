@@ -31,4 +31,8 @@ public class ApiGhe {
 	public ResponseEntity<List<Ghe>> findGhePhong(@RequestParam("MaPhong") String MaPhong) throws SQLException{
 		return ResponseEntity.ok(service.findGhePhong(MaPhong));
 	}
+	@GetMapping("/findGhePhim")
+	public ResponseEntity<List<Ghe>> findGhePhim(@RequestParam("maPhim")String maPhim, @RequestParam("ngay") String ngay, @RequestParam("gioBatDau")String gioBatDau) throws SQLException{
+		return ResponseEntity.ok(service.findGhePhim(maPhim, ngay, gioBatDau));
+	}
 }
