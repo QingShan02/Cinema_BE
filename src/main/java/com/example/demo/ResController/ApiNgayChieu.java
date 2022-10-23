@@ -15,7 +15,7 @@ import com.example.demo.service.NgayChieuService;
 
 @RequestMapping("/api/ngay")
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 
 public class ApiNgayChieu {
 @Autowired

@@ -15,7 +15,7 @@ import com.example.demo.service.VeService;
 
 @RestController
 @RequestMapping("/api/ve")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class ApiVe {
 	@Autowired
 	VeService service;

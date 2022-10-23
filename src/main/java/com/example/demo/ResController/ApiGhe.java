@@ -18,7 +18,7 @@ import com.example.demo.service.GheService;
 
 @RestController
 @RequestMapping("/api/cn")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class ApiGhe {
 	@Autowired
 	GheService service;

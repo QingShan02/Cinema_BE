@@ -12,4 +12,5 @@ public class Ghe {
     private String TenGhe;
     private int MaLoai;
     private int IdVe;
+    private double gia;
 }
