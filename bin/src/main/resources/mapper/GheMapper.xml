@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.GheMapper">
+	<resultMap id="resultMapGhe"
+		type="com.example.demo.model.Ghe">
+		<result column="MaGhe" property="MaGhe" />
+		<result column="TenGhe" property="TenGhe" />
+		<result column="MaLoai" property="MaLoai" />
+		<result column="IdVe" property="IdVe" />
+	</resultMap>
+	<select id="getAllGhe" resultMap="resultMapGhe">
+		SELECT *
+		FROM Ghe 
+	</select>
+	<select id="findGhePhong" resultMap="resultMapGhe">
+		SELECT MaLoai,Ghe.MaGhe,TenGhe FROM ChiTietGhe JOIN Ghe on Ghe.MaGhe = ChiTietGhe.MaGhe
+		WHERE MaPhong = #{MaPhong}
+	</select>
+		<select id="findGhePhim" resultMap="resultMapGhe">
+	SELECT MaLoai,Ghe.MaGhe,TenGhe,ve.IdVe
+		FROM ChiTietGhe JOIN Ghe on Ghe.MaGhe = ChiTietGhe.MaGhe
+						join PhongChieu on PhongChieu.MaPhong = ChiTietGhe.MaPhong
+						join XuatChieu on  XuatChieu.MaPhong = PhongChieu.MaPhong
+						join NgayChieu on NgayChieu.stt = XuatChieu.stt
+						left join ve ON ve.mactghe = ChiTietGhe.mactghe
+		WHERE MaPhim = #{maPhim} and XuatChieu.ngay = cast(#{ngay} as date) and NgayChieu.GioBatDau = cast(#{gioBatDau} as time)
+		order by ChiTietGhe.mactghe
+	</select>
+</mapper>

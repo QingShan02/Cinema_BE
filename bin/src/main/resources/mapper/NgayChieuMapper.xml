@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.NgayChieuMapper">
+	<resultMap id="resultMapNgayChieu"
+		type="com.example.demo.model.NgayChieu">
+		<result column="Stt" property="Stt" />
+		<result column="Ngay" property="Ngay" />
+		<result column="GioBatDau" property="GioBatDau" />
+
+
+	</resultMap>
+	<select id="getGioByPhim" resultMap="resultMapNgayChieu">
+
+	select xuatchieu.ngay,ngaychieu.giobatdau
+from xuatchieu join ngaychieu on ngaychieu.stt = xuatchieu.stt 
+		where xuatchieu.maphim = #{maPhim} and xuatchieu.ngay = cast (#{Ngay} as date)
+	
+	</select>
+
+
+
+</mapper>
