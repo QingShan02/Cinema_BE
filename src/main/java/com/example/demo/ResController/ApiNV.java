@@ -19,7 +19,7 @@ import com.example.demo.service.NhanVienService;
 
 @RestController
 @RequestMapping("/api/nv")
-@CrossOrigin(origins ="http://localhost:3000")
+@CrossOrigin(origins ="*")
 public class ApiNV {
 	@Autowired
 	NhanVienService service;

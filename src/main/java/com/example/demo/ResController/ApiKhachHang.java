@@ -22,7 +22,7 @@ import com.example.demo.service.KhachHangService;
 
 @RestController
 @RequestMapping("/api/kh")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class ApiKhachHang {
 	@Autowired
 	KhachHangService service;
