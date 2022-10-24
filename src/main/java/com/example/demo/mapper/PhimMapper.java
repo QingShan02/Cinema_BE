@@ -8,6 +8,7 @@ import java.util.*;
 @Mapper
 public interface PhimMapper {
 	List<Phim> getAllPhim();
+	List<Phim> getAllPhim2();
 	Phim getMaPhim(@Param("maPhim") String maPhim);
 	List<Phim> getTheLoai(@Param("maPhim")String maPhim);
 //	List<Phim> getGioBatDau(@Param("maPhim")String maPhim,@Param("ngay") String Ngay);

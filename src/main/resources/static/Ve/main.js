@@ -1,33 +1,61 @@
-const ve = () =>({
+import Service1 from './Service1.js';
+const ve = () => ({
+    view: "scrollview",
+    id: 've',
+    scroll: "y",
+    body: {
+        rows: [{
+            view: "select",
+            id: "combo1",
+            inputWidth: 200,
+            options: [],
+            select:0,
+            on: {
+                onChange: function (s) {
+                    Service1.callChart(s);
+                }
+            }
+        }, {
 
-    view: "chart",
-    id: 'dashboard1',
-    width: 1500,
-    // height: 250,
-    type: "area",
-    value: "#soluong#",
-    color: "#36abee",
-    alpha: 0.8,
-    xAxis: {
-        height:150,
-        width:100,
-        template: "<p class='a'>#tenPhim#</p>"
-    },
-    yAxis: {
-        start: 0,
-        end: 100,
-        step: 5,
-        width:20,
-        template: function (obj) {
-            return obj % 20 ? "" : obj;
-        }
-    },
-    tooltip: {
-        template: "#soluong#"
-    },
-    data: []
+            id: 'dashboard1',
+            view: "chart",
+            type: "stackedBar",
+            value: "#soluong#",
+            preset: "alpha",
+            height: 400,
+            tooltip: {
+                template: "Ngày <span class='title'>#ngay#</span><br/>số vé <span class='title'>#soluong#</span>"
+            },
+            xAxis: {
+                template: function (obj) {
+                   return  webix.Date.dateToStr("%d")(obj.$unit)
+                    // return obj.$unit.getDate() == 15 ? webix.Date.dateToStr("%M")(obj.$unit) : ""
+                },
+                lineColor: function (obj) {
+                    //  && (obj.$unit.valueOf() == (new Date(2019, 1, 1)).valueOf())
+                    return (obj.$unit) ? "#737373" : "#cfcfcf"
+                },
+                value: function (obj) {
+                    return webix.Date.strToDate("%Y.%m.%d")(obj.ngay);
+                },
+                units: {
+                    start: new Date(2022, 8, 1),
+                    end: new Date(2022, 8, 30),
+                    next: function (d) {
+                        return webix.Date.add(d, 1, "day", true);
+                    }
+                }
+            },
+            yAxis: {
+                start: 0,
+                step: 10,
+                end: 100
+            },
+            data: [
 
-
+            ]
+        }]
+    }
 })
 
 export default ve();

@@ -4,5 +4,6 @@ import java.util.List;
 import com.example.demo.model.Ve;
 
 public interface VeService {
-	List<Ve> getAllVe();
+
+	List<Ve> getAllVe(String tenPhim);
 }

@@ -26,6 +26,10 @@ public class ApiPhim {
 	public ResponseEntity<List<Phim>> getAllPhim() throws SQLException{
 		return ResponseEntity.ok(service.getAllPhim());
 	}
+	@GetMapping("/getAllPhim2")
+	public ResponseEntity<List<Phim>> getAllPhim2() throws SQLException{
+		return ResponseEntity.ok(service.getAllPhim2());
+	}
 	
 	@GetMapping("/getMaPhim")
 	public ResponseEntity<Phim> getMaPhim(@RequestParam("maPhim")String maPhim) throws SQLException{

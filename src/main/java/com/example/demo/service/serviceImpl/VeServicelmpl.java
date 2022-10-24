@@ -12,8 +12,9 @@ public class VeServicelmpl implements VeService{
 	@Autowired
 	VeMapper mapper;
 		@Override
-		public List<Ve> getAllVe() {
+		public List<Ve> getAllVe(String tenPhim) {
 			// TODO Auto-generated method stub
-			return mapper.getAllVe();
+			return mapper.getAllVe(tenPhim);
 		}
+		
 }

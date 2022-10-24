@@ -24,6 +24,11 @@ NgayChieuMapper mapperNC;
 		return mapper.getAllPhim();
 	}
 	@Override
+	public List<Phim> getAllPhim2() {
+		// TODO Auto-generated method stub
+		return mapper.getAllPhim2();
+	}
+	@Override
 	public Phim getMaPhim(String maPhim) {
 		// TODO Auto-generated method stub
 		List<String> list = new ArrayList<>();

@@ -17,4 +17,6 @@ public class Ve {
     private String MaPhim;
     private String TenPhim;
     private int Soluong;
+    private String ngay;
+    private float tong;
 }
