@@ -16,4 +16,9 @@ public class VeServicelmpl implements VeService{
 			// TODO Auto-generated method stub
 			return mapper.getAllVe();
 		}
+		@Override
+		public int insertVe(double tongGiaVe, double thueVat, int maCTGhe, String maNV) {
+			// TODO Auto-generated method stub
+			return mapper.insertVe(tongGiaVe, thueVat, maCTGhe, maNV);
+		}
 }

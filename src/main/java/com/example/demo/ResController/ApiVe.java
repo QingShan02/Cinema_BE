@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Ve;
@@ -23,5 +24,9 @@ public class ApiVe {
 	@GetMapping("/getAllVe")
 	public ResponseEntity<List<Ve>> getAllVe() throws SQLException{
 		return ResponseEntity.ok(service.getAllVe());
+	}
+	@GetMapping("/insertVe")
+	public ResponseEntity<Integer> insertVe(@RequestParam("tongGiaVe") double tongGiaVe,@RequestParam("thueVat") double thueVat,@RequestParam("maCTGhe") int maCTGhe,@RequestParam("maNV") String maNV) throws SQLException{
+		return ResponseEntity.ok(service.insertVe(tongGiaVe, thueVat, maCTGhe, maNV));
 	}
 }
