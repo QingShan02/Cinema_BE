@@ -1,10 +1,12 @@
 import Service1 from './Service1.js';
+let a=0;
 const ve = () => ({
     view: "scrollview",
     id: 've',
     scroll: "y",
     body: {
         rows: [{
+			cols:[{
             view: "select",
             id: "combo1",
             inputWidth: 200,
@@ -15,8 +17,36 @@ const ve = () => ({
                     Service1.callChart(s);
                 }
             }
-        }, {
-
+       },{
+		   view: "combo",
+            id: "combo",
+            inputWidth: 200,
+            options: {
+				data:[
+  { id:1, value:"1"},
+  { id:2, value:"2"},
+  { id:3, value:"3"},
+  { id:4, value:"4"},
+  { id:5, value:"5"},
+  { id:6, value:"6"},
+  { id:7, value:"7"},
+  { id:8, value:"8"},
+  { id:9, value:"9"},
+  { id:10, value:"10"},
+  { id:11, value:"11"},
+  { id:12, value:"12"}
+]
+			},
+			on: {
+                onChange: function (s) {
+					console.log(s);
+					a=s;
+					console.log(a);
+                }
+            }
+	   }] 
+	   }, 
+	   {
             id: 'dashboard1',
             view: "chart",
             type: "stackedBar",
@@ -39,8 +69,8 @@ const ve = () => ({
                     return webix.Date.strToDate("%Y.%m.%d")(obj.ngay);
                 },
                 units: {
-                    start: new Date(2022, 8, 1),
-                    end: new Date(2022, 8, 30),
+                    start: new Date(2022, a, 1),
+                    end: new Date(2022, a, 30),
                     next: function (d) {
                         return webix.Date.add(d, 1, "day", true);
                     }
