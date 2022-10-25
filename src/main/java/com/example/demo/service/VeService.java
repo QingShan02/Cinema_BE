@@ -5,5 +5,6 @@ import com.example.demo.model.Ve;
 
 public interface VeService {
 	List<Ve> getAllVe();
-	int insertVe(double tongGiaVe,double thueVat,int maCTGhe,String maNV);
+	int insertVe(double tongGiaVe,double thueVat,int maCTGhe,int maKH);
+	int idVe();
 }

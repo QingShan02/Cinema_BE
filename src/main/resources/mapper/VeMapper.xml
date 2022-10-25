@@ -20,6 +20,6 @@
 	select phim.maphim,phim.tenphim, count(ve.idve) as Soluong, xuatchieu.ngay from ve left join chitietghe ON chitietghe.mactghe = ve.mactghe left join xuatchieu ON xuatchieu.maphong = chitietghe.maphong left join phim on phim.maphim = xuatchieu.maphim where phim.tenphim='QUÁI VẬT SÔNG MEKONG' group by phim.maphim,xuatchieu.ngay
 	</select>
 	<insert id="insertVe">
-	insert into Ve(TongGiaVe, ThueVat, MaCTGhe, MaNV) values(#{tongGiaVe},#{thueVat},#{maCTGhe},#{maNV})
+	insert into Ve(TongGiaVe, ThueVat, MaCTGhe, MaKH) values(#{tongGiaVe},#{thueVat},#{maCTGhe},#{maKH})
 	</insert>
 </mapper>

@@ -26,7 +26,8 @@ public class ApiVe {
 		return ResponseEntity.ok(service.getAllVe());
 	}
 	@GetMapping("/insertVe")
-	public ResponseEntity<Integer> insertVe(@RequestParam("tongGiaVe") double tongGiaVe,@RequestParam("thueVat") double thueVat,@RequestParam("maCTGhe") int maCTGhe,@RequestParam("maNV") String maNV) throws SQLException{
-		return ResponseEntity.ok(service.insertVe(tongGiaVe, thueVat, maCTGhe, maNV));
+	public ResponseEntity<Integer> insertVe(@RequestParam("tongGiaVe") double tongGiaVe,@RequestParam("thueVat") double thueVat,@RequestParam("maCTGhe") int maCTGhe,@RequestParam("maKH") int maKH) throws SQLException{
+		System.out.println(tongGiaVe);
+		return ResponseEntity.ok(service.insertVe(tongGiaVe, thueVat, maCTGhe, maKH));
 	}
 }

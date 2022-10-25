@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.*;
 import com.example.demo.service.ToppingService;
@@ -21,6 +22,10 @@ public class ApiTopping {
 
 	@GetMapping("/getAllTP")
 	public ResponseEntity<List<Topping>> getAllTP() throws SQLException {
+		return ResponseEntity.ok(service.getAllTP());
+	}
+	@GetMapping("/insertCTTP")
+	public ResponseEntity<List<Topping>> insertCTTP(@RequestParam("idVe")int idVe,@RequestParam("maTopping") String maTopping,@RequestParam("soLuongMua") int soLuongMua) throws SQLException {
 		return ResponseEntity.ok(service.getAllTP());
 	}
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.CTTopping">
+	<resultMap id="resultMapCTTP"
+		type="com.example.demo.model.ChiTietTopping">
+		<result column="idVe" property="idVe" />
+		<result column="maTopping" property="maTopping" />
+		<result column="soLuongMua" property="soLuongMua" />
+	</resultMap>
+	<insert id="insertTP">
+		insert into ChiTietTopping (idVe,maTopping,soLuongMua)
+		values(#{idVe},#{maTopping},#{soLuongMua})
+	</insert>
+
+</mapper>

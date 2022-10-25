@@ -6,5 +6,5 @@ import com.example.demo.model.Topping;
 
 public interface ToppingService {
 	List<Topping> getAllTP();
-
+	int insertCTTP(int idVe, String maTopping,int soLuongMua);
 }

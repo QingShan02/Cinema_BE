@@ -11,7 +11,7 @@
 	</resultMap>
 	<select id="getAllTP" resultMap="resultMapTP">
 		SELECT *
-		FROM Topping
+		FROM Topping 
 	</select>
-
+	
 </mapper>

@@ -13,4 +13,5 @@ public class Ghe {
     private int MaLoai;
     private int IdVe;
     private double gia;
+    private int MaCTGhe;
 }

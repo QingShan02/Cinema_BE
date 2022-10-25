@@ -1,5 +1,7 @@
 package com.example.demo.service.serviceImpl;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,8 +19,18 @@ public class VeServicelmpl implements VeService{
 			return mapper.getAllVe();
 		}
 		@Override
-		public int insertVe(double tongGiaVe, double thueVat, int maCTGhe, String maNV) {
+		public int insertVe(double tongGiaVe, double thueVat, int maCTGhe, int maKH) {
 			// TODO Auto-generated method stub
-			return mapper.insertVe(tongGiaVe, thueVat, maCTGhe, maNV);
+			int temp = 0;
+			if(mapper.insertVe(tongGiaVe, thueVat, maCTGhe, maKH)==1) {
+				temp = idVe();
+			}
+			return temp;
+		}
+		@Override
+		public int idVe() {
+			List<Integer> list = (List<Integer>) mapper.getAllVe().stream().map(s->s.getIdVe()).collect(Collectors.toList());
+			Collections.sort(list, Collections.reverseOrder());  
+			return list.get(0);
 		}
 }

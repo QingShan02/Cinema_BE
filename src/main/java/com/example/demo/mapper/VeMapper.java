@@ -7,5 +7,5 @@ import java.util.*;
 @Mapper
 public interface VeMapper {
 List<Ve> getAllVe();
-int insertVe(@Param("tongGiaVe") double tongGiaVe,@Param("thueVat") double thueVat,@Param("maCTGhe") int maCTGhe,@Param("maNV") String maNV);
+int insertVe(@Param("tongGiaVe") double tongGiaVe,@Param("thueVat") double thueVat,@Param("maCTGhe") int maCTGhe,@Param("maKH") int maKH);
 }

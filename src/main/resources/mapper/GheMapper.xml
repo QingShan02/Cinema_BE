@@ -10,6 +10,7 @@
 		<result column="MaLoai" property="MaLoai" />
 		<result column="IdVe" property="IdVe" />
 		<result column="gia" property="gia" />
+		<result column="MaCTGhe" property="MaCTGhe" />
 	</resultMap>
 	<select id="getAllGhe" resultMap="resultMapGhe">
 		SELECT *
@@ -20,7 +21,7 @@
 		WHERE MaPhong = #{MaPhong}
 	</select>
 		<select id="findGhePhim" resultMap="resultMapGhe">
-	SELECT Ghe.MaLoai,Ghe.MaGhe,TenGhe,ve.IdVe, (LoaiGhe.phuthu+XuatChieu.giaxuatchieu) as gia
+	SELECT Ghe.MaLoai,Ghe.MaGhe,TenGhe,ve.IdVe, (LoaiGhe.phuthu+XuatChieu.giaxuatchieu) as gia, ChiTietGhe.MaCTGhe
 		FROM ChiTietGhe JOIN Ghe on Ghe.MaGhe = ChiTietGhe.MaGhe
 						join PhongChieu on PhongChieu.MaPhong = ChiTietGhe.MaPhong
 						join XuatChieu on  XuatChieu.MaPhong = PhongChieu.MaPhong
