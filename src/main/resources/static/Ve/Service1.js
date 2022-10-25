@@ -17,6 +17,7 @@ class Service1 {
         let { data: result }=await axios.get("/api/ve/getAllVe",{params:{maPhim:id}});
         $$('dashboard1').parse(result);
     }
+
 }
 
 export default new Service1();

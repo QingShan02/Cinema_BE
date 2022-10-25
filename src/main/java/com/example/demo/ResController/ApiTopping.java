@@ -8,20 +8,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.*;
-import com.example.demo.service.NgayChieuService;
+import com.example.demo.service.ToppingService;
 
-@RequestMapping("/api/ngay")
 @RestController
-@CrossOrigin(origins = "*")
+@RequestMapping("/api/tp")
+@CrossOrigin("*")
+public class ApiTopping {
+	@Autowired
+	ToppingService service;
 
-public class ApiNgayChieu {
-@Autowired
-NgayChieuService service;
-@GetMapping("/getGioBatDau")
-public ResponseEntity<List<NgayChieu>> getGioBatDau(@RequestParam("maPhim") String maPhim, @RequestParam("ngay") String ngay) throws SQLException{
-	return ResponseEntity.ok(service.getGioByPhim(maPhim, ngay));
-}
+	@GetMapping("/getAllTP")
+	public ResponseEntity<List<Topping>> getAllTP() throws SQLException {
+		return ResponseEntity.ok(service.getAllTP());
+	}
 }

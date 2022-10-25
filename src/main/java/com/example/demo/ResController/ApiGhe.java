@@ -18,7 +18,7 @@ import com.example.demo.service.GheService;
 
 @RestController
 @RequestMapping("/api/cn")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class ApiGhe {
 	@Autowired
 	GheService service;
@@ -30,5 +30,9 @@ public class ApiGhe {
 	@GetMapping("/findGhePhong")
 	public ResponseEntity<List<Ghe>> findGhePhong(@RequestParam("MaPhong") String MaPhong) throws SQLException{
 		return ResponseEntity.ok(service.findGhePhong(MaPhong));
+	}
+	@GetMapping("/findGhePhim")
+	public ResponseEntity<List<Ghe>> findGhePhim(@RequestParam("maPhim")String maPhim, @RequestParam("ngay") String ngay, @RequestParam("gioBatDau")String gioBatDau) throws SQLException{
+		return ResponseEntity.ok(service.findGhePhim(maPhim, ngay, gioBatDau));
 	}
 }

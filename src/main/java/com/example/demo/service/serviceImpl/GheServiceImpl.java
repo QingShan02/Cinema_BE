@@ -25,5 +25,11 @@ public List<com.example.demo.model.Ghe> findGhePhong(String MaPhong) {
 	return mapper.findGhePhong(MaPhong);
 }
 
+@Override
+public List<com.example.demo.model.Ghe> findGhePhim(String maPhim, String ngay, String gioBatDau) {
+	// TODO Auto-generated method stub
+	return mapper.findGhePhim(maPhim, ngay, gioBatDau);
+}
+
 
 }

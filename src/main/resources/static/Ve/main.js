@@ -1,11 +1,12 @@
 import Service1 from './Service1.js';
-let a=0;
+let a=8;
 const ve = () => ({
     view: "scrollview",
     id: 've',
     scroll: "y",
     body: {
         rows: [{
+
 			cols:[{
             view: "select",
             id: "combo1",
@@ -72,6 +73,7 @@ const ve = () => ({
                     start: new Date(2022, a, 1),
                     end: new Date(2022, a, 30),
                     next: function (d) {
+
                         return webix.Date.add(d, 1, "day", true);
                     }
                 }

@@ -19,5 +19,6 @@
 	</resultMap>
 	<select id="getAllVe" resultMap="resultMapVe">
 	select phim.maphim,phim.tenphim, count(ve.idve) as Soluong, sum(ve.tonggiave) as tong, xuatchieu.ngay from ve left join chitietghe ON chitietghe.mactghe = ve.mactghe left join xuatchieu ON xuatchieu.maphong = chitietghe.maphong left join phim on phim.maphim = xuatchieu.maphim where phim.maphim=#{maPhim} group by phim.maphim,xuatchieu.ngay
+
 	</select>
 </mapper>

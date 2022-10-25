@@ -11,6 +11,7 @@ var menu_data = [{
     data: [
         { id: "ve", value: "Vé" },
         { id: "ve2", value: "Doanh thu" },
+
         { id: "qlnv", value: "Quản lí nhân viên" }
     ]
 }, ]
@@ -46,5 +47,8 @@ webix.ready(() => {
     Service2.fillphim();
     Service1.fillphim();
     Service2.fillTable();
+
+
+
 
 })

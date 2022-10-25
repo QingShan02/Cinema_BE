@@ -9,7 +9,6 @@
 		<result column="TenGhe" property="TenGhe" />
 		<result column="MaLoai" property="MaLoai" />
 		<result column="IdVe" property="IdVe" />
-		<result column="gia" property="gia" />
 	</resultMap>
 	<select id="getAllGhe" resultMap="resultMapGhe">
 		SELECT *
@@ -20,13 +19,12 @@
 		WHERE MaPhong = #{MaPhong}
 	</select>
 		<select id="findGhePhim" resultMap="resultMapGhe">
-	SELECT Ghe.MaLoai,Ghe.MaGhe,TenGhe,ve.IdVe, (LoaiGhe.phuthu+XuatChieu.giaxuatchieu) as gia
+	SELECT MaLoai,Ghe.MaGhe,TenGhe,ve.IdVe
 		FROM ChiTietGhe JOIN Ghe on Ghe.MaGhe = ChiTietGhe.MaGhe
 						join PhongChieu on PhongChieu.MaPhong = ChiTietGhe.MaPhong
 						join XuatChieu on  XuatChieu.MaPhong = PhongChieu.MaPhong
 						join NgayChieu on NgayChieu.stt = XuatChieu.stt
 						left join ve ON ve.mactghe = ChiTietGhe.mactghe
-						join LoaiGhe on LoaiGhe.MaLoai = Ghe.MaLoai
 		WHERE MaPhim = #{maPhim} and XuatChieu.ngay = cast(#{ngay} as date) and NgayChieu.GioBatDau = cast(#{gioBatDau} as time)
 		order by ChiTietGhe.mactghe
 	</select>
