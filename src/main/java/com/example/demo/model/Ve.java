@@ -1,4 +1,5 @@
 package com.example.demo.model;
+import java.io.Serializable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,4 +19,5 @@ public class Ve {
     private String TenPhim;
     private int Soluong;
     private String ngay;
+    private float tong;
 }

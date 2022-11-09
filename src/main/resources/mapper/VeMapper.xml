@@ -13,11 +13,13 @@
 		<result column="MaNV" property="MaNV" />
 		<result column="MaPhim" property="MaPhim" />
 		<result column="TenPhim" property="TenPhim" />	
+		<result column="Soluong" property="Soluong" />	
 		<result column="ngay" property="ngay" />	
+		<result column="tong" property="tong" />
 	</resultMap>
 	<select id="getAllVe" resultMap="resultMapVe">
-		<!-- select phim.maphim,phim.tenphim,count(ve.idve) as Soluong from phim LEFT join xuatchieu on phim.maphim = xuatchieu.maphim LEFT join phongchieu on xuatchieu.maphong = phongchieu.maphong LEFT join chitietghe chitietghe2 ON chitietghe2.maphong = phongchieu.maphong LEFT join ve on chitietghe2.mactghe = ve.mactghe GROUP by phim.maphim -->
-	select phim.maphim,phim.tenphim, count(ve.idve) as Soluong, xuatchieu.ngay from ve left join chitietghe ON chitietghe.mactghe = ve.mactghe left join xuatchieu ON xuatchieu.maphong = chitietghe.maphong left join phim on phim.maphim = xuatchieu.maphim where phim.tenphim='QUÁI VẬT SÔNG MEKONG' group by phim.maphim,xuatchieu.ngay
+	select phim.maphim,phim.tenphim, count(ve.idve) as Soluong, sum(ve.tonggiave) as tong, xuatchieu.ngay from ve left join chitietghe ON chitietghe.mactghe = ve.mactghe left join xuatchieu ON xuatchieu.maphong = chitietghe.maphong left join phim on phim.maphim = xuatchieu.maphim where phim.maphim=#{maPhim} group by phim.maphim,xuatchieu.ngay
+
 	</select>
 	<insert id="insertVe">
 	insert into Ve(TongGiaVe, ThueVat, MaCTGhe, MaKH) values(#{tongGiaVe},#{thueVat},#{maCTGhe},#{maKH})
