@@ -13,4 +13,10 @@ public class XuatChieu {
     private String MaPhong;
     private String MaPhim;
     private double GiaXuatChieu;
+    private String MaCN;
+    private String TenCN;
+    private String TenPhong;
+    private String TenPhim;
+    private String NgayChieu;
+    private String GioBatDau;
 }

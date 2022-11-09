@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.XuatChieuMapper">
+    <resultMap id="resultMapXuatChieu"
+               type="com.example.demo.model.XuatChieu">
+        <result column="Stt" property="Stt" />
+        <result column="Ngay" property="Ngay" />
+        <result column="MaPhong" property="MaPhong" />
+        <result column="MaPhim" property="MaPhim" />
+        <result column="GiaXuatChieu" property="GiaXuatChieu" />
+        <result column="MaCN" property="MaCN" />
+        <result column="TenCN" property="TenCN" />
+        <result column="TenPhong" property="TenPhong" />
+        <result column="TenPhim" property="TenPhim" />
+        <result column="Ngay" property="NgayChieu" />
+        <result column="GioBatDau" property="GioBatDau" />
+
+    </resultMap>
+    <select id="getLichChieu" resultMap="resultMapXuatChieu">
+
+        select XuatChieu.Stt, XuatChieu.MaPhim,XuatChieu.GiaXuatChieu , PhongChieu.TenPhong, Phim.TenPhim, NgayChieu.Ngay, NgayChieu.GioBatDau, PhongChieu.MaCN, ChiNhanh.TenCN
+        from XuatChieu join PhongChieu on PhongChieu.MaPhong = XuatChieu.MaPhong
+                        join Phim on Phim.MaPhim = XuatChieu.MaPhim
+                        join NgayChieu on NgayChieu.Stt = XuatChieu.Ngay
+                        join ChiNhanh on ChiNhanh.MaCN = PhongChieu.MaCN
+    </select>
+
+
+
+</mapper>

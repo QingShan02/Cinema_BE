@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.ChiNhanhMapper">
+    <resultMap id="resultMapChiNhanh"
+               type="com.example.demo.model.ChiNhanh">
+        <result column="MaCN" property="MaCN" />
+        <result column="TenCN" property="TenCN" />
+        <result column="DiaChi" property="DiaChi" />
+        <result column="SoDT" property="SoDT" />
+
+    </resultMap>
+    <select id="getAllChiNhanh" resultMap="resultMapChiNhanh">
+            select * from ChiNhanh
+    </select>
+
+
+
+</mapper>

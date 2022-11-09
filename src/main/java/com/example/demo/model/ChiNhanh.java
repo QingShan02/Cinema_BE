@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PhongChieu {
-    private String MaPhong;
-    private String TenPhong;
+public class ChiNhanh {
     private String MaCN;
+    private String TenCN;
+    private String DiaChi;
+    private String SoDT;
 }

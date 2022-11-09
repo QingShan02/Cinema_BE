@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.PhongChieuMapper">
+    <resultMap id="resultMapPhongChieu"
+               type="com.example.demo.model.PhongChieu">
+        <result column="MaPhong" property="MaPhong" />
+        <result column="TenPhong" property="TenPhong" />
+        <result column="MaCN" property="MaCN" />
+
+
+    </resultMap>
+    <select id="getAllPhongChieu" resultMap="resultMapPhongChieu">
+
+        select * from PhongChieu where MaCN =#{maCN}
+    </select>
+
+
+
+</mapper>

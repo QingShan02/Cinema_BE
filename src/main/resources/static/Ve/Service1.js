@@ -5,7 +5,7 @@ class Service1 {
     }
     fillphim = async() => {
         let { data: result } = await axios.get("/api/phim/getAllPhim");
-        $$('combo1').parse(result);
+//        $$('combo1').parse(result);
     }
 }
 
