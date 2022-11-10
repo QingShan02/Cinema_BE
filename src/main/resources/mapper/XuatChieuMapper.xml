@@ -27,7 +27,7 @@
                         join ChiNhanh on ChiNhanh.MaCN = PhongChieu.MaCN
     </select>
     <insert id="insertXuatChieu">
-        insert into xuatchieu(GiaXuatChieu,Ngay,MaPhong,MaPhim) values(#{giaXuatChieu},#{ngay},#{maPhong},#{maPhim});
+        insert into xuatchieu(GiaXuatChieu,Ngay,MaPhong,MaPhim) values(cast(#{giaXuatChieu} as float),cast (#{ngay} as int),#{maPhong},#{maPhim});
     </insert>
 
 

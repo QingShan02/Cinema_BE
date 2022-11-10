@@ -12,14 +12,24 @@ class Service3{
         // console.log(value);
         let result = await axios.get("/api/ngay/getID",{params:value});
         let temp ={
-            Stt: result.data,
+            ngay: result.data,
             maPhong: data.phong,
             maPhim: data.phim,
             giaXuatChieu: data.giaXuatChieu,
-            maCN: data.chiNhanh
-        }
+        };
         console.log(temp);
-       
+        let a = await axios.get("/api/xuatchieu/insertLichChieu",{params:temp});
+        console.log(a);
+        if(a.data==1){
+            console.log("Thành công");
+            this.ClearForm();
+            this.LoadTableLichChieu();
+        }else{
+            console.log("Không thành công");
+        }
+    }
+    ClearForm = () =>{
+        $$('formLC').clear();
     }
     LoadPhong = async(value)=>{
         let {data:result} = await axios.get("/api/phongchieu/getAllPhongChieu",{params:{maCN:value}});
@@ -38,8 +48,11 @@ class Service3{
         $$('phim').render();
     }
     LoadTableLichChieu = async() =>{
+        $$('tableLC').clearAll();
         let {data:result} = await axios.get("/api/xuatchieu/getLichChieu");
-        console.log(result);
+        result.forEach(s=>{
+            s.tenCN = "CGV - "+s.tenCN;
+        });
         $$('tableLC').parse(result);
     }
 }

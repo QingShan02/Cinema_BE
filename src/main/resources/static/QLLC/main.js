@@ -112,9 +112,10 @@ const tableLichChieu = () => ({
     view: "datatable",
     id: "tableLC",
     columns: [
-        { id: "rank", header: "STT", fillspace: true },
+        { id: "stt", header: "STT" },
         { id: "tenPhim", header: "Tên Phim", fillspace: 2 },
         { id: "giaXuatChieu", header: "Giá xuất chiếu", fillspace: true },
+        { id: "ngayChieu", header: "Ngày chiếu", fillspace: true },
         { id: "gioBatDau", header: "Giờ", fillspace: true },
         { id: "tenPhong", header: "Phòng", fillspace: true },
         { id: "tenCN", header: "Chi Nhánh", fillspace: true }

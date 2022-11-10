@@ -16,4 +16,9 @@ public class XuatChieuServiceImpl implements XuatChieuService {
     public List<XuatChieu> getLichChieu() {
         return mapper.getLichChieu();
     }
+
+    @Override
+    public int insertXuatChieu(String giaXuatChieu, String ngay, String maPhong, String maPhim) {
+        return mapper.insertXuatChieu(giaXuatChieu, ngay, maPhong, maPhim);
+    }
 }

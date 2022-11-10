@@ -1,7 +1,7 @@
 import Service from "./Service.js";
 const handleClickTable = (e) => {
     e.gioiTinh = (e.gioiTinh === "Nam") ? 1 : 0;
-    $$('form').setValues(e);
+    $$('formNV').setValues(e);
     e.gioiTinh = (e.gioiTinh == 0) ? "Nữ" : "Nam"
 };
 
