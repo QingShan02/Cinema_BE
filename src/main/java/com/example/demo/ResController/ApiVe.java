@@ -21,10 +21,10 @@ public class ApiVe {
 	@Autowired
 	VeService service;
 	
-	@GetMapping("/getAllVe")
-	public ResponseEntity<List<Ve>> getAllVe(@RequestParam("maPhim")String tenPhim) throws SQLException{
-		return ResponseEntity.ok(service.getAllVe(tenPhim));
-	}
+//	@GetMapping("/getAllVe")
+//	public ResponseEntity<List<Ve>> getAllVe(@RequestParam("maPhim")String tenPhim) throws SQLException{
+//		return ResponseEntity.ok(service.getAllVe(tenPhim));
+//	}
 	@GetMapping("/insertVe")
 	public ResponseEntity<Integer> insertVe(@RequestParam("tongGiaVe") double tongGiaVe,@RequestParam("thueVat") double thueVat,@RequestParam("maCTGhe") int maCTGhe,@RequestParam("maKH") int maKH) throws SQLException{
 		System.out.println(tongGiaVe);

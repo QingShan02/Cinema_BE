@@ -12,7 +12,7 @@ const nv = () => ({
 
         {
             view: "form",
-            id: "form",
+            id: "formNV",
             // name: "form",
             elements: [
                 {

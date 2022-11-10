@@ -26,7 +26,9 @@
                         join NgayChieu on NgayChieu.Stt = XuatChieu.Ngay
                         join ChiNhanh on ChiNhanh.MaCN = PhongChieu.MaCN
     </select>
-
+    <insert id="insertXuatChieu">
+        insert into xuatchieu(GiaXuatChieu,Ngay,MaPhong,MaPhim) values(#{giaXuatChieu},#{ngay},#{maPhong},#{maPhim});
+    </insert>
 
 
 </mapper>

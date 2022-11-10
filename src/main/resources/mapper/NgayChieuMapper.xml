@@ -19,6 +19,11 @@ from xuatchieu join ngaychieu on ngaychieu.stt = xuatchieu.stt
 	
 	</select>
 
+	<select id="getID" resultType="int">
+		select * from SelectStt(cast (#{ngay} as date),cast (#{gioBatDau} as time))
 
+
+
+	</select>
 
 </mapper>

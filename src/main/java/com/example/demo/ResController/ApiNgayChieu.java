@@ -18,10 +18,14 @@ import com.example.demo.service.NgayChieuService;
 @CrossOrigin(origins = "*")
 
 public class ApiNgayChieu {
-@Autowired
-NgayChieuService service;
-@GetMapping("/getGioBatDau")
-public ResponseEntity<List<NgayChieu>> getGioBatDau(@RequestParam("maPhim") String maPhim, @RequestParam("ngay") String ngay) throws SQLException{
-	return ResponseEntity.ok(service.getGioByPhim(maPhim, ngay));
-}
+	@Autowired
+	NgayChieuService service;
+	@GetMapping("/getGioBatDau")
+	public ResponseEntity<List<NgayChieu>> getGioBatDau(@RequestParam("maPhim") String maPhim, @RequestParam("ngay") String ngay) throws SQLException{
+		return ResponseEntity.ok(service.getGioByPhim(maPhim, ngay));
+	}
+	@GetMapping("/getID")
+	public ResponseEntity<Integer> getID(@RequestParam("ngay") String ngay, @RequestParam("gioBatDau") String gioBatDau) throws SQLException{
+		return ResponseEntity.ok(service.getID(ngay,gioBatDau));
+	}
 }
