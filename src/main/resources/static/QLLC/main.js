@@ -28,8 +28,8 @@ const formLichChieu = () => ({
             id: "chiNhanh",
             name: "chiNhanh",
             options: [],
-            on:{
-                onchange:function(){
+            on: {
+                onchange: function () {
                     // console.log($$('chiNhanh').getValue());
                     Service3.LoadPhong($$('chiNhanh').getValue())
                 }
@@ -114,19 +114,19 @@ const tableLichChieu = () => ({
         { id: "tenPhong", header: "Phòng", fillspace: true },
         { id: "tenCN", header: "Phòng", fillspace: true }
 
-        
+
     ],
     data: []
 });
 const lc = () => ({
     // view: "form",
     id: "qllc",
-rows:[
-            // formLichChieu()
+    rows: [
+        // formLichChieu()
         tableLichChieu()
 
-]
-    
+    ]
+
 })
 
 export default lc();
