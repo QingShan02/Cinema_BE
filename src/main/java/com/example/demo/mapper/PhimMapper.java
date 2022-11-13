@@ -13,4 +13,7 @@ public interface PhimMapper {
 	List<Phim> getTheLoai(@Param("maPhim")String maPhim);
 //	List<Phim> getGioBatDau(@Param("maPhim")String maPhim,@Param("ngay") String Ngay);
 
+	int insertPhim(Phim phim);
+	int updatePhim(Phim phim);
+	int deletePhim(String maPhim);
 }

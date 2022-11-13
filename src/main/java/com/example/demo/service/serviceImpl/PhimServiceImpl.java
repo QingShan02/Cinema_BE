@@ -66,6 +66,34 @@ NgayChieuMapper mapperNC;
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public int insertPhim(Phim phim) {
+		if (phim != null){
+			mapper.insertPhim(phim);
+			return 1;
+		}
+		return 0;
+	}
+
+	@Override
+	public int updatePhim(Phim phim) {
+		if (phim != null){
+			mapper.updatePhim(phim);
+			return 1;
+		}
+		return 0;
+	}
+
+	@Override
+	public int deletePhim(String maPhim) {
+		if (maPhim != ""){
+			mapper.deletePhim(maPhim);
+			return 1;
+		}
+		return 0;
+	}
+
 	@Override
 	public Phim getMaPhim(String maPhim) {
 		// TODO Auto-generated method stub

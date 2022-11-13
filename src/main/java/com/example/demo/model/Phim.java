@@ -24,5 +24,6 @@ public class Phim {
    private String tentheloai;
    private List<String> listTheloai;
    private List<String> khunggio;
-  
+
+
 }

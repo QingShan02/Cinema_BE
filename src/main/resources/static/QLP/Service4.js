@@ -1,9 +1,11 @@
 class Service4 {
-    LoadTablePhim = async () => {
+    FillTablePhim = async () => {
         let { data: result } = await axios.get("/api/phim/getAllPhim");
-        console.log(result);
+        $$('formP').clear();
+        $$('tableP').clearAll();
         $$('tableP').parse(result);
     }
+    
     clickNew = () => {
         $$('formP').clear();
     }

@@ -56,5 +56,5 @@ webix.ready(() => {
     Service3.LoadChiNhanh();
     Service3.LoadPhim();
     Service3.LoadTableLichChieu();
-    Service4.LoadTablePhim();
+    Service4.FillTablePhim();
 })

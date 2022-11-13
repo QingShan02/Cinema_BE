@@ -44,5 +44,7 @@
                		   join phim on phim.maphim=xuatchieu.maphim 
 			   where phim.maphim =#{maPhim} and xuatchieu.ngay =#{ngay}
 	</select>
-	
+	<insert id="insertPhim">
+		insert into Phim values(#{maPhim},#{tenPhim},#{dienVien},#{namSX},#{daoDien},#{quocGia},#{thoiLuong},#{moTa},#{Traller})
+	</insert>
 </mapper>
