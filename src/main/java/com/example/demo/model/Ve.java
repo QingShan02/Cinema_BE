@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class Ve {
     private int IdVe;
     private double TongGiaVe;
-    private double ThueVAT;
+    private double ThueVat;
     private int MaKH;
     private int MaCTGhe;
     private String MaNV;

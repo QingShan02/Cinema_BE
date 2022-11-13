@@ -29,8 +29,9 @@ public class VeServicelmpl implements VeService{
 		}
 		@Override
 		public int idVe() {
-			List<Integer> list = (List<Integer>) mapper.getAllVe().stream().map(s->s.getIdVe()).collect(Collectors.toList());
-			Collections.sort(list, Collections.reverseOrder());  
-			return list.get(0);
+			List<Ve> list =  getAllVe();
+			System.out.println(list.size());
+//			Collections.sort(list, Collections.reverseOrder());
+			return list.get(list.size()-1).getIdVe();
 		}
 }
