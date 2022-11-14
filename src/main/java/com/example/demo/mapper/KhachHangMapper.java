@@ -10,4 +10,5 @@ import com.example.demo.model.*;
 public interface KhachHangMapper {
 	List<KhachHang> getAllKH();
 	KhachHang findKH(@Param("email") String email, @Param("matkhau") String matkhau);
+	int insertFBKH(@Param("tenkh") String tenkh, @Param("email") String email, @Param("idfb") String idfb, @Param("hinh") String hinh);
 }

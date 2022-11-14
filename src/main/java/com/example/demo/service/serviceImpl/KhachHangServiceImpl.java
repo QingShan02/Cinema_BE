@@ -27,4 +27,11 @@ public class KhachHangServiceImpl implements KhachHangService {
 		return mapper.findKH(email,matkhau);
 	}
 
+	@Override
+	public int insertFBKH(String tenkh, String email, String idfb, String hinh) {
+		// TODO Auto-generated method stub
+		
+		return mapper.insertFBKH(tenkh, email, idfb, hinh);
+	}
+	
 }
