@@ -34,6 +34,7 @@ public class ApiPhim {
 	@GetMapping("/getMaPhim")
 	public ResponseEntity<Phim> getMaPhim(@RequestParam("maPhim")String maPhim) throws SQLException{
 		System.out.println(maPhim);
+		System.out.println(service.getMaPhim(maPhim));
 		return ResponseEntity.ok(service.getMaPhim(maPhim));
 	}
 	

@@ -1,5 +1,6 @@
 package com.example.demo.ResController;
 
+import java.io.Console;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class ApiNgayChieu {
 	NgayChieuService service;
 	@GetMapping("/getGioBatDau")
 	public ResponseEntity<List<NgayChieu>> getGioBatDau(@RequestParam("maPhim") String maPhim, @RequestParam("ngay") String ngay) throws SQLException{
+		System.out.print(""+ngay);
 		return ResponseEntity.ok(service.getGioByPhim(maPhim, ngay));
 	}
 	@GetMapping("/getID")

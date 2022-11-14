@@ -28,24 +28,24 @@ NgayChieuMapper mapperNC;
 		// TODO Auto-generated method stub
 		return mapper.getAllPhim2();
 	}
-	//@Override
-//	public Phim getMaPhim(String maPhim) {
-//		// TODO Auto-generated method stub
-//		List<String> list = new ArrayList<>();
-//		getTheLoai(maPhim).forEach(s->{
-//			list.add(s.getTentheloai());
-//		});
-//		Phim p =mapper.getMaPhim(maPhim);
-//				p.setListTheloai(list);
-//				List<String> list2 = new ArrayList<>();
-//
-////		list.clear();
-//		mapperNC.getGioByPhim(maPhim, "2022-09-01").forEach(s->{
-//			list2.add(s.getGioBatDau());
-//		});
-//		p.setKhunggio(list2);
-//		return p;
-//	}
+	@Override
+	public Phim getMaPhim(String maPhim) {
+		// TODO Auto-generated method stub
+		List<String> list = new ArrayList<>();
+		getTheLoai(maPhim).forEach(s->{
+			list.add(s.getTentheloai());
+		});
+		Phim p =mapper.getMaPhim(maPhim);
+				p.setListTheloai(list);
+				List<String> list2 = new ArrayList<>();
+
+//		list.clear();
+		mapperNC.getGioByPhim(maPhim, "2022-11-11").forEach(s->{
+			list2.add(s.getGioBatDau());
+		});
+		p.setKhunggio(list2);
+		return p;
+	}
 	@Override
 	public List<Phim> getTheLoai(String maPhim) {
 		// TODO Auto-generated method stub
@@ -66,10 +66,10 @@ NgayChieuMapper mapperNC;
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
-	public Phim getMaPhim(String maPhim) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public Phim getMaPhim(String maPhim) {
+//		// TODO Auto-generated method stub
+//		return mapper.getMaPhim(maPhim);
+//	}
 
 }

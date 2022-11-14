@@ -15,7 +15,7 @@
 
 	select xuatchieu.ngay,ngaychieu.giobatdau
 from xuatchieu join ngaychieu on ngaychieu.stt = xuatchieu.stt 
-		where xuatchieu.maphim = #{maPhim} and xuatchieu.ngay = cast (#{Ngay} as date)
+		where xuatchieu.maphim = #{maPhim} and ngaychieu.ngay = cast (#{Ngay} as date)
 	
 	</select>
 
