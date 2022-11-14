@@ -19,16 +19,21 @@
 		<result column="tenkh" property="tenkh" />
 		<result column="giobatdau" property="giobatdau" />
 	</resultMap>
-	<select id="getAllVe" resultMap="resultMapVe">
+	<select id="getAllVe1" resultMap="resultMapVe">
 	select phim.maphim,phim.tenphim, count(ve.idve) as Soluong, sum(ve.tonggiave) as tong, xuatchieu.ngay from ve left join chitietghe ON chitietghe.mactghe = ve.mactghe left join xuatchieu ON xuatchieu.maphong = chitietghe.maphong left join phim on phim.maphim = xuatchieu.maphim where phim.maphim=#{maPhim} group by phim.maphim,xuatchieu.ngay
 
 	</select>
+
 	<select id="getLichSuVe" resultMap="resultMapVe">
 select khachhang.makh,khachhang.tenkh,phim.tenphim,ve.idve,ngaychieu.ngay,ngaychieu.giobatdau from ve join khachhang on khachhang.makh = ve.makh
  join chitietghe on chitietghe.mactghe = ve.mactghe join phongchieu on phongchieu.maphong = chitietghe.maphong
  join xuatchieu on xuatchieu.maphong = phongchieu.maphong join ngaychieu on ngaychieu.stt = xuatchieu.ngay
  join phim ON phim.maphim = xuatchieu.maphim
 where xuatchieu.stt = ve.stt_xc and ve.makh=#{maKH}
+	</select>
+	<select id="getAllVe" resultMap="resultMapVe">
+			select * from ve
+
 	</select>
 	<insert id="insertVe">
 	insert into Ve(TongGiaVe, ThueVat, MaCTGhe, MaKH) values(#{tongGiaVe},#{thueVat},#{maCTGhe},#{maKH})

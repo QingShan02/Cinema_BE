@@ -28,7 +28,7 @@
 	</select>
 	
 	<select id="getMaPhim" resultMap="resultMapPhim">
-		select * from Phim where maphim=#{maPhim}
+		select * from Phim where maphim= #{maPhim}
 	</select>
 	
 	<select id="getTheLoai" resultMap="resultMapPhim" >
