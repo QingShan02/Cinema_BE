@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.demo.mapper.VeMapper;
+import com.example.demo.model.NhanVien;
 import com.example.demo.model.Ve;
 import com.example.demo.service.VeService;
 
@@ -27,6 +28,12 @@ public class VeServicelmpl implements VeService{
 			}
 			return temp;
 		}
+		@Override
+		public List<Ve> getLichSuVe(int maKH) {
+			// TODO Auto-generated method stub
+			return (List<Ve>) mapper.getLichSuVe(maKH);
+		}
+		
 		@Override
 		public int idVe() {
 			List<Integer> list = (List<Integer>) mapper.getAllVe().stream().map(s->s.getIdVe()).collect(Collectors.toList());

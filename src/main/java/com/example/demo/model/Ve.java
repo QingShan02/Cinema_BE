@@ -20,4 +20,6 @@ public class Ve {
     private int Soluong;
     private String ngay;
     private float tong;
+    private String tenkh;
+    private String giobatdau;
 }

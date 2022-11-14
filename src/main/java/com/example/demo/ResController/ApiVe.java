@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.model.NhanVien;
 import com.example.demo.model.Ve;
 import com.example.demo.service.VeService;
 
@@ -30,4 +31,9 @@ public class ApiVe {
 		System.out.println(tongGiaVe);
 		return ResponseEntity.ok(service.insertVe(tongGiaVe, thueVat, maCTGhe, maKH));
 	}
+	@GetMapping("/LichSuVe")
+	public ResponseEntity<List<Ve>> getLichSuVe(@RequestParam("maKH") int maKH) throws SQLException{
+		return ResponseEntity.ok(service.getLichSuVe(maKH));
+	}
+
 }
