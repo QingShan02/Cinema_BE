@@ -9,4 +9,5 @@ import com.example.demo.model.*;
 @Mapper
 public interface NgayChieuMapper {
 	List<NgayChieu> getGioByPhim(@Param("maPhim") String maPhim, @Param("Ngay") String ngay);
+	int getID(@Param("ngay") String ngay, @Param("gioBatDau") String gioBatDau);
 }

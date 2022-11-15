@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class Ve {
     private int IdVe;
     private double TongGiaVe;
-    private double ThueVAT;
+    private double ThueVat;
     private int MaKH;
     private int MaCTGhe;
     private String MaNV;
@@ -20,4 +20,6 @@ public class Ve {
     private int Soluong;
     private String ngay;
     private float tong;
+    private String tenkh;
+    private String giobatdau;
 }

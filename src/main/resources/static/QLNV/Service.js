@@ -2,7 +2,7 @@ class  Service{
     fillTable = async() =>{
         let {data:result} = await axios.get("/api/nv/getAllNV");
         result.forEach(s=>{s.gioiTinh = (s.gioiTinh==0)?"Nữ":"Nam"});
-        $$('form').clear();
+        $$('formNV').clear();
         $$('bang').clearAll();
         $$('bang').parse(result);
     }
@@ -65,7 +65,7 @@ class  Service{
         this.fillTable();
     }
     clickNew = () =>{
-        $$('form').clear();
+        $$('formNV').clear();
     }
 }
  

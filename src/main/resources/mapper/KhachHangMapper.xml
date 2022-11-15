@@ -12,6 +12,8 @@
 		<result column="SoDT" property="SoDT" />
 		<result column="DiaChi" property="DiaChi" />
 		<result column="GioiTinh" property="GioiTinh" />
+		<result column="IdFB" property="IdFB"/>
+		<result column="HinhFB" property="HinhFB"/>
 	</resultMap>
 	<select id="getAllKH" resultMap="resultMapKH">
 		SELECT *
@@ -21,4 +23,8 @@
 		SELECT *
 		FROM KhachHang where email = #{email} and matkhau = #{matkhau}
 	</select>
+	
+	<insert id="insertFBKH">
+		INSERT INTO KhachHang (TenKH, Email, IdFB, Hinh) VALUES (#{tenkh}, #{email}, #{idfb}, #{hinh});
+	</insert>
 </mapper>

@@ -8,4 +8,5 @@ import java.util.*;
 public interface VeMapper {
 List<Ve> getAllVe();
 int insertVe(@Param("tongGiaVe") double tongGiaVe,@Param("thueVat") double thueVat,@Param("maCTGhe") int maCTGhe,@Param("maKH") int maKH);
+List<Ve> getLichSuVe(@Param("maKH") int maKH);
 }

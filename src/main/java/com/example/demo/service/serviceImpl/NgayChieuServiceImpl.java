@@ -18,5 +18,10 @@ NgayChieuMapper mapper;
 		// TODO Auto-generated method stub
 		return mapper.getGioByPhim(maphim, ngay);
 	}
-	
+
+	@Override
+	public int getID(String ngay, String gioBatDau) {
+		return mapper.getID(ngay,gioBatDau);
+	}
+
 }

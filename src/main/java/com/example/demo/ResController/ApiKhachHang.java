@@ -37,4 +37,10 @@ public class ApiKhachHang {
 		System.out.println(email+","+matKhau);
 		return ResponseEntity.ok(service.findKH(email,matKhau));
 	}
+	
+	@GetMapping("/insertKH")
+	public ResponseEntity<Integer> insertFBKH(@RequestParam("tenkh") String tenkh,@RequestParam("email") String email,@RequestParam("idfb") String idfb,@RequestParam("hinh") String hinh) throws SQLException{
+		System.out.println(tenkh);
+		return ResponseEntity.ok(service.insertFBKH(tenkh, email, idfb, hinh));
+	}
 }
