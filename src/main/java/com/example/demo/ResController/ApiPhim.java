@@ -50,6 +50,6 @@ public class ApiPhim {
 
 	@GetMapping("/deletePhim")
 	public ResponseEntity<Integer> deletePhim(@RequestParam("maPhim") String maPhim) throws SQLException{
-		return ResponseEntity.ok(service.deletePhim("maphim"));
+		return ResponseEntity.ok(service.deletePhim(maPhim));
 	}
 }

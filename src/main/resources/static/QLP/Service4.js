@@ -5,7 +5,49 @@ class Service4 {
         $$('tableP').clearAll();
         $$('tableP').parse(result);
     }
-    
+    clickThem = async () => {
+        let data = $$('formP').getValues();
+        let dt = {
+            maPhim: data.maPhim,
+            tenPhim: data.tenPhim,
+            dienVien: data.dienVien,
+            namSX: data.namSX,
+            daoDien: data.daoDien,
+            quocGia: data.quocGia,
+            thoiLuong: data.thoiLuong,
+            moTa: data.moTa,
+            Traller: data.Traller
+        };
+        let temp = await axios.post("/api/phim/insertPhim", dt);
+        console.log(temp);
+        this.clickNew();
+        this.FillTablePhim();
+    };
+    clickDelete = async () => {
+        let data = $$('formP').getValues();
+        let temp = await axios.get("/api/phim/deletePhim", { params: { maPhim: data.maPhim } });
+        console.log(temp);
+        this.clickNew();
+        this.FillTablePhim();
+    }
+    clickUpdate = async () => {
+        let data = $$('formP').getValues();
+        let dt = {
+            maPhim: data.maPhim,
+            tenPhim: data.tenPhim,
+            dienVien: data.dienVien,
+            namSX: data.namSX,
+            daoDien: data.daoDien,
+            quocGia: data.quocGia,
+            thoiLuong: data.thoiLuong,
+            moTa: data.moTa,
+            Traller: data.Traller
+        };
+        let temp = await axios.post("/api/phim/updatePhim", dt);
+        console.log(temp);
+        this.clickNew();
+        this.FillTablePhim();
+    };
     clickNew = () => {
         $$('formP').clear();
     }

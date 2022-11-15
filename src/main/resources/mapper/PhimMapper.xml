@@ -47,4 +47,12 @@
 	<insert id="insertPhim">
 		insert into Phim values(#{maPhim},#{tenPhim},#{dienVien},#{namSX},#{daoDien},#{quocGia},#{thoiLuong},#{moTa},#{Traller})
 	</insert>
+	<update id="updatePhim">
+		update Phim set TenPhim = #{tenPhim} , DienVien = #{dienVien}, NamSX = #{namSX}, DaoDien = #{daoDien}, QuocGia = #{quocGia}, ThoiLuong = #{thoiLuong},
+		MoTa = #{moTa}, Traller = #{Traller}
+		where MaPhim =#{maPhim}
+	</update>
+	<delete id="deletePhim">
+		delete from Phim where MaPhim = #{maPhim}
+	</delete>
 </mapper>
