@@ -32,6 +32,7 @@ NgayChieuMapper mapperNC;
 	public Phim getMaPhim(String maPhim) {
 		// TODO Auto-generated method stub
 		List<String> list = new ArrayList<>();
+		System.out.println(maPhim+"ne");
 		getTheLoai(maPhim).forEach(s->{
 			list.add(s.getTentheloai());
 		});
@@ -40,7 +41,7 @@ NgayChieuMapper mapperNC;
 				List<String> list2 = new ArrayList<>();
 
 //		list.clear();
-		mapperNC.getGioByPhim(maPhim, "2022-11-11").forEach(s->{
+		mapperNC.getGioByPhim(maPhim, "2022-11-13").forEach(s->{
 			list2.add(s.getGioBatDau());
 		});
 		p.setKhunggio(list2);
