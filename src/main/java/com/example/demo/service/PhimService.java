@@ -11,4 +11,7 @@ public interface PhimService {
 	List<Phim> getTheLoai(String maPhim);
 	List<Phim> getGioBatDau(String maPhim,String Ngay);
 
+	int insertPhim(Phim phim);
+	int updatePhim(Phim phim);
+	int deletePhim(String maPhim);
 }

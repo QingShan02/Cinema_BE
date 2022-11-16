@@ -5,12 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.model.Phim;
 import com.example.demo.service.PhimService;
@@ -45,4 +40,17 @@ public class ApiPhim {
 //		return ResponseEntity.ok(service.getGioBatDau(maPhim, Ngay));
 //	}
 
+	@PostMapping("/insertPhim")
+	public ResponseEntity<Integer> insertPhim(@RequestBody Phim phim) throws SQLException{
+		return ResponseEntity.ok(service.insertPhim(phim));
+	}
+	@PostMapping("/updatePhim")
+	public ResponseEntity<Integer> updatePhim(@RequestBody Phim phim) throws SQLException{
+		return ResponseEntity.ok(service.updatePhim(phim));
+	}
+
+	@GetMapping("/deletePhim")
+	public ResponseEntity<Integer> deletePhim(@RequestParam("maPhim") String maPhim) throws SQLException{
+		return ResponseEntity.ok(service.deletePhim(maPhim));
+	}
 }

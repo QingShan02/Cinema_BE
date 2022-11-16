@@ -14,7 +14,7 @@ public class Phim {
    private String MaPhim;
    private String TenPhim;
    private String DienVien;
-   private String NamSX;
+   private int NamSX;
    private String Hinh;
    private String DaoDien;
    private String QuocGia;
@@ -24,5 +24,6 @@ public class Phim {
    private String tentheloai;
    private List<String> listTheloai;
    private List<String> khunggio;
-  
+
+
 }
