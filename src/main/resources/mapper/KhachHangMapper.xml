@@ -27,4 +27,15 @@
 	<insert id="insertFBKH">
 		INSERT INTO KhachHang (TenKH, Email, IdFB, Hinh) VALUES (#{tenkh}, #{email}, #{idfb}, #{hinh});
 	</insert>
+
+	<insert id="insertKH">
+		insert into KhachHang values(#{makh},#{tenkh},#{email},#{sodt},#{diachi},#{matkhau})
+	</insert>
+
+	<update id="updateKH">
+		update KhachHang set  TenKH = #{tenkh} , Email = #{email}, SoDT = #{sodt}, DiaChi = #{diachi}, MatKhau = #{matkhau} where MaKH =#{makh}
+	</update>
+	<delete id="deleteKH">
+		delete from KhachHang where MaKH =#{makh}
+	</delete>
 </mapper>

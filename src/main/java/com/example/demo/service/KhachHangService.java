@@ -9,4 +9,7 @@ public interface KhachHangService {
 	KhachHang findKH(String email, String matkhau);
 	//KhachHang insertKH()
 	int insertFBKH(String tenkh, String email, String idfb, String hinh);
-}
+
+	int insertKH(KhachHang kh);
+	int updateKH(KhachHang kh);
+	int deleteKH(int maKH);}

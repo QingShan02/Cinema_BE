@@ -9,12 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.model.KhachHang;
 import com.example.demo.model.NhanVien;
@@ -43,4 +38,20 @@ public class ApiKhachHang {
 		System.out.println(tenkh);
 		return ResponseEntity.ok(service.insertFBKH(tenkh, email, idfb, hinh));
 	}
+
+	@PostMapping("/insertKH")
+	public ResponseEntity<Integer> insertKH(@RequestBody KhachHang kh) throws SQLException{
+		return ResponseEntity.ok(service.insertKH(kh));
+	}
+
+	@PostMapping("/updateKH")
+	public ResponseEntity<Integer> updateKH(@RequestBody KhachHang kh) throws SQLException{
+		return ResponseEntity.ok(service.updateKH(kh));
+	}
+	@GetMapping("/deleteKH")
+	public ResponseEntity<Integer> deleteKH(@RequestParam("makh") int maKH) throws SQLException{
+		System.out.println(maKH);
+		return ResponseEntity.ok(service.deleteKH(maKH));
+	}
+
 }

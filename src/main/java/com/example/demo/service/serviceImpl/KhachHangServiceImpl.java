@@ -2,6 +2,7 @@ package com.example.demo.service.serviceImpl;
 
 import java.util.List;
 
+import com.example.demo.model.NhanVien;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,34 @@ public class KhachHangServiceImpl implements KhachHangService {
 		// TODO Auto-generated method stub
 		
 		return mapper.insertFBKH(tenkh, email, idfb, hinh);
+	}
+
+	@Override
+	public int insertKH(KhachHang kh) {
+		if(kh!=null) {
+			mapper.insertKH(kh);
+			return 1;
+		}
+		return 0;
+	}
+	@Override
+	public int updateKH(KhachHang kh) {
+		// TODO Auto-generated method stub
+		if(kh!=null) {
+			mapper.updateKH(kh);
+			return 1;
+		}
+		return 0;
+	}
+
+	@Override
+	public int deleteKH(int maKH) {
+		// TODO Auto-generated method stub
+		if(maKH != 0) {
+			mapper.deleteKH(maKH);
+			return 1;
+		}
+		return 0;
 	}
 	
 }
