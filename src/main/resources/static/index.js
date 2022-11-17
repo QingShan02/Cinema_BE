@@ -6,6 +6,8 @@ import Service1 from './Ve/Service1.js';
 import Service2 from './DoanhThu/Service2.js';
 import Service3 from './QLLC/Service3.js';
 import Service4 from './QLP/Service4.js';
+import Service5 from './QLKH/Service5.js';
+import kh from './QLKH/main.js';
 import lc from './QLLC/main.js';
 import p from './QLP/main.js';
 var menu_data = [{
@@ -17,7 +19,9 @@ var menu_data = [{
         { id: "dashboard2", value: "Doanh thu" },
         { id: "qlnv", value: "Quản lí nhân viên" },
         { id: "qllc", value: "Quản lí lịch chiếu" },
-        { id: "qlp", value: "Quản lí phim" }
+        { id: "qlp", value: "Quản lí phim" },
+        { id: "qlkh", value: "Quản lí khách hàng" },
+
     ]
 },]
 webix.ready(() => {
@@ -40,7 +44,9 @@ webix.ready(() => {
                     doanhthu,
                     nv,
                     lc,
-                    p
+                    p,
+                    kh
+
                 ]
             }
 
@@ -57,4 +63,6 @@ webix.ready(() => {
     Service3.LoadPhim();
     Service3.LoadTableLichChieu();
     Service4.FillTablePhim();
+    Service5.fillTableKH();
+
 })

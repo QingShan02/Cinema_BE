@@ -35,6 +35,11 @@ public class KhachHangServiceImpl implements KhachHangService {
 		return mapper.insertFBKH(tenkh, email, idfb, hinh);
 	}
 
+//	@Override
+//	public int insertKH(KhachHang kh) {
+//		return 0;
+//	}
+
 	@Override
 	public int insertKH(KhachHang kh) {
 		if(kh!=null) {

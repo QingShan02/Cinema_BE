@@ -14,4 +14,4 @@ public interface KhachHangMapper {
 
 	int insertKH(KhachHang kh);
 	int updateKH(KhachHang kh);
-	int deleteKH(int makh);}
+	int deleteKH(int maKH);}

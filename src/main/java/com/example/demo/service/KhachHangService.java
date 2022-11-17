@@ -12,4 +12,4 @@ public interface KhachHangService {
 
 	int insertKH(KhachHang kh);
 	int updateKH(KhachHang kh);
-	int deleteKH(int maKH);}
+	int deleteKH(int  maKH);}
