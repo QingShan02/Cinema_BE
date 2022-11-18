@@ -6,7 +6,7 @@
 	<resultMap id="resultMapVe"
 		type="com.example.demo.model.Ve">
 		<result column="IdVe" property="IdVe" />
-		<result column="TongGiaVe" property="TongGiaVe" />
+		<result column="GiaVe" property="GiaVe" />
 		<result column="ThueVat" property="ThueVat" />
 		<result column=" MaKH" property="MaKH" />
 		<result column="MaCTGhe" property="MaCTGhe" />
@@ -36,6 +36,6 @@ where xuatchieu.stt = ve.stt_xc and ve.makh=#{maKH}
 
 	</select>
 	<insert id="insertVe">
-	insert into Ve(TongGiaVe, ThueVat, MaCTGhe, MaKH) values(#{tongGiaVe},#{thueVat},#{maCTGhe},#{maKH})
+	insert into Ve(TongGiaVe, ThueVat, MaCTGhe, MaKH) values(#{GiaVe},#{thueVat},#{maCTGhe},#{maKH})
 	</insert>
 </mapper>

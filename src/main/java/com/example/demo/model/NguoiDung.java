@@ -1,5 +1,4 @@
 package com.example.demo.model;
-import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,13 +6,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class NhanVien {
-	private String MaNV;
-    private String HoTen;
-    private int GioiTinh;
+public class NguoiDung {
+	private String MaNguoiDung;
+    private String TenNguoiDung;
     private String MatKhau;
-    private String NgaySinh;
     private String SoDT;
-    private String MaCV;
-    private String TenCV;
+    private String MaCN;
 }

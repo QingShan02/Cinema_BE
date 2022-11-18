@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.NhanVien;
 import com.example.demo.model.Ve;
 import com.example.demo.service.VeService;
 
@@ -27,7 +26,7 @@ public class ApiVe {
 //		return ResponseEntity.ok(service.getAllVe(tenPhim));
 //	}
 	@GetMapping("/insertVe")
-	public ResponseEntity<Integer> insertVe(@RequestParam("tongGiaVe") double tongGiaVe,@RequestParam("thueVat") double thueVat,@RequestParam("maCTGhe") int maCTGhe,@RequestParam("maKH") int maKH) throws SQLException{
+	public ResponseEntity<Integer> insertVe(@RequestParam("GiaVe") double tongGiaVe,@RequestParam("thueVat") double thueVat,@RequestParam("maCTGhe") int maCTGhe,@RequestParam("maKH") int maKH) throws SQLException{
 		System.out.println(tongGiaVe);
 		return ResponseEntity.ok(service.insertVe(tongGiaVe, thueVat, maCTGhe, maKH));
 	}

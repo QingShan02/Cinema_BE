@@ -1,11 +1,11 @@
-package com.example.demo.service;
+package com.example.demo.mapper;
 
 import java.util.List;
 
-import com.example.demo.model.NguoiDung;
-
-
-public interface NhanVienService {
+import org.apache.ibatis.annotations.Mapper;
+import com.example.demo.model.*;
+@Mapper
+public interface NguoiDungMapper {
 	List<NguoiDung> getAllNV();
 	NguoiDung findNVByEmailAndPassword(String sdt, String password);
 	int insertNV(NguoiDung nv);

@@ -1,12 +1,9 @@
 package com.example.demo.service.serviceImpl;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.demo.mapper.VeMapper;
-import com.example.demo.model.NhanVien;
 import com.example.demo.model.Ve;
 import com.example.demo.service.VeService;
 

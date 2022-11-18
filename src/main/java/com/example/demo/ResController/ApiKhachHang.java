@@ -1,18 +1,13 @@
 package com.example.demo.ResController;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.model.KhachHang;
-import com.example.demo.model.NhanVien;
 import com.example.demo.service.KhachHangService;
 
 @RestController

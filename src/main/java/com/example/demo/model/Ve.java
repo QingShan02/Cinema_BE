@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Ve {
     private int IdVe;
-    private double TongGiaVe;
+    private double GiaVe;
     private double ThueVat;
     private int MaKH;
     private int MaCTGhe;
