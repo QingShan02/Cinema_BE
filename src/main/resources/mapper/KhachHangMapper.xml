@@ -29,11 +29,11 @@
 	</insert>
 
 	<insert id="insertKH">
-		insert into KhachHang values(#{makh},#{tenkh},#{email},#{sodt},#{diachi},#{matkhau})
+		insert into KhachHang(TenKH,Email,SoDT,DiaChi,MatKhau) values(#{tenKH},#{email},#{soDT},#{diaChi},#{matKhau})
 	</insert>
 
 	<update id="updateKH">
-		update KhachHang set  TenKH = #{tenkh} , Email = #{email}, SoDT = #{sodt}, DiaChi = #{diachi}, MatKhau = #{matkhau} where MaKH =#{makh}
+		update KhachHang set  TenKH = #{tenKH} , Email = #{email}, SoDT = #{soDT}, DiaChi = #{diaChi}, MatKhau = #{matKhau} where MaKH =#{makh}
 	</update>
 	<delete id="deleteKH">
 		delete from KhachHang where MaKH =#{makh}

@@ -28,20 +28,22 @@ public class ApiKhachHang {
 		return ResponseEntity.ok(service.findKH(email,matKhau));
 	}
 	
-	@GetMapping("/insertKH")
+	@GetMapping("/insertKH1")
 	public ResponseEntity<Integer> insertFBKH(@RequestParam("tenkh") String tenkh,@RequestParam("email") String email,@RequestParam("idfb") String idfb,@RequestParam("hinh") String hinh) throws SQLException{
 		System.out.println(tenkh);
 		return ResponseEntity.ok(service.insertFBKH(tenkh, email, idfb, hinh));
 	}
 
-	@PostMapping("/insertKH")
-	public ResponseEntity<Integer> insertKH(@RequestBody KhachHang kh) throws SQLException{
-		return ResponseEntity.ok(service.insertKH(kh));
+	@GetMapping("/insertKH")
+	public ResponseEntity<Integer> insertKH(@RequestParam("tenKH") String tenKH,@RequestParam("email") String email,@RequestParam("soDT") String soDT,@RequestParam("diaChi") String diaChi,@RequestParam("matKhau") String matKhau) throws SQLException{
+		System.out.println(tenKH);
+		return ResponseEntity.ok(service.insertKH(tenKH,email,soDT,diaChi,matKhau));
 	}
 
 	@PostMapping("/updateKH")
-	public ResponseEntity<Integer> updateKH(@RequestBody KhachHang kh) throws SQLException{
-		return ResponseEntity.ok(service.updateKH(kh));
+	public ResponseEntity<Integer> updateKH(@RequestParam("tenKH") String tenKH,@RequestParam("email") String email,@RequestParam("soDT") String soDT,@RequestParam("diaChi") String diaChi,@RequestParam("matKhau") String matKhau) throws SQLException{
+		System.out.println(tenKH);
+		return ResponseEntity.ok(service.updateKH(tenKH,email,soDT,diaChi,matKhau));
 	}
 	@GetMapping("/deleteKH")
 	public ResponseEntity<Integer> deleteKH(@RequestParam("makh") int maKH) throws SQLException{

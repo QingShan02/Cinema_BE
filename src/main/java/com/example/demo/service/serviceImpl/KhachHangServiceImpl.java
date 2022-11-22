@@ -40,21 +40,17 @@ public class KhachHangServiceImpl implements KhachHangService {
 //	}
 
 	@Override
-	public int insertKH(KhachHang kh) {
-		if(kh!=null) {
-			mapper.insertKH(kh);
-			return 1;
-		}
-		return 0;
+	public int insertKH(String tenKH, String email, String soDT, String diaChi, String matKhau) {
+		System.out.println("s>>"+tenKH);
+			return mapper.insertKH(tenKH,email,soDT,diaChi,matKhau);
 	}
 	@Override
-	public int updateKH(KhachHang kh) {
+	public int updateKH(String tenKH, String email, String soDT, String diaChi, String matKhau) {
 		// TODO Auto-generated method stub
-		if(kh!=null) {
-			mapper.updateKH(kh);
-			return 1;
-		}
-		return 0;
+		System.out.println("s>>"+tenKH);
+		return mapper.insertKH(tenKH,email,soDT,diaChi,matKhau);
+
+
 	}
 
 	@Override

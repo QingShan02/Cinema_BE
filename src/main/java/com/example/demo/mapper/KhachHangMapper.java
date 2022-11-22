@@ -12,6 +12,6 @@ public interface KhachHangMapper {
 	KhachHang findKH(@Param("email") String email, @Param("matkhau") String matkhau);
 	int insertFBKH(@Param("tenkh") String tenkh, @Param("email") String email, @Param("idfb") String idfb, @Param("hinh") String hinh);
 
-	int insertKH(KhachHang kh);
+	int insertKH(@Param("tenKH") String tenKH,@Param("email")String email,@Param("soDT")String soDT,@Param("diaChi")String diaChi,@Param("matKhau")String matkhau);
 	int updateKH(KhachHang kh);
 	int deleteKH(int maKH);}

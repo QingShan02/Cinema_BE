@@ -10,6 +10,6 @@ public interface KhachHangService {
 	//KhachHang insertKH()
 	int insertFBKH(String tenkh, String email, String idfb, String hinh);
 
-	int insertKH(KhachHang kh);
-	int updateKH(KhachHang kh);
+	int insertKH(String tenKH, String email, String soDT, String diaChi, String matKhau);
+	int updateKH(String tenKH, String email, String soDT, String diaChi, String matKhau);
 	int deleteKH(int  maKH);}

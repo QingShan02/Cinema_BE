@@ -1,5 +1,10 @@
 import Service from "./Service5.js";
+const handleClickTableKH = (e) => {
+  e.gioiTinh = (e.gioiTinh === "Nam") ? 1 : 0;
+     $$('formKH').setValues(e);
+     e.gioiTinh = (e.gioiTinh == 0) ? "Nữ" : "Nam"
 
+};
 
 const kh = () => ({
     view: "form",
@@ -9,44 +14,42 @@ const kh = () => ({
         {
             view: "form",
             id: "formKH",
-            // name: "form",
             elements: [
                 {
                     cols: [
                         {
                             rows: [
-                                { view: "text", label: "Mã khách hàng",labelWidth:200, id: "makh", name: "maKH", fillspace: true },
-                                { view: "text", label: "Họ tên khách hàng", id: "tenKH",labelWidth:200, name: "tenKH", fillspace: true },
-                                { view: "text", label: "Email", id: "email", name: "Email",labelWidth:200, fillspace: true },
-                                { view: "text", label: "Số điện thoại", id: "sodt", name: "soDT",labelWidth:200, fillspace: true, options: [] },
-                                { view: "text", label: "Địa chỉ", id: "diachi", name: "DiaChi",labelWidth:200, fillspace: true, options: [] },
-                                { view: "text", label: "Mật khẩu", id: "matkhau",labelWidth:200, name: "matKhau", fillspace: true },
+                                { view: "text", label: "Mã khách hàng",labelWidth:200, id: "maKH", name: "maKH", fillspace: true },
+                                { view: "text", label: "Tên khách hàng", id: "tenKH",labelWidth:200, name: "tenKH", fillspace: true },
+                                { view: "text", label: "Mật khẩu", id: "matKhau",labelWidth:200, name: "matKhau", fillspace: true },
+                                { view: "text", label: "Email", id: "email",labelWidth:200, name: "email", fillspace: true },
+                                { view: "text", label: 'Số điện thoại', id: "soDT",labelWidth:200, name: "soDT", fillspace: true },
+                                { view: "text", label: "Địa chỉ", id: "diaChi", name: "diaChi",labelWidth:200, fillspace: true },
+                                { view: "radio", label: "Giới tính", id: "gioiTinh",labelWidth:200, name: "gioiTinh", fillspace: true, value: 1, options: [{ "id": 1, "value": "Nam" }, { "id": 0, "value": "Nữ" }] },
 
                             ]
                         },
                         {
-//                            rows: [
-//                                {
-//                                    view: "button",
-//                                    label: "Thêm",
-//                                    click: Service.clickThem
-//                                },
-//                                {
-//                                    view: "button",
-//                                    label: "Xóa",
-//                                    click:Service.clickDelete
-//                                },
-//                                {
-//                                    view: "button",
-//                                    label: "Sửa",
-//                                    click:Service.clickUpdate
-//                                },
-//                                {
-//                                    view:"button",
-//                                    label:"New",
-//                                    click:Service.clickNew
-//                                }
-//                            ]
+                            rows: [
+                                {
+
+                                    view: "button",
+                                    label: "Thêm",
+                                   click: Service.clickThemKH
+                                },
+                                {
+                                    view: "button",
+                                    label: "Xóa",
+                                   click:Service.clickDeleteKH
+                                },
+                                {
+                                    view: "button",
+                                    label: "Cập nhật",
+//                                   click:Service5.clickUpdateKH
+                                },
+
+
+                            ]
                         }
                     ]
                 }
@@ -57,19 +60,20 @@ const kh = () => ({
             view: "datatable",
             id: "bangKH",
             columns: [
-                { id: "maKH", header: "Mã khách hàng", fillspace: true },
+                { id: "maKH", header: "Mã khách hàng", fillspace: true },
                 { id: "tenKH", header: "Tên khách hàng", fillspace: true },
-                { id: "Email", header: "Email", fillspace: true },
+                { id: "matKhau", header: "Mật khẩu", fillspace: true },
+                { id: "email", header: "Email", fillspace: true },
                 { id: "soDT", header: "Số điện thoại", fillspace: true },
-                { id: "diaChi", header: "Địa chỉ", fillspace: true },
-                { id: "matKhau", header: "Mật khẩu", fillspace: true },
+{ id: "diaChi", header: "Địa chỉ", fillspace: true },
+                { id: "gioiTinh", header: "Giới tính", fillspace: true },
+
             ],
             data: [],
             select: true,
             on: {
                 onItemClick: function (id) {
-                    handleClickTable(this.getSelectedItem());
-                    // console.log($$('form').getValues());
+                    handleClickTableKH(this.getSelectedItem());
 
                 }
             },
