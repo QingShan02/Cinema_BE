@@ -12,18 +12,23 @@
 
 	</resultMap>
 	<select id="getGioByPhim" resultMap="resultMapNgayChieu">
+		select xuatchieu.ngay,ngaychieu.giobatdau
+		from xuatchieu join ngaychieu on ngaychieu.stt = xuatchieu.stt
+			where xuatchieu.maphim = #{maPhim} and ngaychieu.ngay = cast (#{Ngay} as date)
+	</select>
 
-	select xuatchieu.ngay,ngaychieu.giobatdau
-from xuatchieu join ngaychieu on ngaychieu.stt = xuatchieu.stt 
-		where xuatchieu.maphim = #{maPhim} and ngaychieu.ngay = cast (#{Ngay} as date)
-	
+	<select id="getGioBatDau" resultMap="resultMapNgayChieu">
+		select ngaychieu.giobatdau
+		from chinhanh join phongchieu on phongchieu.macn = chinhanh.macn
+		join xuatchieu on xuatchieu.maphong = phongchieu.maphong
+		join ngaychieu on ngaychieu.stt = xuatchieu.ngay
+		join phim on phim.maphim = xuatchieu.maphim
+		where chinhanh.macn = #{maCN} and phim.maphim = #{maPhim} and ngaychieu.ngay = CURRENT_DATE
 	</select>
 
 	<select id="getID" resultType="int">
 		select * from SelectStt(cast (#{ngay} as date),cast (#{gioBatDau} as time))
-
-
-
 	</select>
+
 
 </mapper>
