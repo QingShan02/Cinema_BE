@@ -18,12 +18,13 @@
 	</select>
 
 	<select id="getGioBatDau" resultMap="resultMapNgayChieu">
-		select ngaychieu.giobatdau
+		select ngaychieu.stt ,ngaychieu.giobatdau
 		from chinhanh join phongchieu on phongchieu.macn = chinhanh.macn
 		join xuatchieu on xuatchieu.maphong = phongchieu.maphong
 		join ngaychieu on ngaychieu.stt = xuatchieu.ngay
 		join phim on phim.maphim = xuatchieu.maphim
 		where chinhanh.macn = #{maCN} and phim.maphim = #{maPhim} and ngaychieu.ngay = CURRENT_DATE
+		order by ngaychieu.giobatdau
 	</select>
 
 	<select id="getID" resultType="int">
