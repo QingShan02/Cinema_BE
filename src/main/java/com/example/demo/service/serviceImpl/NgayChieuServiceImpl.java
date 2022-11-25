@@ -24,4 +24,9 @@ NgayChieuMapper mapper;
 		return mapper.getID(ngay,gioBatDau);
 	}
 
+	@Override
+	public List<NgayChieu> getGioBatDau(String macn, String maphim) {
+		return mapper.getGioBatDau(macn, maphim);
+	}
+
 }
