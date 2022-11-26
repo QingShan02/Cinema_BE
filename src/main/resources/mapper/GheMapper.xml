@@ -25,10 +25,10 @@
 		FROM ChiTietGhe JOIN Ghe on Ghe.MaGhe = ChiTietGhe.MaGhe
 						join PhongChieu on PhongChieu.MaPhong = ChiTietGhe.MaPhong
 						join XuatChieu on  XuatChieu.MaPhong = PhongChieu.MaPhong
-						join NgayChieu on NgayChieu.stt = XuatChieu.stt
+						join NgayChieu on NgayChieu.stt = XuatChieu.ngay
 						left join ve ON ve.mactghe = ChiTietGhe.mactghe
 						join LoaiGhe on LoaiGhe.MaLoai = Ghe.MaLoai
-		WHERE MaPhim = #{maPhim} and NgayChieu.ngay = cast(#{ngay} as date) and NgayChieu.GioBatDau = cast(#{gioBatDau} as time)
+		WHERE MaPhim = #{maPhim} and NgayChieu.ngay = CURRENT_DATE and NgayChieu.GioBatDau = cast(#{gioBatDau} as time)
 		order by ChiTietGhe.mactghe
 	</select>
 </mapper>

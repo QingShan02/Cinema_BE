@@ -8,6 +8,7 @@
 		<result column="Stt" property="Stt" />
 		<result column="Ngay" property="Ngay" />
 		<result column="GioBatDau" property="GioBatDau" />
+		<result column="stt_xc" property="stt_xc" />
 
 
 	</resultMap>
@@ -18,7 +19,7 @@
 	</select>
 
 	<select id="getGioBatDau" resultMap="resultMapNgayChieu">
-		select ngaychieu.stt ,ngaychieu.giobatdau
+		select ngaychieu.stt ,ngaychieu.giobatdau, xuatchieu.stt as stt_xc
 		from chinhanh join phongchieu on phongchieu.macn = chinhanh.macn
 		join xuatchieu on xuatchieu.maphong = phongchieu.maphong
 		join ngaychieu on ngaychieu.stt = xuatchieu.ngay

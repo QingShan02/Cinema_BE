@@ -36,6 +36,15 @@ where xuatchieu.stt = ve.stt_xc and ve.makh=#{maKH}
 
 	</select>
 	<insert id="insertVe">
-	insert into Ve(TongGiaVe, ThueVat, MaCTGhe, MaKH) values(#{GiaVe},#{thueVat},#{maCTGhe},#{maKH})
+	insert into Ve(GiaVe, ThueVat, MaCTGhe, MaKH,stt_xc) values(#{giaVe},#{thueVat},#{maCTGhe},#{maKH},#{stt_xc})
 	</insert>
+	<select id="getVe" resultMap="resultMapVe">
+		select tenkh,GiaVe, TenPhim
+		from Ve join KhachHang on KhachHang.maKH = Ve.maKH
+		right join ChiTietGhe on ChiTietGhe.maCTGhe = Ve.maCTGhe
+		join PhongChieu on PhongChieu.maPhong = ChiTietGhe.maPhong
+		join xuatchieu on xuatchieu.maPhong = PhongChieu.maPhong
+		join Phim on Phim.maPhim = xuatchieu.maPhim
+		where idVe = #{idVe}and xuatchieu.stt = Ve.stt_xc
+	</select>
 </mapper>

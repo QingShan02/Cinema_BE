@@ -17,10 +17,10 @@ public class VeServicelmpl implements VeService{
 			return mapper.getAllVe();
 		}
 		@Override
-		public int insertVe(double tongGiaVe, double thueVat, int maCTGhe, int maKH) {
+		public int insertVe(double tongGiaVe, double thueVat, int maCTGhe, int maKH,int stt_xc) {
 			// TODO Auto-generated method stub
 			int temp = 0;
-			if(mapper.insertVe(tongGiaVe, thueVat, maCTGhe, maKH)==1) {
+			if(mapper.insertVe(tongGiaVe, thueVat, maCTGhe, maKH,stt_xc)==1) {
 				temp = idVe();
 			}
 			return temp;
@@ -30,8 +30,13 @@ public class VeServicelmpl implements VeService{
 			// TODO Auto-generated method stub
 			return (List<Ve>) mapper.getLichSuVe(maKH);
 		}
-		
-		@Override
+
+	@Override
+	public Ve getVe(int idVe) {
+		return mapper.getVe(idVe);
+	}
+
+	@Override
 		public int idVe() {
 			List<Ve> list =  getAllVe();
 			System.out.println(list.size());

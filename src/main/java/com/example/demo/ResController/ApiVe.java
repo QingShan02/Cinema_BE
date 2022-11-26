@@ -26,13 +26,16 @@ public class ApiVe {
 //		return ResponseEntity.ok(service.getAllVe(tenPhim));
 //	}
 	@GetMapping("/insertVe")
-	public ResponseEntity<Integer> insertVe(@RequestParam("GiaVe") double tongGiaVe,@RequestParam("thueVat") double thueVat,@RequestParam("maCTGhe") int maCTGhe,@RequestParam("maKH") int maKH) throws SQLException{
+	public ResponseEntity<Integer> insertVe(@RequestParam("giaVe") double tongGiaVe,@RequestParam("thueVat") double thueVat,@RequestParam("maCTGhe") int maCTGhe,@RequestParam("maKH") int maKH,@RequestParam("stt_xc") int stt_xc) throws SQLException{
 		System.out.println(tongGiaVe);
-		return ResponseEntity.ok(service.insertVe(tongGiaVe, thueVat, maCTGhe, maKH));
+		return ResponseEntity.ok(service.insertVe(tongGiaVe, thueVat, maCTGhe, maKH,stt_xc));
 	}
 	@GetMapping("/LichSuVe")
 	public ResponseEntity<List<Ve>> getLichSuVe(@RequestParam("maKH") int maKH) throws SQLException{
 		return ResponseEntity.ok(service.getLichSuVe(maKH));
 	}
-
+	@GetMapping("/getVe")
+	public ResponseEntity<Ve> getVe(@RequestParam("idVe") int idVe) throws SQLException{
+		return ResponseEntity.ok(service.getVe(idVe));
+	}
 }

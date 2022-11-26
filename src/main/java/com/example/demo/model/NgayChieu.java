@@ -11,4 +11,5 @@ public class NgayChieu {
     private int Stt;
     private String Ngay;
     private String GioBatDau;
+    private String stt_xc;
 }
