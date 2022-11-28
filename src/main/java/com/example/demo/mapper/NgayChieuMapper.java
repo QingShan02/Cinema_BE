@@ -12,4 +12,5 @@ public interface NgayChieuMapper {
 	int getID(@Param("ngay") String ngay, @Param("gioBatDau") String gioBatDau);
 
 	List<NgayChieu> getGioBatDau(@Param("maCN") String maCN, @Param("maPhim") String maPhim);
+	List<NgayChieu> getNgay();
 }

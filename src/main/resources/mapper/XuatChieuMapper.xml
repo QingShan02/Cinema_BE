@@ -16,6 +16,8 @@
         <result column="TenPhim" property="TenPhim" />
         <result column="Ngay" property="NgayChieu" />
         <result column="GioBatDau" property="GioBatDau" />
+        <result column="Hinh" property="Hinh" />
+         <result column="ThoiLuong" property="ThoiLuong" />
 
     </resultMap>
     <select id="getLichChieu" resultMap="resultMapXuatChieu">
@@ -29,6 +31,10 @@
     <insert id="insertXuatChieu">
         insert into xuatchieu(GiaXuatChieu,Ngay,MaPhong,MaPhim) values(cast(#{giaXuatChieu} as float),cast (#{ngay} as int),#{maPhong},#{maPhim});
     </insert>
-
+<select id="XuatChieuTheoNgay" resultMap="resultMapXuatChieu">
+	select ngaychieu.ngay,ngaychieu.giobatdau,phim.tenphim,phim.hinh,phim.thoiluong 
+	from ngaychieu join xuatchieu ON xuatchieu.ngay = ngaychieu.stt join phim on phim.maphim = xuatchieu.maphim 
+	where ngaychieu.ngay=cast (#{ngay} as date)	
+    </select>
 
 </mapper>

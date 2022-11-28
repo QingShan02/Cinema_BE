@@ -38,4 +38,7 @@
 	<delete id="deleteKH">
 		delete from KhachHang where MaKH =#{makh}
 	</delete>
+		<select id="getOneKH" resultMap="resultMapKH">
+		select * from khachhang where makh=#{maKH}
+	</select>
 </mapper>

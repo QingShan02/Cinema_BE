@@ -28,5 +28,9 @@ NgayChieuMapper mapper;
 	public List<NgayChieu> getGioBatDau(String macn, String maphim) {
 		return mapper.getGioBatDau(macn, maphim);
 	}
+    @Override
+    public List<NgayChieu> getNgay() {
+        return mapper.getNgay();
+    }
 
 }

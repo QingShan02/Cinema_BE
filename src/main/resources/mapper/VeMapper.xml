@@ -25,7 +25,7 @@
 	</select>
 
 	<select id="getLichSuVe" resultMap="resultMapVe">
-select khachhang.makh,khachhang.tenkh,phim.tenphim,ve.idve,ngaychieu.ngay,ngaychieu.giobatdau from ve join khachhang on khachhang.makh = ve.makh
+select ve.giave,khachhang.makh,khachhang.tenkh,phim.tenphim,ve.idve,ngaychieu.ngay,ngaychieu.giobatdau from ve join khachhang on khachhang.makh = ve.makh
  join chitietghe on chitietghe.mactghe = ve.mactghe join phongchieu on phongchieu.maphong = chitietghe.maphong
  join xuatchieu on xuatchieu.maphong = phongchieu.maphong join ngaychieu on ngaychieu.stt = xuatchieu.ngay
  join phim ON phim.maphim = xuatchieu.maphim
@@ -47,4 +47,5 @@ where xuatchieu.stt = ve.stt_xc and ve.makh=#{maKH}
 		join Phim on Phim.maPhim = xuatchieu.maPhim
 		where idVe = #{idVe}and xuatchieu.stt = Ve.stt_xc
 	</select>
+	
 </mapper>

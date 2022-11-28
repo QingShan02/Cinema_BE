@@ -31,6 +31,8 @@
 	<select id="getID" resultType="int">
 		select * from SelectStt(cast (#{ngay} as date),cast (#{gioBatDau} as time))
 	</select>
-
+    <select id="getNgay" resultMap="resultMapNgayChieu">
+	select distinct ngay from ngaychieu order by ngay
+    </select>
 
 </mapper>

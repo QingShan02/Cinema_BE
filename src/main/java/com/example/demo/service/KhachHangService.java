@@ -12,4 +12,6 @@ public interface KhachHangService {
 
 	int insertKH(String tenKH, String email, String soDT, String diaChi, String matKhau);
 	int updateKH(String tenKH, String email, String soDT, String diaChi, String matKhau);
-	int deleteKH(int  maKH);}
+	int deleteKH(int  maKH);
+	KhachHang getOneKH(int maKH);	
+}

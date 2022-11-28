@@ -62,5 +62,9 @@ public class KhachHangServiceImpl implements KhachHangService {
 		}
 		return 0;
 	}
-	
+	@Override
+	public KhachHang getOneKH(int maKH) {
+		// TODO Auto-generated method stub
+		return mapper.getOneKH(maKH);
+	}
 }

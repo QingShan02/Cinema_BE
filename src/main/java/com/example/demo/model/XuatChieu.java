@@ -19,4 +19,6 @@ public class XuatChieu {
     private String TenPhim;
     private String NgayChieu;
     private String GioBatDau;
+    private String Hinh;
+    private String ThoiLuong;
 }
