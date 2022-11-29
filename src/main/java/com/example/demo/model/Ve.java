@@ -22,4 +22,11 @@ public class Ve {
     private float tong;
     private String tenkh;
     private String giobatdau;
+    private String tencn;
+    private String diachi;
+    private String tenghe;
+    private String tenloai;
+    private String sodt;
+    private String giochieu;
+    private String hinh;
 }

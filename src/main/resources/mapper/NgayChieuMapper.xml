@@ -24,7 +24,7 @@
 		join xuatchieu on xuatchieu.maphong = phongchieu.maphong
 		join ngaychieu on ngaychieu.stt = xuatchieu.ngay
 		join phim on phim.maphim = xuatchieu.maphim
-		where chinhanh.macn = #{maCN} and phim.maphim = #{maPhim} and ngaychieu.ngay = CURRENT_DATE
+		where chinhanh.macn = #{maCN} and phim.maphim = #{maPhim} and ngaychieu.ngay = CURRENT_DATE and ngaychieu.giobatdau >cast( to_char(now(), 'HH24:MI:SS') as time)
 		order by ngaychieu.giobatdau
 	</select>
 

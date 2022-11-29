@@ -18,6 +18,13 @@
 		<result column="tong" property="tong" />
 		<result column="tenkh" property="tenkh" />
 		<result column="giobatdau" property="giobatdau" />
+		<result column="tencn" property="tencn" />
+		<result column="diachi" property="diachi" />
+		<result column="tenghe" property="tenghe" />
+		<result column="tenloai" property="tenloai" />
+		<result column="sodt" property="sodt" />
+		<result column="giochieu" property="giochieu" />
+		<result column="hinh" property="hinh" />
 	</resultMap>
 	<select id="getAllVe1" resultMap="resultMapVe">
 	select phim.maphim,phim.tenphim, count(ve.idve) as Soluong, sum(ve.tonggiave) as tong, xuatchieu.ngay from ve left join chitietghe ON chitietghe.mactghe = ve.mactghe left join xuatchieu ON xuatchieu.maphong = chitietghe.maphong left join phim on phim.maphim = xuatchieu.maphim where phim.maphim=#{maPhim} group by phim.maphim,xuatchieu.ngay
@@ -39,12 +46,16 @@ where xuatchieu.stt = ve.stt_xc and ve.makh=#{maKH}
 	insert into Ve(GiaVe, ThueVat, MaCTGhe, MaKH,stt_xc) values(#{giaVe},#{thueVat},#{maCTGhe},#{maKH},#{stt_xc})
 	</insert>
 	<select id="getVe" resultMap="resultMapVe">
-		select tenkh,GiaVe, TenPhim
+		select tenkh,GiaVe, TenPhim, chinhanh.tencn,chinhanh.diachi, concat(phongchieu.tenphong,' - ', ghe.tenghe) as tenghe, loaighe.tenloai, khachhang.sodt, concat(NgayChieu.Ngay,' - ',NgayChieu.giobatdau) as giochieu, phim.hinh
 		from Ve join KhachHang on KhachHang.maKH = Ve.maKH
 		right join ChiTietGhe on ChiTietGhe.maCTGhe = Ve.maCTGhe
+		join ghe on ghe.maghe = ChiTietGhe.maghe
+		join loaighe on loaighe.maloai = ghe.maloai
 		join PhongChieu on PhongChieu.maPhong = ChiTietGhe.maPhong
+		join chinhanh on chinhanh.macn = PhongChieu.macn
 		join xuatchieu on xuatchieu.maPhong = PhongChieu.maPhong
 		join Phim on Phim.maPhim = xuatchieu.maPhim
+		join ngaychieu on ngaychieu.stt = xuatchieu.ngay
 		where idVe = #{idVe}and xuatchieu.stt = Ve.stt_xc
 	</select>
 </mapper>
