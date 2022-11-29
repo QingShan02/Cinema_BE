@@ -50,5 +50,9 @@ public class ApiKhachHang {
 		System.out.println(maKH);
 		return ResponseEntity.ok(service.deleteKH(maKH));
 	}
+@GetMapping("/getOneKH")
+public ResponseEntity<KhachHang> getOneKH(@RequestParam("maKH") int maKH) throws SQLException{
+	return ResponseEntity.ok(service.getOneKH(maKH));
+}
 
 }
