@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.GheMapper">
-	<resultMap id="resultMapGhe"
-		type="com.example.demo.model.Ghe">
-		<result column="MaGhe" property="MaGhe" />
-		<result column="TenGhe" property="TenGhe" />
-		<result column="MaLoai" property="MaLoai" />
-		<result column="IdVe" property="IdVe" />
-		<result column="gia" property="gia" />
-		<result column="MaCTGhe" property="MaCTGhe" />
-	</resultMap>
-	<select id="getAllGhe" resultMap="resultMapGhe">
-		SELECT *
-		FROM Ghe 
-	</select>
-	<select id="findGhePhong" resultMap="resultMapGhe">
-		SELECT MaLoai,Ghe.MaGhe,TenGhe FROM ChiTietGhe JOIN Ghe on Ghe.MaGhe = ChiTietGhe.MaGhe
-		WHERE MaPhong = #{MaPhong}
-	</select>
-		<select id="findGhePhim" resultMap="resultMapGhe">
-	SELECT Ghe.MaLoai,Ghe.MaGhe,TenGhe,ve.IdVe, (LoaiGhe.phuthu+XuatChieu.giaxuatchieu) as gia, ChiTietGhe.MaCTGhe
-		FROM ChiTietGhe JOIN Ghe on Ghe.MaGhe = ChiTietGhe.MaGhe
-						join PhongChieu on PhongChieu.MaPhong = ChiTietGhe.MaPhong
-						join XuatChieu on  XuatChieu.MaPhong = PhongChieu.MaPhong
-						join NgayChieu on NgayChieu.stt = XuatChieu.ngay
-						left join ve ON ve.mactghe = ChiTietGhe.mactghe
-						join LoaiGhe on LoaiGhe.MaLoai = Ghe.MaLoai
-		WHERE MaPhim = #{maPhim} and NgayChieu.ngay = CURRENT_DATE and NgayChieu.GioBatDau = cast(#{gioBatDau} as time)
-		order by ChiTietGhe.mactghe
-	</select>
+    <resultMap id="resultMapGhe"
+               type="com.example.demo.model.Ghe">
+        <result column="MaGhe" property="MaGhe"/>
+        <result column="TenGhe" property="TenGhe"/>
+        <result column="MaLoai" property="MaLoai"/>
+        <result column="IdVe" property="IdVe"/>
+        <result column="gia" property="gia"/>
+        <result column="MaCTGhe" property="MaCTGhe"/>
+    </resultMap>
+    <select id="getAllGhe" resultMap="resultMapGhe">
+        SELECT *
+        FROM Ghe
+    </select>
+    <select id="findGhePhong" resultMap="resultMapGhe">
+        SELECT MaLoai,Ghe.MaGhe,TenGhe FROM ChiTietGhe JOIN Ghe on Ghe.MaGhe = ChiTietGhe.MaGhe
+        WHERE MaPhong = #{MaPhong}
+    </select>
+    <select id="findGhePhim" resultMap="resultMapGhe">
+        SELECT Ghe.MaLoai,Ghe.MaGhe,TenGhe,ve.IdVe, (LoaiGhe.phuthu+XuatChieu.giaxuatchieu) as gia, ChiTietGhe.MaCTGhe
+        FROM ChiTietGhe JOIN Ghe on Ghe.MaGhe = ChiTietGhe.MaGhe
+        left join ve ON ve.mactghe = ChiTietGhe.mactghe
+        join phongchieu on phongchieu.maphong = ChiTietGhe.maphong
+        join xuatchieu on xuatchieu.maphong = phongchieu.maphong
+
+
+        join LoaiGhe on LoaiGhe.MaLoai = Ghe.MaLoai
+        WHERE XuatChieu.stt = #{stt_xc}
+        order by ChiTietGhe.mactghe
+    </select>
 </mapper>

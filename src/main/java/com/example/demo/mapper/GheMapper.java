@@ -9,5 +9,5 @@ import com.example.demo.model.*;
 public interface GheMapper {
 	List<Ghe> getAllGhe();
 	List<Ghe> findGhePhong(@Param("MaPhong") String Maphong);
-	List<Ghe> findGhePhim(@Param("maPhim")String maPhim, @Param("gioBatDau")String gioBatDau);
+	List<Ghe> findGhePhim(@Param("stt_xc")int stt_xc);
 }

@@ -32,7 +32,7 @@ public class ApiGhe {
 		return ResponseEntity.ok(service.findGhePhong(MaPhong));
 	}
 	@GetMapping("/findGhePhim")
-	public ResponseEntity<List<Ghe>> findGhePhim(@RequestParam("maPhim")String maPhim, @RequestParam("gioBatDau")String gioBatDau) throws SQLException{
-		return ResponseEntity.ok(service.findGhePhim(maPhim, gioBatDau));
+	public ResponseEntity<List<Ghe>> findGhePhim(@RequestParam("stt_xc")int stt_xc) throws SQLException{
+		return ResponseEntity.ok(service.findGhePhim(stt_xc));
 	}
 }

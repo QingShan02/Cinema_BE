@@ -7,6 +7,6 @@ import com.example.demo.model.Ghe;
 public interface GheService {
 	List<Ghe> getAllGhe();
 	List<Ghe> findGhePhong(String MaPhong);
-	List<Ghe> findGhePhim(String maPhim, String gioBatDau);
+	List<Ghe> findGhePhim(int stt_xc);
 
 }
