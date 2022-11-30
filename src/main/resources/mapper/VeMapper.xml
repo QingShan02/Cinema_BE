@@ -40,6 +40,7 @@ where xuatchieu.stt = ve.stt_xc and ve.makh=#{maKH}
 	</select>
 	<select id="getAllVe" resultMap="resultMapVe">
 			select * from ve
+			order by idve
 
 	</select>
 	<insert id="insertVe">

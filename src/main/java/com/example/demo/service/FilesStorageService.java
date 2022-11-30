@@ -10,7 +10,7 @@ public interface FilesStorageService {
     public void init();
 
     public void save(MultipartFile file);
-
+    public void saveQRCode(MultipartFile file);
     public Resource load(String filename);
 
     public void deleteAll();

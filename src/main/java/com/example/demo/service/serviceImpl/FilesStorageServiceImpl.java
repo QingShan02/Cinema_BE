@@ -18,11 +18,12 @@ import org.springframework.web.multipart.MultipartFile;
 public class FilesStorageServiceImpl implements FilesStorageService {
 
     private final Path root = Paths.get("src/main/resources/static/Image/poster");
-
+    private final Path pathQR = Paths.get("src/main/resources/static/Image/qrCode");
     @Override
     public void init() {
         try {
             Files.createDirectories(root);
+            Files.createDirectories(pathQR);
         } catch (IOException e) {
             throw new RuntimeException("Could not initialize folder for upload!");
         }
@@ -40,7 +41,18 @@ public class FilesStorageServiceImpl implements FilesStorageService {
             throw new RuntimeException(e.getMessage());
         }
     }
+    @Override
+    public void saveQRCode(MultipartFile file) {
+        try {
+            Files.copy(file.getInputStream(), this.pathQR.resolve(file.getOriginalFilename()));
+        } catch (Exception e) {
+            if (e instanceof FileAlreadyExistsException) {
+                throw new RuntimeException("A file of that name already exists.");
+            }
 
+            throw new RuntimeException(e.getMessage());
+        }
+    }
     @Override
     public Resource load(String filename) {
         try {
