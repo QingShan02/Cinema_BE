@@ -25,7 +25,7 @@ public class ApiXuatChieu {
         return ResponseEntity.ok(service.insertXuatChieu(giaXuatChieu, ngay, maPhong, maPhim));
     }
     @GetMapping("/XuatChieuTheoNgay")
-    public ResponseEntity<List<XuatChieu>> XuatChieuTheoNgay(@RequestParam("ngay") String ngay) throws SQLException{
-        return ResponseEntity.ok(service.XuatChieuTheoNgay(ngay));
+    public ResponseEntity<List<XuatChieu>> XuatChieuTheoNgay(@RequestParam("ngay") String ngay, @RequestParam("macn") String macn) throws SQLException{
+        return ResponseEntity.ok(service.XuatChieuTheoNgay(ngay,macn));
     }
 }

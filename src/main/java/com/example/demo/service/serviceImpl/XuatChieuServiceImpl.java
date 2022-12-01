@@ -22,7 +22,7 @@ public class XuatChieuServiceImpl implements XuatChieuService {
         return mapper.insertXuatChieu(giaXuatChieu, ngay, maPhong, maPhim);
     }
     @Override
-    public List<XuatChieu> XuatChieuTheoNgay(String ngay) {
-        return  mapper.XuatChieuTheoNgay(ngay);
+    public List<XuatChieu> XuatChieuTheoNgay(String ngay, String macn) {
+        return  mapper.XuatChieuTheoNgay(ngay, macn);
     }
 }
