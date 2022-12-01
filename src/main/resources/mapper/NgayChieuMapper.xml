@@ -32,7 +32,8 @@
 		select * from SelectStt(cast (#{ngay} as date),cast (#{gioBatDau} as time))
 	</select>
     <select id="getNgay" resultMap="resultMapNgayChieu">
-	select distinct ngay from ngaychieu order by ngay
+	select distinct ngay from ngaychieu
+where ngay between current_date and current_date +integer '3'
     </select>
 
 </mapper>
