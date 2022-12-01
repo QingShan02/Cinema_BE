@@ -3,12 +3,20 @@ const handleClickTable = (e) => {
     const myarr = e.thoiLuong.split(" ");
     e.thoiLuong = myarr[0];
     $$('formP').setValues(e);
+
 };
 const formPhim = () => ({
     view: "form",
     id: "formP",
     padding: 10,
     elements: [
+        // {rows:[{
+        //     view:"label",
+        //     label:"<img src='/Image/poster/#hinh#' style='height:200px, width:100%'>",
+        //     // name:"hinh",
+        //     id:"hinh",
+        //     height:200
+        // }]},
         { view: "text", name: "maPhim", label: "Mã Phim", labelWidth: 120 },
         { view: "text", name: "tenPhim", label: "Tên Phim", labelWidth: 120 },
         { view: "text", name: "dienVien", label: "Diễn Viên", labelWidth: 120 },
@@ -25,7 +33,7 @@ const formPhim = () => ({
         { view: "text", name: "traller", label: "Traller", labelWidth: 120 },
         {
             cols: [
-                { view: "button", value: "Save", css: "webix_primary", click: Service.clickThem },
+                { view: "button", value: "Thêm", css: "webix_primary", click: Service.clickThem },
                 { view: "button", value: "Xóa", click: Service.clickDelete },
                 { view: "button", value: "Sửa", click: Service.clickUpdate },
                 { view: "button", value: "Mới", click: Service.clickNew }
@@ -39,6 +47,7 @@ const tablePhim = () => ({
     id: "tableP",
     css: "webix_data_border webix_header_border",
     columns: [
+        { id: "hinh", header: "Hình", template: "<img src='/Image/poster/#hinh#' style='height:60px'/>", width: 60 },
         { id: "maPhim", header: "Mã Phim", width: 60, resize: false },
         { id: "tenPhim", header: "Tên Phim", width: 300 },
         { id: "dienVien", header: "Diễn Viên", width: 200 },
@@ -49,8 +58,9 @@ const tablePhim = () => ({
         { id: "moTa", header: "Mô Tả", fillspace: true },
         { id: "traller", header: "Trailler", fillspace: true }
     ],
+
     data: [],
-    fixedRowHeight: false, rowLineHeight: 25, rowHeight: 25,
+    fixedRowHeight: false, rowLineHeight: 25, rowHeight: 80,
     select: true,
     on: {
         onItemClick: function (id) {
@@ -68,6 +78,7 @@ const p = () => ({
         formPhim(),
         tablePhim()
 
-    ]
+    ],
+    scroll: true
 })
 export default p();

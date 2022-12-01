@@ -17,7 +17,7 @@ var menu_data = [{
     data: [
         { id: "ve", value: "Vé" },
         { id: "dashboard2", value: "Doanh thu" },
-        { id: "qlnv", value: "Quản lí nhân viên" },
+        // { id: "qlnv", value: "Quản lí nhân viên" },
         { id: "qllc", value: "Quản lí lịch chiếu" },
         { id: "qlp", value: "Quản lí phim" },
         { id: "qlkh", value: "Quản lí khách hàng" },
@@ -42,7 +42,7 @@ webix.ready(() => {
                 cells: [
                     ve,
                     doanhthu,
-                    nv,
+                    // nv,
                     lc,
                     p,
                     kh
@@ -54,8 +54,8 @@ webix.ready(() => {
 
         }]
     })
-    Service.fillTable();
-    Service.fillChucVu();
+    // Service.fillTable();
+    // Service.fillChucVu();
     Service1.fillTable();
     Service1.fillphim();
     Service2.fillTable();

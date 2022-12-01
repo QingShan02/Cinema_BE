@@ -57,7 +57,7 @@ where xuatchieu.stt = ve.stt_xc and ve.makh=#{maKH}
 		join xuatchieu on xuatchieu.maPhong = PhongChieu.maPhong
 		join Phim on Phim.maPhim = xuatchieu.maPhim
 		join ngaychieu on ngaychieu.stt = xuatchieu.ngay
-		where idVe = #{idVe}and xuatchieu.stt = Ve.stt_xc
+		where idVe = #{idVe} and xuatchieu.stt = Ve.stt_xc
 	</select>
 	
 </mapper>

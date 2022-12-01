@@ -21,15 +21,13 @@
         WHERE MaPhong = #{MaPhong}
     </select>
     <select id="findGhePhim" resultMap="resultMapGhe">
-        SELECT Ghe.MaLoai,Ghe.MaGhe,TenGhe,ve.IdVe, (LoaiGhe.phuthu+XuatChieu.giaxuatchieu) as gia, ChiTietGhe.MaCTGhe
-        FROM ChiTietGhe JOIN Ghe on Ghe.MaGhe = ChiTietGhe.MaGhe
-        left join ve ON ve.mactghe = ChiTietGhe.mactghe
-        join phongchieu on phongchieu.maphong = ChiTietGhe.maphong
-        join xuatchieu on xuatchieu.maphong = phongchieu.maphong
-
-
-        join LoaiGhe on LoaiGhe.MaLoai = Ghe.MaLoai
-        WHERE XuatChieu.stt = #{stt_xc}
-        order by ChiTietGhe.mactghe
+        SELECT ghe.MaLoai,ghe.MaGhe,TenGhe,ve.IdVe, (loaighe.phuthu+xuatchieu.giaxuatchieu) as gia, chitietghe.MaCTGhe
+        FROM chitietghe join phongchieu on phongchieu.maphong = chitietghe.maphong
+        join xuatchieu on phongchieu.maphong = xuatchieu.maphong
+        left join ve on xuatchieu.stt = ve.stt_xc and chitietghe.mactghe  = ve.mactghe
+        join ghe on ghe.maghe  = chitietghe.maghe
+        join loaighe on ghe.maloai = loaighe.maloai
+        where xuatchieu.stt = #{stt_xc}
+        order by chitietghe.mactghe;
     </select>
 </mapper>

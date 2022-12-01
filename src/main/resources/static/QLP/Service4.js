@@ -3,6 +3,7 @@ class Service4 {
         let { data: result } = await axios.get("/api/phim/getAllPhim");
         $$('formP').clear();
         $$('tableP').clearAll();
+        // console.log(result);
         $$('tableP').parse(result);
     }
     clickThem = async () => {

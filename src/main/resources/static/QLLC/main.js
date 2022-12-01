@@ -40,28 +40,28 @@ const formLichChieu = () => ({
             name: "giaXuatChieu",
             labelWidth: 100
         },
-        {
-            view: "timeboard",
-            value: "12:45",
-            id: "time",
-            name: "gioBatDau",
-            // on: {
-            //     onchange: function (value) {
-            //         let date = new Date();
-            //         // let time = webix.i18n.timeFormatStr(date);
-            //         var format = webix.Date.dateToStr("%h:%i %A");
-            //         time = format(date);
-            //         value = format(value);
-            //         console.log(value, time);
-            //         // console.log(date,time);
-            //         if (value < time) {
-            //             console.log("Không hợp lệ")
-            //         } else {
-            //             console.log("Hợp lệ");
-            //         }
-            //     }
-            // }
-        },
+        // {
+        //     view: "timeboard",
+        //     value: "12:45",
+        //     id: "time",
+        //     name: "gioBatDau",
+        //     // on: {
+        //     //     onchange: function (value) {
+        //     //         let date = new Date();
+        //     //         // let time = webix.i18n.timeFormatStr(date);
+        //     //         var format = webix.Date.dateToStr("%h:%i %A");
+        //     //         time = format(date);
+        //     //         value = format(value);
+        //     //         console.log(value, time);
+        //     //         // console.log(date,time);
+        //     //         if (value < time) {
+        //     //             console.log("Không hợp lệ")
+        //     //         } else {
+        //     //             console.log("Hợp lệ");
+        //     //         }
+        //     //     }
+        //     // }
+        // },
         {
             cols: [
                 {
@@ -174,9 +174,7 @@ const tableLichChieu = () => ({
         { id: "ngayChieu", header: "Ngày chiếu", fillspace: true },
         { id: "gioBatDau", header: "Giờ", fillspace: true },
         { id: "tenPhong", header: "Phòng", fillspace: true },
-        { id: "tenCN", header: "Chi Nhánh", fillspace: true }
-
-
+        { id: "tenCN", header: ["Chi Nhánh",{content:"selectFilter"}],sort:"string", fillspace: true }
     ],
     data: []
 });
@@ -184,7 +182,7 @@ const lc = () => ({
     view: "form",
     id: "qllc",
     rows: [
-        // formLichChieu()
+        formLichChieu(),
         tableLichChieu()
 
     ]
