@@ -8,6 +8,7 @@ import Service3 from './QLLC/Service3.js';
 import Service4 from './QLP/Service4.js';
 import Service5 from './QLKH/Service5.js';
 import kh from './QLKH/main.js';
+import tk from './ThongKe/main.js';
 import lc from './QLLC/main.js';
 import p from './QLP/main.js';
 var menu_data = [{
@@ -40,6 +41,7 @@ webix.ready(() => {
             {
                 id: 'form_view',
                 cells: [
+                    tk,
 //                    ve,
 //                    doanhthu,
                      nv,

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.SendEmailMapper">
+    <resultMap id="resultMapSend"
+               type="com.example.demo.model.SendEmail">
+        <result column="idVe" property="idVe" />
+        <result column="tenKH" property="tenKH" />
+        <result column="email" property="email" />
+        <result column="gioBatDau" property="gioBatDau" />
+        <result column="tenPhim" property="tenPhim" />
+        <result column="hangGhe" property="hangGhe" />
+        <result column="nc" property="nc" />
+        <result column="giaVe" property="giaVe" />
+        <result column="tenTopping" property="tenTopping" />
+        <result column="soLuongMua" property="soLuongMua" />
+
+
+    </resultMap>
+    <select id="getAll" resultMap="resultMapSend">
+
+        select ve.idve, khachhang.tenkh,khachhang.email,ngaychieu.giobatdau, phim.tenphim, phongchieu.tenphong||' - '|| ghe.tenghe as hangghe,ngaychieu.ngay|| ' - '|| ngaychieu.giobatdau as nc, ve.giave, topping.tentopping, ordertopping.soluongmua
+        from ve join khachhang on khachhang.makh = ve.makh
+        join ChiTietGhe on ChiTietGhe.mactghe = ve.mactghe
+        join ghe on ghe.maghe = ChiTietGhe.maghe
+        join xuatchieu on xuatchieu.stt = ve.stt_xc
+        join phim on phim.maphim = xuatchieu.maphim
+        join ngaychieu on ngaychieu.stt = xuatchieu.ngay
+        join phongchieu on phongchieu.maphong = xuatchieu.maphong
+        left join ordertopping on ordertopping.idve = ve.idve
+        left join topping on topping.matopping = ordertopping.matopping
+        where ve.idve not in (select hoadon.idve from hoadon) and ngaychieu.giobatdau >cast( to_char(now(), 'HH24:MI:SS') as time) and ngaychieu.ngay = CURRENT_DATE and phongchieu.macn = 'cn1'
+        order by ve.idve;
+    </select>
+
+
+
+</mapper>

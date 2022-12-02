@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.OrderToppingMapper">
+    <resultMap id="resultMapOrder"
+               type="com.example.demo.model.OrderTopping">
+        <result column="MaTopping" property="MaTopping" />
+        <result column="SoLuongMua" property="SoLuongMua" />
+        <result column="IdVe" property="IdVe" />
+
+    </resultMap>
+    <select id="getAll" resultMap="resultMapOrder">
+        SELECT *
+        FROM OrderTopping
+    </select>
+    <insert id="insert">
+        insert into OrderTopping values(#{maTopping},#{soLuongMua},#{idVe})
+    </insert>
+    <select id="getOrder" resultMap="resultMapOrder">
+        select *
+        from OrderTopping where IdVe = #{idVe}
+    </select>
+</mapper>
