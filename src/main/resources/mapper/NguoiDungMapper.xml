@@ -7,11 +7,12 @@
 		<result column="MatKhau" property="MatKhau" />
 		<result column="SoDT" property="SoDT" />
 		<result column="MaCN" property="MaCN" />
-
+		<result column="TenCN" property="TenCN" />
 	</resultMap>
 	<select id="getAllNV" resultMap="resultMapNV">
-		SELECT *
-		FROM NguoiDung
+		SELECT NguoiDung.*,TenCN
+		FROM NguoiDung join ChiNhanh on ChiNhanh.MaCN = NguoiDung.MaCN
+		order by NguoiDung.MaNguoiDung
 	</select>
 
 	<select id="findNVByEmailAndPassword" resultMap="resultMapNV">
@@ -25,7 +26,7 @@
 	</insert>
 	
 	<update id="updateNV">
-	update NguoiDung set HoTen = #{TenNguoiDung} , MatKhau = #{matKhau}, SoDT = #{soDT}, MaCN = #{maCN} where MaNguoiDung =#{MaNguoiDung}
+	update NguoiDung set TenNguoiDung = #{TenNguoiDung} , MatKhau = #{matKhau}, SoDT = #{soDT}, MaCN = #{maCN} where MaNguoiDung =#{MaNguoiDung}
 	</update>
 	<delete id="deleteNV">
 	delete from NguoiDung where MaNguoiDung =#{MaNguoiDung}

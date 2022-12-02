@@ -5,40 +5,42 @@
 <mapper namespace="com.example.demo.mapper.XuatChieuMapper">
     <resultMap id="resultMapXuatChieu"
                type="com.example.demo.model.XuatChieu">
-        <result column="Stt" property="Stt" />
-        <result column="Ngay" property="Ngay" />
-        <result column="MaPhong" property="MaPhong" />
-        <result column="MaPhim" property="MaPhim" />
-        <result column="GiaXuatChieu" property="GiaXuatChieu" />
-        <result column="MaCN" property="MaCN" />
-        <result column="TenCN" property="TenCN" />
-        <result column="TenPhong" property="TenPhong" />
-        <result column="TenPhim" property="TenPhim" />
-        <result column="Ngay" property="NgayChieu" />
-        <result column="GioBatDau" property="GioBatDau" />
-        <result column="Hinh" property="Hinh" />
-         <result column="ThoiLuong" property="ThoiLuong" />
-         <result column="macn" property="macn" />
-         <result column="stt_xc" property="stt_xc" />
+        <result column="Stt" property="Stt"/>
+        <result column="Ngay" property="Ngay"/>
+        <result column="MaPhong" property="MaPhong"/>
+        <result column="MaPhim" property="MaPhim"/>
+        <result column="GiaXuatChieu" property="GiaXuatChieu"/>
+        <result column="MaCN" property="MaCN"/>
+        <result column="TenCN" property="TenCN"/>
+        <result column="TenPhong" property="TenPhong"/>
+        <result column="TenPhim" property="TenPhim"/>
+        <result column="Ngay" property="NgayChieu"/>
+        <result column="GioBatDau" property="GioBatDau"/>
+        <result column="Hinh" property="Hinh"/>
+        <result column="ThoiLuong" property="ThoiLuong"/>
+        <result column="Stt_xc" property="Stt_xc"/>
 
     </resultMap>
     <select id="getLichChieu" resultMap="resultMapXuatChieu">
 
-        select XuatChieu.Stt, XuatChieu.MaPhim,XuatChieu.GiaXuatChieu , PhongChieu.TenPhong, Phim.TenPhim, NgayChieu.Ngay, NgayChieu.GioBatDau, PhongChieu.MaCN, ChiNhanh.TenCN
+        select XuatChieu.Stt, XuatChieu.MaPhim,XuatChieu.GiaXuatChieu , PhongChieu.TenPhong, Phim.TenPhim,
+        NgayChieu.Ngay, NgayChieu.GioBatDau, PhongChieu.MaCN, ChiNhanh.TenCN
         from XuatChieu join PhongChieu on PhongChieu.MaPhong = XuatChieu.MaPhong
-                        join Phim on Phim.MaPhim = XuatChieu.MaPhim
-                        join NgayChieu on NgayChieu.Stt = XuatChieu.Ngay
-                        join ChiNhanh on ChiNhanh.MaCN = PhongChieu.MaCN
+        join Phim on Phim.MaPhim = XuatChieu.MaPhim
+        join NgayChieu on NgayChieu.Stt = XuatChieu.Ngay
+        join ChiNhanh on ChiNhanh.MaCN = PhongChieu.MaCN
     </select>
     <insert id="insertXuatChieu">
-        insert into xuatchieu(GiaXuatChieu,Ngay,MaPhong,MaPhim) values(cast(#{giaXuatChieu} as float),cast (#{ngay} as int),#{maPhong},#{maPhim});
+        insert into xuatchieu(GiaXuatChieu,Ngay,MaPhong,MaPhim) values(cast(#{giaXuatChieu} as float),cast (#{ngay} as
+        int),#{maPhong},#{maPhim});
     </insert>
-<select id="XuatChieuTheoNgay" resultMap="resultMapXuatChieu">
-	select xuatchieu.stt as stt_xc,ngaychieu.stt,phongchieu.tenphong,ngaychieu.ngay,ngaychieu.giobatdau,phim.tenphim,phim.maphim,phim.hinh,phim.thoiluong 
-from ngaychieu join xuatchieu ON xuatchieu.ngay = ngaychieu.stt join phim on phim.maphim = xuatchieu.maphim 
-join phongchieu on phongchieu.maphong = xuatchieu.maphong
-join chinhanh on chinhanh.macn = phongchieu.macn
-where ngaychieu.ngay=cast (#{ngay} as date)	and chinhanh.macn=#{macn}
+    <select id="XuatChieuTheoNgay" resultMap="resultMapXuatChieu">
+        select xuatchieu.stt as
+        stt_xc,ngaychieu.stt,phongchieu.tenphong,ngaychieu.ngay,ngaychieu.giobatdau,phim.tenphim,phim.maphim,phim.hinh,phim.thoiluong
+        from ngaychieu join xuatchieu ON xuatchieu.ngay = ngaychieu.stt join phim on phim.maphim = xuatchieu.maphim
+        join phongchieu on phongchieu.maphong = xuatchieu.maphong
+        join chinhanh on chinhanh.macn = phongchieu.macn
+        where ngaychieu.ngay=cast (#{ngay} as date) and chinhanh.macn=#{macn}
     </select>
 
 </mapper>

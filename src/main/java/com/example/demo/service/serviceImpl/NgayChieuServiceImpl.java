@@ -10,27 +10,41 @@ import com.example.demo.model.NgayChieu;
 import com.example.demo.service.NgayChieuService;
 
 @Service
-public class NgayChieuServiceImpl implements NgayChieuService{
-@Autowired
-NgayChieuMapper mapper;
-	@Override
-	public List<NgayChieu> getGioByPhim(String maphim, String ngay) {
-		// TODO Auto-generated method stub
-		return mapper.getGioByPhim(maphim, ngay);
-	}
+public class NgayChieuServiceImpl implements NgayChieuService {
+    @Autowired
+    NgayChieuMapper mapper;
 
-	@Override
-	public int getID(String ngay, String gioBatDau) {
-		return mapper.getID(ngay,gioBatDau);
-	}
+    @Override
+    public List<NgayChieu> getGioByPhim(String maphim, String ngay) {
+        // TODO Auto-generated method stub
+        return mapper.getGioByPhim(maphim, ngay);
+    }
 
-	@Override
-	public List<NgayChieu> getGioBatDau(String macn, String maphim) {
-		return mapper.getGioBatDau(macn, maphim);
-	}
+    @Override
+    public int insertNgayChieu(String ngay, String gioBatDau) {
+
+        return mapper.insertNgayChieu(ngay, gioBatDau);
+    }
+
+    @Override
+    public List<NgayChieu> getGioBatDau(String macn, String maphim) {
+
+        return mapper.getGioBatDau(macn, maphim);
+    }
+
     @Override
     public List<NgayChieu> getNgay() {
         return mapper.getNgay();
+    }
+
+    @Override
+    public NgayChieu getNgayChieu(String ngay, String gioBatDau) {
+        return mapper.getNgayChieu(ngay, gioBatDau);
+    }
+
+    @Override
+    public int getMaxStt() {
+        return mapper.getMaxStt();
     }
 
 }

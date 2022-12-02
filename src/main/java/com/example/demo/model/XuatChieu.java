@@ -22,4 +22,5 @@ public class XuatChieu {
     private String Hinh;
     private String ThoiLuong;
     private int Stt_xc;
+
 }

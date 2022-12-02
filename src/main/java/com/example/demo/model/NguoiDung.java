@@ -12,4 +12,5 @@ public class NguoiDung {
     private String MatKhau;
     private String SoDT;
     private String MaCN;
+    private String TenCN;
 }

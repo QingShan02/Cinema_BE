@@ -15,9 +15,9 @@ var menu_data = [{
     icon: "mdi mdi-view-dashboard",
     value: "Mục lục",
     data: [
-        { id: "ve", value: "Vé" },
-        { id: "dashboard2", value: "Doanh thu" },
-        // { id: "qlnv", value: "Quản lí nhân viên" },
+//        { id: "ve", value: "Vé" },
+//        { id: "dashboard2", value: "Doanh thu" },
+         { id: "qlnv", value: "Quản lí nhân viên" },
         { id: "qllc", value: "Quản lí lịch chiếu" },
         { id: "qlp", value: "Quản lí phim" },
         { id: "qlkh", value: "Quản lí khách hàng" },
@@ -40,9 +40,9 @@ webix.ready(() => {
             {
                 id: 'form_view',
                 cells: [
-                    ve,
-                    doanhthu,
-                    // nv,
+//                    ve,
+//                    doanhthu,
+                     nv,
                     lc,
                     p,
                     kh
@@ -54,8 +54,8 @@ webix.ready(() => {
 
         }]
     })
-    // Service.fillTable();
-    // Service.fillChucVu();
+     Service.fillTable();
+     Service.fillChiNhanh();
     Service1.fillTable();
     Service1.fillphim();
     Service2.fillTable();

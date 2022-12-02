@@ -29,7 +29,16 @@ public class ApiNgayChieu {
 //	}
 	@GetMapping("/getID")
 	public ResponseEntity<Integer> getID(@RequestParam("ngay") String ngay, @RequestParam("gioBatDau") String gioBatDau) throws SQLException{
-		return ResponseEntity.ok(service.getID(ngay,gioBatDau));
+		int temp = 0;
+		NgayChieu nc = service.getNgayChieu(ngay, gioBatDau);
+		if(nc==null){
+			service.insertNgayChieu(ngay, gioBatDau);
+			temp = service.getMaxStt();
+		}else{
+			temp = nc.getStt();
+		}
+
+		return ResponseEntity.ok(temp);
 	}
 
 	@GetMapping("/getGioBatDau")

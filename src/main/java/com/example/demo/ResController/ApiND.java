@@ -17,31 +17,31 @@ import com.example.demo.model.NguoiDung;
 import com.example.demo.service.NhanVienService;
 
 @RestController
-@RequestMapping("/api/nv")
+@RequestMapping("/api/nd")
 @CrossOrigin(origins ="*")
 public class ApiND {
 	@Autowired
 	NhanVienService service;
 	
-	@GetMapping("/getAllNV")
+	@GetMapping("/getAllND")
 	public ResponseEntity<List<NguoiDung>> getAllNV() throws SQLException{
 		return ResponseEntity.ok(service.getAllNV());
 		
 	}
 	
-	@GetMapping("/findNV")
+	@GetMapping("/findND")
 	public ResponseEntity<NguoiDung> getNV(@RequestParam("sdt") String sdt, @RequestParam("matKhau") String password) throws SQLException{
 		return ResponseEntity.ok(service.findNVByEmailAndPassword(sdt, password));
 	}
-	@PostMapping("/insertNV")
+	@PostMapping("/insertND")
 	public ResponseEntity<Integer> insertNV(@RequestBody NguoiDung nv) throws SQLException{
 		return ResponseEntity.ok(service.insertNV(nv));
 	}
-	@PostMapping("/updateNV")
+	@PostMapping("/updateND")
 	public ResponseEntity<Integer> updateNV(@RequestBody NguoiDung nv) throws SQLException{
 		return ResponseEntity.ok(service.updateNV(nv));
 	}
-	@GetMapping("/deleteNV")
+	@GetMapping("/deleteND")
 	public ResponseEntity<Integer> deleteNV(@RequestParam("maNguoiDung") String maNV) throws SQLException{
 		System.out.println(maNV);
 		return ResponseEntity.ok(service.deleteNV(maNV));

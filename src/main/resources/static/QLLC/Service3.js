@@ -5,16 +5,16 @@ class Service3{
             return {id:s.maCN, value:"CGV "+s.tenCN }
         });
         // console.log(temp);
-        $$('chiNhanh').define("options",temp);
-        $$('chiNhanh').render();
+        $$('LCchiNhanh').define("options",temp);
+        $$('LCchiNhanh').render();
     }
     GetIDNgay = async(data,value) =>{
         // console.log(value);
         let result = await axios.get("/api/ngay/getID",{params:value});
         let temp ={
             ngay: result.data,
-            maPhong: data.phong,
-            maPhim: data.phim,
+            maPhong: data.maPhong,
+            maPhim: data.maPhim,
             giaXuatChieu: data.giaXuatChieu,
         };
         console.log(temp);
@@ -36,16 +36,16 @@ class Service3{
         const temp = result.map(s=>{
             return {id:s.maPhong, value:s.tenPhong }
         });
-        $$('phong').define("options",temp);
-        $$('phong').render();
+        $$('LCphong').define("options",temp);
+        $$('LCphong').render();
     }
     LoadPhim = async()=>{
         let {data:result} = await axios.get("/api/phim/getAllPhim");
         const temp = result.map(s=>{
             return {id:s.maPhim, value:s.tenPhim }
         });
-        $$('phim').define("options",temp);
-        $$('phim').render();
+        $$('LCphim').define("options",temp);
+        $$('LCphim').render();
     }
     LoadTableLichChieu = async() =>{
         $$('tableLC').clearAll();

@@ -9,34 +9,34 @@ const formLichChieu = () => ({
         {
             view: "combo",
             label: "Chi Nhánh",
-            id: "chiNhanh",
-            name: "chiNhanh",
+            id: "LCchiNhanh",
+            name: "maCN",
             options: [],
             on: {
                 onchange: function () {
                     // console.log($$('chiNhanh').getValue());
-                    Service3.LoadPhong($$('chiNhanh').getValue())
+                    Service3.LoadPhong($$('LCchiNhanh').getValue())
                 }
             }
         },
         {
             view: "combo",
             label: "Phòng",
-            id: "phong",
-            name: "phong",
+            id: "LCphong",
+            name: "maPhong",
             options: []
         },
         {
             view: "combo",
             label: "Phim",
-            id: "phim",
-            name: "phim",
+            id: "LCphim",
+            name: "maPhim",
             options: []
         },
         {
             view: "text",
             label: "Giá xuất chiếu",
-            id: "cash",
+            id: "giaXuatChieu",
             name: "giaXuatChieu",
             labelWidth: 100
         },
@@ -63,71 +63,15 @@ const formLichChieu = () => ({
         //     // }
         // },
         {
+                            view: "datepicker",
+                            timepicker: true,
+                            label: "Chọn ngày",
+                            name: "end",
+                            stringResult: true,
+                            format: "%d %M %Y at %H:%i"
+                        },
+        {
             cols: [
-                {
-                    view: "datepicker",
-                    timepicker: true,
-                    label: "Chọn ngày",
-                    name: "end",
-                    stringResult: true,
-                    format: "%d %M %Y at %H:%i"
-                },
-                {
-                    view: "combo",
-                    label: "Chi Nhánh",
-                    id: "chiNhanh",
-                    name: "chiNhanh",
-                    options: [],
-                    on: {
-                        onchange: function () {
-                            // console.log($$('chiNhanh').getValue());
-                            Service3.LoadPhong($$('chiNhanh').getValue())
-                        }
-                    }
-                },
-                {
-                    view: "combo",
-                    label: "Phòng",
-                    id: "phong",
-                    name: "phong",
-                    options: []
-                },
-                {
-                    view: "combo",
-                    label: "Phim",
-                    id: "phim",
-                    name: "phim",
-                    options: []
-                },
-                {
-                    view: "text",
-                    label: "Giá xuất chiếu",
-                    id: "cash",
-                    name: "giaXuatChieu",
-                    labelWidth: 100
-                },
-                // {
-                //     view: "timeboard",
-                //     value: "12:45",
-                //     id: "time",
-                //     name: "gioBatDau",
-                //     // on: {
-                //     //     onchange: function (value) {
-                //     //         let date = new Date();
-                //     //         // let time = webix.i18n.timeFormatStr(date);
-                //     //         var format = webix.Date.dateToStr("%h:%i %A");
-                //     //         time = format(date);
-                //     //         value = format(value);
-                //     //         console.log(value, time);
-                //     //         // console.log(date,time);
-                //     //         if (value < time) {
-                //     //             console.log("Không hợp lệ")
-                //     //         } else {
-                //     //             console.log("Hợp lệ");
-                //     //         }
-                //     //     }
-                //     // }
-                // },
                 {
                     cols: [
                         {
