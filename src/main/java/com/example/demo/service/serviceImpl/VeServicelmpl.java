@@ -41,6 +41,16 @@ public class VeServicelmpl implements VeService {
     }
 
     @Override
+    public List<Ve> CountVeByChiNhanh(String macn) {
+        return mapper.CountVeByChiNhanh(macn);
+    }
+
+    @Override
+    public List<Ve> CountVeByPhim(String macn) {
+        return mapper.CountVeByPhim(macn);
+    }
+
+    @Override
     public int idVe() {
         List<Ve> list = getAllVe();
         System.out.println(list.size());

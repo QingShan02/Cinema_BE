@@ -29,4 +29,6 @@ public class Ve {
     private String sodt;
     private String giochieu;
     private String hinh;
+    private String SoLuongVe;
+    private int tongVe;
 }

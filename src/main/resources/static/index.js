@@ -1,12 +1,11 @@
 import Service from './QLNV/Service.js';
-import doanhthu from './DoanhThu/main.js';
-import ve from './Ve/main.js';
+
 import nv from './QLNV/main.js';
-import Service1 from './Ve/Service1.js';
 import Service2 from './DoanhThu/Service2.js';
 import Service3 from './QLLC/Service3.js';
 import Service4 from './QLP/Service4.js';
 import Service5 from './QLKH/Service5.js';
+import Service6 from './ThongKe/Service6.js';
 import kh from './QLKH/main.js';
 import tk from './ThongKe/main.js';
 import lc from './QLLC/main.js';
@@ -58,13 +57,13 @@ webix.ready(() => {
     })
      Service.fillTable();
      Service.fillChiNhanh();
-    Service1.fillTable();
-    Service1.fillphim();
     Service2.fillTable();
     Service3.LoadChiNhanh();
     Service3.LoadPhim();
     Service3.LoadTableLichChieu();
     Service4.FillTablePhim();
     Service5.fillTableKH();
-
+    Service6.FillCboChiNhanh();
+    Service6.FillChart('cn1');
+    Service6.FillTable('cn1');
 })

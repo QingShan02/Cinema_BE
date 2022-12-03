@@ -11,5 +11,7 @@ public interface VeService {
 	int idVe();
 	List<Ve> getLichSuVe(int maKH);
 	Ve getVe( int idVe);
+	List<Ve> CountVeByChiNhanh(String macn);
+	List<Ve> CountVeByPhim(String macn);
 
 }

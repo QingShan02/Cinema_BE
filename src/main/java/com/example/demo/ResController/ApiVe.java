@@ -38,4 +38,12 @@ public class ApiVe {
 	public ResponseEntity<Ve> getVe(@RequestParam("idVe") int idVe) throws SQLException{
 		return ResponseEntity.ok(service.getVe(idVe));
 	}
+	@GetMapping("/getSoLuongVe")
+	public ResponseEntity<List<Ve>> getSoLuongVe(@RequestParam("maCN") String maCN) throws SQLException{
+		return ResponseEntity.ok(service.CountVeByChiNhanh(maCN));
+	}
+	@GetMapping("/countVeByPhim")
+	public ResponseEntity<List<Ve>> countVeByPhim(@RequestParam("maCN") String maCN) throws SQLException{
+		return ResponseEntity.ok(service.CountVeByPhim(maCN));
+	}
 }

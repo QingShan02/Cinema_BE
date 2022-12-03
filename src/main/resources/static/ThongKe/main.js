@@ -1,48 +1,84 @@
-var data = [
-    { val:70.6, type:"Số Lượng", color1: "#2ECC71", color2:"#AAB7B8" },
-    { val:30.6, type:"Negative", color1: "#AAB7B8", color2:"#E74C3C" },
-  ];  
-var dataTable =[
-    {tenCN:"Hưng Thịnh",avg:1000,count:300},
-    {tenCN:"Bình Tân",avg:300,count:500},
-    {tenCN:"Quang Trung",avg:1240,count:340},
-]
-const tableThongKe = ()=>({
-    view:"datatable",
-    id:"tableTK",
-    columns:[
-        {id:"tenCN",header:"Tên Chi Nhánh"},
-        {id:"avg", header:"Tỉ lệ bán vé trong ngày"},
-        {id:"count",header:"Số lượng bán hôm nay"}
+import Service6 from "./Service6.js";
+
+const tableThongKe = () => ({
+    view: "datatable",
+    id: "tableTK",
+    columns: [
+        { id: "tenPhim", header: "Tên Phim", fillspace: true },
+        { id: "tongVe", header: "Số lượng bán nhiều nhất", fillspace: true },
+        { id: "soLuongVe", header: "Số lượng bán hôm nay", fillspace: true }
     ],
-    data:dataTable
-})  
+    data: []
+})
 const tk = (e) => ({
     view: "form",
     id: "tk",
     rows: [
         {
-            cols:[
+            cols: [
                 {
-                    view:"template", template:"Chi Nhánh"
+                    rows: [
+                        {
+                            view: "template",
+                            template: "Chi Nhánh",
+                            height: 50,
+                            width: 200
+                        },
+                        {
+                            view: "combo",
+                            label: "",
+                            id: "TKchiNhanh",
+                            options: [],
+                            value:'cn1',
+                            on: {
+                                onChange: function () {
+                                    Service6.FillChart($$('TKchiNhanh').getValue());
+                                    Service6.FillTable($$('TKchiNhanh').getValue());
+
+                                }
+                            }
+                        }
+                    ]
                 },
                 {
-                    template:"", width:200
-                },
-                {
-                    view: "chart",
-                    donutInnerText: function (data, total) {
-                        return "<span style='font-size:20px'>" + data[0].type + ":</span><br>" + data[0].val + "%";
-                    },
-                    type: "donut",
-                    innerRadius: 70,
-                    value: "#val#",
-                    color: "#color1#",
-                    height: 300,
-                    width: 300,
-                    data
+                    rows: [
+                        {
+                            view: "template",
+                            template: "Thống kê vé trong 7 ngày gần nhất",
+                            height: 50
+                        },
+                        {
+                            view: "chart",
+                            type: "bar",
+                            id:"charTK",
+                            value: "#soLuongVe#",
+                            label: "#soLuongVe#",
+                            radius: 0,
+                            barWidth: 40,
+                            tooltip: {
+                                template: "#soLuongVe#"
+                            },
+                            yAxis: {
+                                template: "",
+                                start: 0, end: 100, step: 10
+                            },
+                            xAxis: {
+                                title: "Thống kê 7 ngày gần nhất",
+                                template: "'#ngay#",
+                                lines: false
+                            },
+                            padding: {
+                                left: 10,
+                                right: 10,
+                                top: 50
+                            },
+                            data: []
+                        }
+                    ]
                 }
-            ]
+
+            ],
+            height: 200
         },
         tableThongKe()
     ]

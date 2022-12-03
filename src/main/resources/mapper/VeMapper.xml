@@ -3,6 +3,14 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.VeMapper">
+	<resultMap id="resultMapSoLuong"
+			   type="com.example.demo.model.Ve">
+		<result column="SoLuongVe" property="SoLuongVe"/>
+		<result column="ngay" property="ngay"/>
+		<result column="TenPhim" property="TenPhim" />
+		<result column="tongVe" property="tongVe" />
+
+	</resultMap>
 	<resultMap id="resultMapVe"
 		type="com.example.demo.model.Ve">
 		<result column="IdVe" property="IdVe" />
@@ -59,5 +67,30 @@ where xuatchieu.stt = ve.stt_xc and ve.makh=#{maKH}
 		join ngaychieu on ngaychieu.stt = xuatchieu.ngay
 		where idVe = #{idVe} and xuatchieu.stt = Ve.stt_xc
 	</select>
-	
+	<select id="CountVeByChiNhanh" resultMap="resultMapSoLuong">
+		select * from CountVe(#{maCN})
+	</select>
+	<select id="CountVeByPhim" resultMap="resultMapSoLuong">
+		with ve1 as(
+		select  count(idve) as sove, phim.tenphim from ve join chitietghe on chitietghe.mactghe = ve.mactghe
+		join phongchieu on phongchieu.maphong = chitietghe.maphong
+		join xuatchieu on xuatchieu.stt = ve.stt_xc and xuatchieu.maphong = phongchieu.maphong
+		join ngaychieu on ngaychieu.stt = xuatchieu.ngay
+		join phim on phim.maphim = xuatchieu.maphim
+		where macn = #{maCN} and ngaychieu.ngay = CURRENT_DATE
+		group by phim.tenphim
+		order by count(idve)
+		)
+
+
+		select  count(idve) as tongve,sove as soluongve, phim.tenphim from ve join chitietghe on chitietghe.mactghe = ve.mactghe
+		join phongchieu on phongchieu.maphong = chitietghe.maphong
+		join xuatchieu on xuatchieu.stt = ve.stt_xc and xuatchieu.maphong = phongchieu.maphong
+		join ngaychieu on ngaychieu.stt = xuatchieu.ngay
+		join phim on phim.maphim = xuatchieu.maphim
+		join ve1 on phim.tenphim = ve1.tenphim
+		where macn = #{maCN}
+		group by phim.tenphim,sove
+		order by count(idve)
+	</select>
 </mapper>

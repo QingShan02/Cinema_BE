@@ -15,4 +15,6 @@ public interface VeMapper {
 
     List<Ve> getLichSuVe(@Param("maKH") int maKH);
     Ve getVe(@Param("idVe") int idVe);
+    List<Ve> CountVeByChiNhanh(@Param("maCN") String macn);
+    List<Ve> CountVeByPhim(@Param("maCN") String macn);
 }
