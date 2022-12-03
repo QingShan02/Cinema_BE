@@ -12,5 +12,5 @@ import java.util.List;
 public interface OrderToppingMapper {
     int insert(@Param("maTopping") String maTopping, @Param("soLuongMua") int soLuongMua, @Param("idVe") int idVe);
     List<OrderTopping> getAll();
-    OrderTopping getOrder(@Param("idVe") int idVe);
+    List<OrderTopping> getOrder(@Param("idVe") int idVe);
 }

@@ -28,7 +28,7 @@ public class ApiOrderTopping {
         return ResponseEntity.ok(service.insert(maTopping,soLuongMua,idVe));
     }
     @GetMapping("/getOrder")
-    public ResponseEntity<OrderTopping> insert(@RequestParam("idVe") int idVe) throws SQLException{
+    public ResponseEntity<List<OrderTopping>> getOrder(@RequestParam("idVe") int idVe) throws SQLException{
         return ResponseEntity.ok(service.getOrder(idVe));
     }
 }

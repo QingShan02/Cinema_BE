@@ -11,4 +11,5 @@ public class OrderTopping {
     private String MaTopping;
     private int SoLuongMua;
     private int IdVe;
+    private String tenTopping;
 }

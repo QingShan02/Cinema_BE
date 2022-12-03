@@ -9,6 +9,6 @@ import java.util.List;
 public interface OrderToppingService {
     int insert(String maTopping, int soLuongMua, int idVe);
     List<OrderTopping> getAll();
-    OrderTopping getOrder( int idVe);
+    List<OrderTopping> getOrder( int idVe);
 
 }

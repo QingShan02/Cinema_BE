@@ -24,7 +24,7 @@ public class OrderToppingServiceImpl implements OrderToppingService {
     }
 
     @Override
-    public OrderTopping getOrder(int idVe) {
+    public List<OrderTopping> getOrder(int idVe) {
         return mapper.getOrder(idVe);
     }
 }
