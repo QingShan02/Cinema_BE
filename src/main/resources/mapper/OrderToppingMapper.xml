@@ -19,6 +19,6 @@
     </insert>
     <select id="getOrder" resultMap="resultMapOrder">
         select OrderTopping.*, tenTopping
-        from OrderTopping join Topping where IdVe = #{idVe}
+        from OrderTopping join Topping on Topping.maTopping = OrderTopping.maTopping where IdVe = #{idVe}
     </select>
 </mapper>
