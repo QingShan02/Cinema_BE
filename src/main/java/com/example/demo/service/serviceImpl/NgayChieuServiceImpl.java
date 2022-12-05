@@ -46,5 +46,8 @@ public class NgayChieuServiceImpl implements NgayChieuService {
     public int getMaxStt() {
         return mapper.getMaxStt();
     }
-
+    @Override
+    public List<NgayChieu> getgiobatdau1ngay(String macn,String ngay) {
+        return mapper.getgiobatdau1ngay(macn,ngay);
+    }
 }

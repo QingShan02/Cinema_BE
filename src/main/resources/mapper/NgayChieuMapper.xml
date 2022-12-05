@@ -41,4 +41,10 @@ where ngay between current_date and current_date +integer '3'
 	<select id="getMaxStt" resultMap="resultMapNgayChieu">
 		select max(stt) as stt from NgayChieu
 	</select>
+		<select id="getgiobatdau1ngay" resultMap="resultMapNgayChieu">
+	select distinct ngaychieu.giobatdau from ngaychieu join xuatchieu on xuatchieu.ngay = ngaychieu.stt 
+join phongchieu on phongchieu.maphong = xuatchieu.maphong
+join chinhanh on chinhanh.macn = phongchieu.macn
+where chinhanh.macn=#{maCN} and ngaychieu.ngay = cast (#{ngay} as date)
+	</select>
 </mapper>

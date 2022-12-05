@@ -12,5 +12,5 @@ public interface NgayChieuService {
 	List<NgayChieu> getNgay();
 	NgayChieu getNgayChieu( String ngay, String gioBatDau);
 	int getMaxStt();
-
+	List<NgayChieu> getgiobatdau1ngay(String macn,String ngay);
 }

@@ -33,6 +33,8 @@
 		<result column="sodt" property="sodt" />
 		<result column="giochieu" property="giochieu" />
 		<result column="hinh" property="hinh" />
+		<result column="maghe" property="maghe" />
+		<result column="tenghe" property="tenghe" />
 	</resultMap>
 	<select id="getAllVe1" resultMap="resultMapVe">
 	select phim.maphim,phim.tenphim, count(ve.idve) as Soluong, sum(ve.tonggiave) as tong, xuatchieu.ngay from ve left join chitietghe ON chitietghe.mactghe = ve.mactghe left join xuatchieu ON xuatchieu.maphong = chitietghe.maphong left join phim on phim.maphim = xuatchieu.maphim where phim.maphim=#{maPhim} group by phim.maphim,xuatchieu.ngay
@@ -40,11 +42,13 @@
 	</select>
 
 	<select id="getLichSuVe" resultMap="resultMapVe">
-select ve.giave,khachhang.makh,khachhang.tenkh,phim.tenphim,ve.idve,ngaychieu.ngay,ngaychieu.giobatdau from ve join khachhang on khachhang.makh = ve.makh
+select ghe.maghe,ghe.tenghe,ve.giave,khachhang.makh,khachhang.tenkh,phim.tenphim,ve.idve,ngaychieu.ngay,ngaychieu.giobatdau from ve join khachhang on khachhang.makh = ve.makh
  join chitietghe on chitietghe.mactghe = ve.mactghe join phongchieu on phongchieu.maphong = chitietghe.maphong
  join xuatchieu on xuatchieu.maphong = phongchieu.maphong join ngaychieu on ngaychieu.stt = xuatchieu.ngay
  join phim ON phim.maphim = xuatchieu.maphim
+  join ghe ON ghe.maghe = chitietghe.maghe
 where xuatchieu.stt = ve.stt_xc and ve.makh=#{maKH}
+order by ve.idve desc
 	</select>
 	<select id="getAllVe" resultMap="resultMapVe">
 			select * from ve
