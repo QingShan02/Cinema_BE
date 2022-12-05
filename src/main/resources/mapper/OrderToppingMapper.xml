@@ -9,6 +9,8 @@
         <result column="SoLuongMua" property="SoLuongMua" />
         <result column="IdVe" property="IdVe" />
         <result column="tenTopping" property="tenTopping" />
+        <result column="gia" property="giaTopping" />
+
     </resultMap>
     <select id="getAll" resultMap="resultMapOrder">
         SELECT *
@@ -18,7 +20,7 @@
         insert into OrderTopping(maTopping, soLuongMua, idVe) values(#{maTopping},#{soLuongMua},#{idVe})
     </insert>
     <select id="getOrder" resultMap="resultMapOrder">
-        select OrderTopping.*, tenTopping
+        select OrderTopping.*, tenTopping, gia
         from OrderTopping join Topping on Topping.maTopping = OrderTopping.maTopping where IdVe = #{idVe}
     </select>
 </mapper>
