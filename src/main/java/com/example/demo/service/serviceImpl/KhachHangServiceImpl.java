@@ -28,10 +28,10 @@ public class KhachHangServiceImpl implements KhachHangService {
 	}
 
 	@Override
-	public int insertFBKH(String tenkh, String email, String idfb, String hinh) {
+	public int insertFBKH(String tenkh, String email, String idfb, String hinhfb) {
 		// TODO Auto-generated method stub
 		
-		return mapper.insertFBKH(tenkh, email, idfb, hinh);
+		return mapper.insertFBKH(tenkh, email, idfb, hinhfb);
 	}
 
 //	@Override
@@ -66,5 +66,11 @@ public class KhachHangServiceImpl implements KhachHangService {
 	public KhachHang getOneKH(int maKH) {
 		// TODO Auto-generated method stub
 		return mapper.getOneKH(maKH);
+	}
+
+	@Override
+	public KhachHang findFBKH(String email) {
+		// TODO Auto-generated method stub
+		return mapper.findFBKH(email);
 	}
 }

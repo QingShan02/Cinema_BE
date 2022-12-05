@@ -24,8 +24,13 @@
 		FROM KhachHang where email = #{email} and matkhau = #{matkhau}
 	</select>
 	
+	<select id="findFBKH" resultMap="resultMapKH">
+		SELECT *
+		FROM KhachHang where email = #{email};
+	</select>
+	
 	<insert id="insertFBKH">
-		INSERT INTO KhachHang (TenKH, Email, IdFB, Hinh) VALUES (#{tenkh}, #{email}, #{idfb}, #{hinh});
+		INSERT INTO KhachHang (TenKH, Email, IdFB, HinhFB) VALUES (#{tenkh}, #{email}, #{idfb}, #{hinhfb});
 	</insert>
 
 	<insert id="insertKH">

@@ -12,7 +12,7 @@ import com.example.demo.service.KhachHangService;
 
 @RestController
 @RequestMapping("/api/kh")
-@CrossOrigin(origins = "*")
+@CrossOrigin("*")
 public class ApiKhachHang {
 	@Autowired
 	KhachHangService service;
@@ -28,10 +28,15 @@ public class ApiKhachHang {
 		return ResponseEntity.ok(service.findKH(email,matKhau));
 	}
 	
-	@GetMapping("/insertKH1")
-	public ResponseEntity<Integer> insertFBKH(@RequestParam("tenkh") String tenkh,@RequestParam("email") String email,@RequestParam("idfb") String idfb,@RequestParam("hinh") String hinh) throws SQLException{
+	@GetMapping("/findFBKH")
+	public ResponseEntity<KhachHang> findFBKH(@RequestParam("email") String email) throws SQLException{
+		return ResponseEntity.ok(service.findFBKH(email));
+	}
+	
+	@GetMapping("/insertFBKH")
+	public ResponseEntity<Integer> insertFBKH(@RequestParam("tenkh") String tenkh,@RequestParam("email") String email,@RequestParam("idfb") String idfb,@RequestParam("hinhfb") String hinhfb) throws SQLException{
 		System.out.println(tenkh);
-		return ResponseEntity.ok(service.insertFBKH(tenkh, email, idfb, hinh));
+		return ResponseEntity.ok(service.insertFBKH(tenkh, email, idfb, hinhfb));
 	}
 
 	@GetMapping("/insertKH")
