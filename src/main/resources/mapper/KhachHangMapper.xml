@@ -37,6 +37,10 @@
 		insert into KhachHang(TenKH,Email,SoDT,DiaChi,MatKhau) values(#{tenKH},#{email},#{soDT},#{diaChi},#{matKhau})
 	</insert>
 
+	<insert id="insertKHWEB">
+		insert into KhachHang(TenKH,Email,SoDT,MatKhau) values(#{tenKH},#{email},#{soDT},#{matKhau})
+	</insert>
+
 	<update id="updateKH">
 		update KhachHang set  TenKH = #{tenKH} , Email = #{email}, SoDT = #{soDT}, DiaChi = #{diaChi}, MatKhau = #{matKhau} where MaKH =#{makh}
 	</update>

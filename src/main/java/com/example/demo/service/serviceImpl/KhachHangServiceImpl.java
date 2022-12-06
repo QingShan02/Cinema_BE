@@ -44,6 +44,12 @@ public class KhachHangServiceImpl implements KhachHangService {
 		System.out.println("s>>"+tenKH);
 			return mapper.insertKH(tenKH,email,soDT,diaChi,matKhau);
 	}
+
+	@Override
+	public int insertKHWEB(String tenKH, String email, String soDT, String matKhau) {
+		return mapper.insertKHWEB(tenKH, email, soDT, matKhau);
+	}
+
 	@Override
 	public int updateKH(String tenKH, String email, String soDT, String diaChi, String matKhau) {
 		// TODO Auto-generated method stub
