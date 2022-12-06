@@ -49,4 +49,8 @@ public class ApiNgayChieu {
     public ResponseEntity<List<NgayChieu>> getNgay() throws SQLException{
         return ResponseEntity.ok(service.getNgay());
     }
+	@GetMapping("/getgiobatdau1ngay")
+	public ResponseEntity<List<NgayChieu>> getgiobatdau1ngay(@RequestParam("maCN") String maCN,@RequestParam("ngay") String ngay) throws SQLException{
+		return ResponseEntity.ok(service.getgiobatdau1ngay(maCN,ngay));
+	}
 }

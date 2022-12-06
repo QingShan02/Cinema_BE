@@ -40,7 +40,7 @@
         from ngaychieu join xuatchieu ON xuatchieu.ngay = ngaychieu.stt join phim on phim.maphim = xuatchieu.maphim
         join phongchieu on phongchieu.maphong = xuatchieu.maphong
         join chinhanh on chinhanh.macn = phongchieu.macn
-        where ngaychieu.ngay=cast (#{ngay} as date) and chinhanh.macn=#{macn}
+        where ngaychieu.ngay=cast (#{ngay} as date) and chinhanh.macn=#{macn} and ngaychieu.giobatdau = cast (#{gioBatDau} as time)
     </select>
 
 </mapper>

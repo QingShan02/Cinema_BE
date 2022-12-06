@@ -45,6 +45,11 @@ public class ApiKhachHang {
 		return ResponseEntity.ok(service.insertKH(tenKH,email,soDT,diaChi,matKhau));
 	}
 
+	@GetMapping("/insertKHWEB")
+	public ResponseEntity<Integer> insertKHWEB(@RequestParam("tenKH") String tenKH,@RequestParam("email") String email,@RequestParam("soDT") String soDT,@RequestParam("matKhau") String matKhau) throws SQLException{
+		System.out.println(tenKH);
+		return ResponseEntity.ok(service.insertKHWEB(tenKH,email,soDT,matKhau));
+	}
 	@PostMapping("/updateKH")
 	public ResponseEntity<Integer> updateKH(@RequestParam("tenKH") String tenKH,@RequestParam("email") String email,@RequestParam("soDT") String soDT,@RequestParam("diaChi") String diaChi,@RequestParam("matKhau") String matKhau) throws SQLException{
 		System.out.println(tenKH);
