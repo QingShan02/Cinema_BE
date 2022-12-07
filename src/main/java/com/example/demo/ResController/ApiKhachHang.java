@@ -64,5 +64,9 @@ public class ApiKhachHang {
 public ResponseEntity<KhachHang> getOneKH(@RequestParam("maKH") int maKH) throws SQLException{
 	return ResponseEntity.ok(service.getOneKH(maKH));
 }
+@GetMapping("/updateKH2")
+public ResponseEntity<Integer> updateKH2(@RequestParam("hinhfb") String hinhfb,@RequestParam("maKH") int maKH) throws SQLException{
+	return ResponseEntity.ok(service.updateKH2(hinhfb,maKH));
+}
 
 }

@@ -79,4 +79,9 @@ public class KhachHangServiceImpl implements KhachHangService {
 		// TODO Auto-generated method stub
 		return mapper.findFBKH(email);
 	}
+	@Override
+	public int updateKH2(String hinhfb,int makh) {
+		return mapper.updateKH2(hinhfb,makh);
+
+	}
 }

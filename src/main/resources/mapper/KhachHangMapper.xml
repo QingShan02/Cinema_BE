@@ -47,7 +47,10 @@
 	<delete id="deleteKH">
 		delete from KhachHang where MaKH =#{makh}
 	</delete>
-		<select id="getOneKH" resultMap="resultMapKH">
+	<select id="getOneKH" resultMap="resultMapKH">
 		select * from khachhang where makh=#{maKH}
 	</select>
+	<update id="updateKH2">
+		update KhachHang set  hinhfb = #{hinhfb} where makh =#{maKH}
+	</update>
 </mapper>

@@ -17,4 +17,5 @@ public interface KhachHangMapper {
 	int updateKH(KhachHang kh);
 	int deleteKH(int maKH);
 	KhachHang getOneKH(@Param("maKH") int maKH);
+	int updateKH2(@Param("hinhfb") String hinhfb,@Param("maKH") int maKH);
 }
