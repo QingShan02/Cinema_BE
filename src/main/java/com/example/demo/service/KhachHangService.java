@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.List;
 
 import com.example.demo.model.KhachHang;
+import com.example.demo.model.NguoiDung;
 
 public interface KhachHangService {
 	List<KhachHang> getAllKH();
@@ -11,11 +12,11 @@ public interface KhachHangService {
 	//KhachHang insertKH()
 	int insertFBKH(String tenkh, String email, String idfb, String hinhfb);
 
-	int insertKH(String tenKH, String email, String soDT, String diaChi, String matKhau);
+	int insertKH(KhachHang kh);
 
 	int insertKHWEB(String tenKH, String email, String soDT, String matKhau);
-	int updateKH(String tenKH, String email, String soDT, String diaChi, String matKhau);
-	int deleteKH(int  maKH);
+	int updateKH(KhachHang kh);
+	int deleteKH(int maKH);
 	KhachHang getOneKH(int maKH);	
 	int updateKH2(String hinhfb, int maKH);
 

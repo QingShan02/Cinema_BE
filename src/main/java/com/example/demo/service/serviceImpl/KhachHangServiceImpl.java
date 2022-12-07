@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.mapper.KhachHangMapper;
 import com.example.demo.model.KhachHang;
+import com.example.demo.model.NguoiDung;
 import com.example.demo.service.KhachHangService;
 
 @Service
@@ -34,16 +35,6 @@ public class KhachHangServiceImpl implements KhachHangService {
 		return mapper.insertFBKH(tenkh, email, idfb, hinhfb);
 	}
 
-//	@Override
-//	public int insertKH(KhachHang kh) {
-//		return 0;
-//	}
-
-	@Override
-	public int insertKH(String tenKH, String email, String soDT, String diaChi, String matKhau) {
-		System.out.println("s>>"+tenKH);
-			return mapper.insertKH(tenKH,email,soDT,diaChi,matKhau);
-	}
 
 	@Override
 	public int insertKHWEB(String tenKH, String email, String soDT, String matKhau) {
@@ -51,18 +42,28 @@ public class KhachHangServiceImpl implements KhachHangService {
 	}
 
 	@Override
-	public int updateKH(String tenKH, String email, String soDT, String diaChi, String matKhau) {
+	public int insertKH(KhachHang kh) {
+		if(kh!=null) {
+			mapper.insertKH(kh);
+			return 1;
+		}
+		return 0;
+	}
+	
+	@Override
+	public int updateKH(KhachHang kh) {
 		// TODO Auto-generated method stub
-		System.out.println("s>>"+tenKH);
-		return mapper.insertKH(tenKH,email,soDT,diaChi,matKhau);
-
-
+		if(kh!=null) {
+			mapper.updateKH(kh);
+			return 1;
+		}
+		return 0;
 	}
 
 	@Override
 	public int deleteKH(int maKH) {
 		// TODO Auto-generated method stub
-		if(maKH != 0) {
+		if(maKH!=0) {
 			mapper.deleteKH(maKH);
 			return 1;
 		}

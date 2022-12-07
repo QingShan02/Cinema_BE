@@ -34,7 +34,7 @@
 	</insert>
 
 	<insert id="insertKH">
-		insert into KhachHang(TenKH,Email,SoDT,DiaChi,MatKhau) values(#{tenKH},#{email},#{soDT},#{diaChi},#{matKhau})
+		insert into KhachHang(TenKH,Email,SoDT,DiaChi,MatKhau,gioiTinh) values(#{tenKH},#{email},#{soDT},#{diaChi},#{matKhau},#{gioiTinh})
 	</insert>
 
 	<insert id="insertKHWEB">
@@ -42,10 +42,10 @@
 	</insert>
 
 	<update id="updateKH">
-		update KhachHang set  TenKH = #{tenKH} , Email = #{email}, SoDT = #{soDT}, DiaChi = #{diaChi}, MatKhau = #{matKhau} where MaKH =#{makh}
+		update KhachHang set  TenKH = #{tenKH} , Email = #{email}, SoDT = #{soDT}, DiaChi = #{diaChi}, MatKhau = #{matKhau} where makh =#{maKH}
 	</update>
 	<delete id="deleteKH">
-		delete from KhachHang where MaKH =#{makh}
+		delete from KhachHang where makh =#{maKH}
 	</delete>
 	<select id="getOneKH" resultMap="resultMapKH">
 		select * from khachhang where makh=#{maKH}
