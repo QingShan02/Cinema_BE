@@ -15,4 +15,6 @@ public interface NgayChieuMapper {
 	List<NgayChieu> getNgay();
 	NgayChieu getNgayChieu(@Param("ngay") String ngay, @Param("gioBatDau") String gioBatDau);
 	int getMaxStt();
+	List<NgayChieu> getgiobatdau1ngay(@Param("maCN") String maCN,@Param("ngay")String ngay);
+
 }

@@ -12,9 +12,10 @@ public interface KhachHangMapper {
 	KhachHang findKH(@Param("email") String email, @Param("matkhau") String matkhau);
 	KhachHang findFBKH(String email);
 	int insertFBKH(@Param("tenkh") String tenkh, @Param("email") String email, @Param("idfb") String idfb, @Param("hinhfb") String hinh);
-
-	int insertKH(@Param("tenKH") String tenKH,@Param("email")String email,@Param("soDT")String soDT,@Param("diaChi")String diaChi,@Param("matKhau")String matkhau);
+	int insertKHWEB(@Param("tenKH") String tenKH,@Param("email")String email,@Param("soDT")String soDT,@Param("matKhau")String matkhau);
+	int insertKH(KhachHang kh);
 	int updateKH(KhachHang kh);
 	int deleteKH(int maKH);
 	KhachHang getOneKH(@Param("maKH") int maKH);
+	int updateKH2(@Param("hinhfb") String hinhfb,@Param("maKH") int maKH);
 }

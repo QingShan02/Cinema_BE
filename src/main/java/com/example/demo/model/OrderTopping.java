@@ -12,4 +12,5 @@ public class OrderTopping {
     private int SoLuongMua;
     private int IdVe;
     private String tenTopping;
+    private float giaTopping;
 }

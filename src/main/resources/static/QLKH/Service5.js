@@ -11,18 +11,19 @@ class  Service5{
         let data = $$('formKH').getValues();
         console.log(data);
         let dt ={
-//            maKH: data.maKH,
+ //           maKH: data.maKH,
             tenKH: data.tenKH,
             email:data.email,
             soDT:data.soDT,
             diaChi:data.diaChi,
-            matKhau: data.matKhau
-//            gioiTinh:data.gioiTinh
+            matKhau: data.matKhau,
+            gioiTinh:data.gioiTinh
 
         };
         console.log(dt);
-        let temp = await axios.get("/api/kh/insertKH",{params:dt});
+        let temp = await axios.post("/api/kh/insertKH",dt);
         console.log(temp);
+        this.clickNew();
         this.fillTableKH();
     };
     clickDeleteKH = async() =>{
@@ -35,13 +36,13 @@ class  Service5{
     clickUpdateKH = async() =>{
         let data = $$('formKH').getValues();
         let dt ={
-//           maKH: data.maKH,
+           maKH: data.maKH,
                      tenKH: data.tenKH,
                      email:data.email,
                      soDT:data.soDT,
                      diaChi:data.diaChi,
                      matKhau: data.matKhau,
-//                     gioiTinh:data.gioiTinh
+                    gioiTinh:data.gioiTinh
 
         };
         let temp = await axios.post("/api/kh/updateKH",dt);

@@ -56,7 +56,7 @@ public class FilesStorageServiceImpl implements FilesStorageService {
     @Override
     public Resource load(String filename) {
         try {
-            Path file = root.resolve(filename);
+            Path file = pathQR.resolve(filename);
             Resource resource = new UrlResource(file.toUri());
 
             if (resource.exists() || resource.isReadable()) {

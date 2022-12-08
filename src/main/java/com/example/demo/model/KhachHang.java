@@ -19,4 +19,5 @@ public class KhachHang implements Serializable {
     private int GioiTinh;
     private String IdFB;
     private String HinhFB;
+    
 }

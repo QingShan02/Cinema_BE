@@ -31,4 +31,5 @@ public class Ve {
     private String hinh;
     private String SoLuongVe;
     private int tongVe;
+    private String maghe;
 }
