@@ -30,7 +30,7 @@ const formPhim = () => ({
             ]
         },
         { view: "textarea", name: "moTa", label: "Mô tả", labelWidth: 120, height: 100 },
-        { view: "text", name: "traller", label: "Traller", labelWidth: 120 },
+        { view: "text", name: "traller", label: "Trailer", labelWidth: 120 },
         {
             cols: [
                 { view: "button", value: "Thêm", css: "webix_primary", click: Service.clickThem },
@@ -56,7 +56,7 @@ const tablePhim = () => ({
         { id: "quocGia", header: "Quốc Gia", width: 90 },
         { id: "thoiLuong", header: "Thời Lượng", width: 80 },
         { id: "moTa", header: "Mô Tả", fillspace: true },
-        { id: "traller", header: "Trailler", fillspace: true }
+        { id: "traller", header: "Trailer", fillspace: true }
     ],
 
     data: [],

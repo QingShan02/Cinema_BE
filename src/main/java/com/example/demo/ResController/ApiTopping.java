@@ -28,4 +28,16 @@ public class ApiTopping {
 	public ResponseEntity<List<Topping>> insertCTTP(@RequestParam("idVe")int idVe,@RequestParam("maTopping") String maTopping,@RequestParam("soLuongMua") int soLuongMua) throws SQLException {
 		return ResponseEntity.ok(service.getAllTP());
 	}
+	@GetMapping("/insertTP")
+	public ResponseEntity<Integer> insertTP(@RequestParam("maTopping") String maTopping, @RequestParam("tenTopping") String tenTopping, @RequestParam("gia") double gia) throws SQLException {
+		return ResponseEntity.ok(service.insertTP(maTopping, tenTopping, gia));
+	}
+	@GetMapping("/deleteTP")
+	public ResponseEntity<Integer> deleteTP(@RequestParam("maTopping") String maTopping) throws SQLException {
+		return ResponseEntity.ok(service.deleteTP(maTopping));
+	}
+	@GetMapping("/updateTP")
+	public ResponseEntity<Integer> updateTP(@RequestParam("maTopping") String maTopping, @RequestParam("tenTopping") String tenTopping, @RequestParam("gia") double gia) throws SQLException {
+		return ResponseEntity.ok(service.updateTP(maTopping, tenTopping, gia));
+	}
 }

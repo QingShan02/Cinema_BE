@@ -14,4 +14,18 @@
 		FROM Topping 
 	</select>
 	
+	<insert id="insertTP">
+		INSERT INTO Topping VALUES(#{maTopping},#{tenTopping},#{gia})
+	</insert>
+	
+	<delete id="deleteTP">
+		DELETE FROM Topping
+		WHERE maTopping = #{maTopping}
+	</delete>
+	
+	<update id="updateTP">
+		UPDATE TOPPING
+		SET tenTopping = #{tenTopping}, gia = #{gia}
+		WHERE maTopping = #{maTopping}
+	</update>
 </mapper>

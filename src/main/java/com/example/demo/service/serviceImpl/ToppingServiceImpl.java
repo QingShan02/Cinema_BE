@@ -27,6 +27,21 @@ public int insertCTTP(int idVe, String maTopping, int soLuongMua) {
 	
 	return mapperCT.insertTP(idVe, maTopping, soLuongMua);
 }
+@Override
+public int insertTP(String maTopping, String tenTopping, double gia) {
+	// TODO Auto-generated method stub
+	return mapper.insertTP(maTopping, tenTopping, gia);
+}
+@Override
+public int deleteTP(String maTopping) {
+	// TODO Auto-generated method stub
+	return mapper.deleteTP(maTopping);
+}
+@Override
+public int updateTP(String maTopping, String tenTopping, double gia) {
+	// TODO Auto-generated method stub
+	return mapper.updateTP(maTopping, tenTopping, gia);
+}
 
 
 
