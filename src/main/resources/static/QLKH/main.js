@@ -45,7 +45,7 @@ const kh = () => ({
                                 {
                                     view: "button",
                                     label: "Cập nhật",
-//                                   click:Service5.clickUpdateKH
+                                   click:Service.clickUpdateKH
                                 },
 
 

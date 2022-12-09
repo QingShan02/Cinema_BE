@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.model.KhachHang;
+import com.example.demo.model.NguoiDung;
 import com.example.demo.service.KhachHangService;
 
 @RestController
@@ -39,10 +40,9 @@ public class ApiKhachHang {
 		return ResponseEntity.ok(service.insertFBKH(tenkh, email, idfb, hinhfb));
 	}
 
-	@GetMapping("/insertKH")
-	public ResponseEntity<Integer> insertKH(@RequestParam("tenKH") String tenKH,@RequestParam("email") String email,@RequestParam("soDT") String soDT,@RequestParam("diaChi") String diaChi,@RequestParam("matKhau") String matKhau) throws SQLException{
-		System.out.println(tenKH);
-		return ResponseEntity.ok(service.insertKH(tenKH,email,soDT,diaChi,matKhau));
+	@PostMapping("/insertKH")
+	public ResponseEntity<Integer> insertKH(@RequestBody KhachHang kh) throws SQLException{
+		return ResponseEntity.ok(service.insertKH(kh));
 	}
 
 	@GetMapping("/insertKHWEB")
@@ -50,19 +50,23 @@ public class ApiKhachHang {
 		System.out.println(tenKH);
 		return ResponseEntity.ok(service.insertKHWEB(tenKH,email,soDT,matKhau));
 	}
+
 	@PostMapping("/updateKH")
-	public ResponseEntity<Integer> updateKH(@RequestParam("tenKH") String tenKH,@RequestParam("email") String email,@RequestParam("soDT") String soDT,@RequestParam("diaChi") String diaChi,@RequestParam("matKhau") String matKhau) throws SQLException{
-		System.out.println(tenKH);
-		return ResponseEntity.ok(service.updateKH(tenKH,email,soDT,diaChi,matKhau));
+	public ResponseEntity<Integer> updateKH(@RequestBody KhachHang kh) throws SQLException{
+		return ResponseEntity.ok(service.updateKH(kh));
 	}
 	@GetMapping("/deleteKH")
-	public ResponseEntity<Integer> deleteKH(@RequestParam("makh") int maKH) throws SQLException{
+	public ResponseEntity<Integer> deleteKH(@RequestParam("maKH") int maKH) throws SQLException{
 		System.out.println(maKH);
 		return ResponseEntity.ok(service.deleteKH(maKH));
 	}
 @GetMapping("/getOneKH")
 public ResponseEntity<KhachHang> getOneKH(@RequestParam("maKH") int maKH) throws SQLException{
 	return ResponseEntity.ok(service.getOneKH(maKH));
+}
+@GetMapping("/updateKH2")
+public ResponseEntity<Integer> updateKH2(@RequestParam("hinhfb") String hinhfb,@RequestParam("maKH") int maKH) throws SQLException{
+	return ResponseEntity.ok(service.updateKH2(hinhfb,maKH));
 }
 
 }
