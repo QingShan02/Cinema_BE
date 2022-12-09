@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.Thread.ThreadXC;
 import com.example.demo.model.SendEmail;
 import com.example.demo.service.FilesStorageService;
 import com.example.demo.service.SendEmailService;
@@ -47,7 +48,7 @@ public class RapChieuPhimWebApplication implements CommandLineRunner {
 //            Thread t = new Thread(new ThreadServiceEmail(s, "00:59:00"));
 //            t.start();
 //        });
-
+        new Thread(new ThreadXC()).start();
     }
 
 }

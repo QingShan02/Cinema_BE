@@ -5,7 +5,7 @@
 		<result column="MaNguoiDung" property="MaNguoiDung" />
 		<result column="TenNguoiDung" property="TenNguoiDung" />
 		<result column="MatKhau" property="MatKhau" />
-		<result column="SoDT" property="SoDT" />
+		<result column="Email" property="Email" />
 		<result column="MaCN" property="MaCN" />
 		<result column="TenCN" property="TenCN" />
 	</resultMap>
@@ -19,14 +19,14 @@
 		SELECT *
 		FROM
 		NguoiDung
-		where SoDT = #{sdt} and MatKhau =#{password}
+		where Email = #{email} and MatKhau =#{password}
 	</select>
 	<insert id="insertNV">
 	insert into NguoiDung values(#{MaNguoiDung},#{TenNguoiDung},#{matKhau},#{soDT},#{maCN})
 	</insert>
 	
 	<update id="updateNV">
-	update NguoiDung set TenNguoiDung = #{TenNguoiDung} , MatKhau = #{matKhau}, SoDT = #{soDT}, MaCN = #{maCN} where MaNguoiDung =#{MaNguoiDung}
+	update NguoiDung set TenNguoiDung = #{TenNguoiDung} , MatKhau = #{matKhau}, Email = #{email}, MaCN = #{maCN} where MaNguoiDung =#{MaNguoiDung}
 	</update>
 	<delete id="deleteNV">
 	delete from NguoiDung where MaNguoiDung =#{MaNguoiDung}

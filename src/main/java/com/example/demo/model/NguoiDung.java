@@ -10,7 +10,7 @@ public class NguoiDung {
 	private String MaNguoiDung;
     private String TenNguoiDung;
     private String MatKhau;
-    private String SoDT;
+    private String Email;
     private String MaCN;
     private String TenCN;
     

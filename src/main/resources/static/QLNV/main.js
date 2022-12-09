@@ -20,7 +20,7 @@ const nv = () => ({
                                 { view: "text", label: "Mã Người Dùng",labelWidth:200, id: "NDmaND", name: "maNguoiDung", fillspace: true },
                                 { view: "text", label: "Họ tên", id: "NDhoTen",labelWidth:200, name: "tenNguoiDung", fillspace: true },
                                 { view: "text", label: "Mật khẩu", id: "NDmatKhau",labelWidth:200, name: "matKhau", fillspace: true },
-                                { view: "text", label: "Số điện thoại", id: "NDsoDT", name: "soDT",labelWidth:200, fillspace: true },
+                                { view: "text", label: "Email", id: "NDemail", name: "email",labelWidth:200, fillspace: true },
                                 { view: "combo", label: "Chi Nhánh", id: "NDmaCN", name: "maCN" ,options:[],labelWidth:200, fillspace: true }
                             ]
                         },
@@ -60,7 +60,7 @@ const nv = () => ({
                 { id: "maNguoiDung", header: "Mã Người Dùng", fillspace: true },
                 { id: "tenNguoiDung", header: "Họ tên", fillspace: true },
                 { id: "matKhau", header: "Mật khẩu", fillspace: true },
-                { id: "soDT", header: "Số điện thoại", fillspace: true },
+                { id: "email", header: "Email", fillspace: true },
                 { id: "tenCN", header: "Chi Nhánh", fillspace: true },
             ],
             data: [],
