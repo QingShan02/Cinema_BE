@@ -30,8 +30,8 @@ public class ApiND {
 	}
 	
 	@GetMapping("/findND")
-	public ResponseEntity<NguoiDung> getNV(@RequestParam("sdt") String sdt, @RequestParam("matKhau") String password) throws SQLException{
-		return ResponseEntity.ok(service.findNVByEmailAndPassword(sdt, password));
+	public ResponseEntity<NguoiDung> getNV(@RequestParam("email") String email, @RequestParam("matKhau") String password) throws SQLException{
+		return ResponseEntity.ok(service.findNVByEmailAndPassword(email, password));
 	}
 	@PostMapping("/insertND")
 	public ResponseEntity<Integer> insertNV(@RequestBody NguoiDung nv) throws SQLException{
