@@ -38,7 +38,7 @@ public class RapChieuPhimWebApplication implements CommandLineRunner {
     }
 
     SendEmail s;
-
+    List<ThreadXC> list;
     @Override
     public void run(String... arg) throws Exception {
 //    storageService.deleteAll();
@@ -48,7 +48,9 @@ public class RapChieuPhimWebApplication implements CommandLineRunner {
 //            Thread t = new Thread(new ThreadServiceEmail(s, "00:59:00"));
 //            t.start();
 //        });
-        new Thread(new ThreadXC()).start();
+        service.getAll().forEach(s->{
+        new ThreadXC(s).start();
+        });
     }
 
 }

@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SendEmail {
-    private int idVe;
     private String tenKH;
     private String email;
     private String gioBatDau;
+    private String deadline;
     private String tenPhim;
     private String hangGhe;
     private String nc;
