@@ -12,7 +12,7 @@ public interface PhimMapper {
 	Phim getMaPhim(@Param("maPhim") String maPhim);
 	List<Phim> getTheLoai(@Param("maPhim")String maPhim);
 //	List<Phim> getGioBatDau(@Param("maPhim")String maPhim,@Param("ngay") String Ngay);
-
+	int updateHinh(@Param("hinh") String hinh, @Param("maPhim") String maPhim);
 	int insertPhim(Phim phim);
 	int updatePhim(Phim phim);
 	int deletePhim(String maPhim);

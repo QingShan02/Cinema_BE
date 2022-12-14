@@ -14,6 +14,6 @@ public interface FilesStorageService {
     public Resource load(String filename);
 
     public void deleteAll();
-
+    public void saveHinhPhim(MultipartFile file);
     public Stream<Path> loadAll();
 }

@@ -32,6 +32,11 @@ public class ApiPhim {
 //		System.out.println(service.getMaPhim(maPhim));
 		return ResponseEntity.ok(service.getMaPhim(maPhim,ngay));
 	}
+	@GetMapping("/uploadHinh")
+	public ResponseEntity<Integer> uploadHinh(@RequestParam("hinh")String maPhim,@RequestParam("maPhim") String ngay) throws SQLException{
+//		System.out.println(service.getMaPhim(maPhim));
+		return ResponseEntity.ok(service.updateHinh(maPhim,ngay));
+	}
 	
 
 //	@GetMapping("/getGioBatDau")

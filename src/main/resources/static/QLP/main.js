@@ -5,6 +5,40 @@ const handleClickTable = (e) => {
     $$('formP').setValues(e);
 
 };
+webix.ui({
+  id:"uploadAPI",
+  view:"uploader",
+    autosend:false,
+  upload:"/saveHinhPhim",
+  value:"file",
+
+  name:"file",
+  on:{
+    onBeforeFileAdd:function(item){
+      var type = item.type.toLowerCase();
+      if (type != "jpg" && type != "png"){
+        webix.message("Only PNG or JPG images are supported");
+        return false;
+      }
+    },
+    onAfterFileAdd:async function(item){
+    console.log(2);
+        var form = new FormData();
+              form.append("file",item.file);
+              console.log(form,item.file);
+              let data = await axios.post('/saveHinhPhim', form);
+                    console.log(data);
+              let row =  $$('tableP').getItem(item.context.rowid);
+               let data1 = await axios.get('/uploadHinh',{params:{hinh:item.name,maPhim:row.maPhim}});
+               console.log(data1);
+
+    },
+    onFileUploadError:function(item){
+      webix.alert("Error during file upload");
+    }
+  },
+  apiOnly:true
+});
 const formPhim = () => ({
     view: "form",
     id: "formP",
@@ -64,7 +98,13 @@ const tablePhim = () => ({
     select: true,
     on: {
         onItemClick: function (id) {
-            handleClickTable(this.getSelectedItem());
+        if (id.column == "hinh"){
+             $$("uploadAPI").fileDialog({ rowid : id.row });
+
+        }else{
+             handleClickTable(this.getSelectedItem());
+
+        }
 
         }
     },

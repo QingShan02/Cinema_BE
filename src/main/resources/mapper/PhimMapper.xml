@@ -52,6 +52,10 @@
 		MoTa = #{moTa}, Traller = #{Traller}
 		where MaPhim =#{maPhim}
 	</update>
+	<update id="updateHinh">
+		update Phim set Hinh = #{hinh}
+		where MaPhim = #{maPhim}
+	</update>
 	<delete id="deletePhim">
 		delete from Phim where MaPhim = #{maPhim}
 	</delete>

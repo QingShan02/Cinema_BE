@@ -19,11 +19,14 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 
     private final Path root = Paths.get("src/main/resources/static/Image/poster");
     private final Path pathQR = Paths.get("src/main/resources/static/Image/qrCode");
+    private final Path pathPhim = Paths.get("src/main/resources/static/Image/poster");
+
     @Override
     public void init() {
         try {
             Files.createDirectories(root);
             Files.createDirectories(pathQR);
+            Files.createDirectories(pathPhim);
         } catch (IOException e) {
             throw new RuntimeException("Could not initialize folder for upload!");
         }
@@ -33,6 +36,18 @@ public class FilesStorageServiceImpl implements FilesStorageService {
     public void save(MultipartFile file) {
         try {
             Files.copy(file.getInputStream(), this.root.resolve(file.getOriginalFilename()));
+        } catch (Exception e) {
+            if (e instanceof FileAlreadyExistsException) {
+                throw new RuntimeException("A file of that name already exists.");
+            }
+
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+    @Override
+    public void saveHinhPhim(MultipartFile file) {
+        try {
+            Files.copy(file.getInputStream(), this.pathPhim.resolve(file.getOriginalFilename()));
         } catch (Exception e) {
             if (e instanceof FileAlreadyExistsException) {
                 throw new RuntimeException("A file of that name already exists.");

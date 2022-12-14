@@ -73,6 +73,11 @@ public class PhimServiceImpl implements PhimService {
         return null;
     }
 
+    @Override
+    public int updateHinh(String hinh, String maPhim) {
+        return mapper.updateHinh(hinh, maPhim);
+    }
+
 
     @Override
     public int insertPhim(Phim phim) {
